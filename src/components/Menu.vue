@@ -8,7 +8,7 @@
     <menu>
         <div class="content">
             <div class="logo">
-                <img src="../assets/bolt_white.png" alt="thunderbolt logo">
+                <img src="../assets/kanapka_white.png" alt="thunderbolt logo">
             </div>
             <div class="links">
                 <ul>
@@ -32,7 +32,6 @@
     menu {
         width: 100vw;
         height: auto;
-        background: var(--sh-black);
         display: flex;
         font-size: 1.8vw;
         padding: 2vw 0;
@@ -44,7 +43,7 @@
             justify-content: space-between;
 
             .logo {
-                margin: 0 0 0 1vw;
+                margin: 0 0 0 5vw;
                 img {
                     width: 6vw;
                 }

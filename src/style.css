@@ -22,12 +22,17 @@
   --sh-pink: #f53b57;
   --sh-blue: #5777ff;
   --sh-black: #141618;
+  --sh-blackish: #353b48;
   --sh-white: ghostwhite;
   --sh-mobile: 768px;
 }
 
 html, body {
   overflow-x: hidden;
+}
+
+body {
+  background: var(--sh-black);
 }
 
 a {
