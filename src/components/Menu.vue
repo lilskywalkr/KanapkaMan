@@ -1,7 +1,7 @@
 <script setup>
     import { ref } from 'vue';
 
-    const menuText = ref([{id: 0, text: "About us"}, {id: 1, text: "Project"}, {id: 2, text: "Contacts"}]);
+    const menuText = ref([{id: 0, text: "Projects"}, {id: 1, text: "About us"}, {id: 2, text: "Contacts"}]);
 </script>
 
 <template>
@@ -23,6 +23,9 @@
                         </a>
                     </li>
                 </ul>
+                <div class="burger-container">
+                    <div class="burger"></div>
+                </div>
             </div>
         </div>
     </menu>
@@ -50,6 +53,50 @@
             }
 
             .links {
+                display: flex;
+                align-items: center;
+
+                .burger-container {
+                    cursor: pointer;
+                    width: 3vw;
+                    height: 3vw;
+                    display: grid;
+                    align-items: center;
+                    justify-items: center;
+                    margin-right: 5vw;
+                    .burger {
+                        width: 3vw;
+                        height: 0.1vw;
+                        background: var(--sh-white);
+                        transition: all .6s cubic-bezier(.23,1,.32,1);
+                        transform: rotate(180deg);
+
+                        &::before, &::after {
+                            content: '';
+                            position: absolute;
+                            display: block;
+                            width: 3vw;
+                            height: 0.1vw;
+                            background: var(--sh-white);
+                            transition: all .6s cubic-bezier(.23,1,.32,1);
+                        }
+
+                        &::before {
+                            transform: translate(0, 1vw);
+                        }
+
+                        &::after {
+                            transform: translate(0, -1vw);
+                        }
+                    }
+
+                    &:hover {
+                        .burger::after { width: 2vw; }
+                        .burger::before { width: 1.5vw;}
+                        .burger { width: 2.5vw; }
+                    }
+                }
+
                 ul li {
                     display: inline-block;
                     margin: 0 7vw 0 0;
