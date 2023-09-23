@@ -6,6 +6,7 @@
   box-sizing: border-box;
   outline: none;
   font-family: 'Nunito', sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 :root {
@@ -19,16 +20,18 @@
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
 
-  --sh-pink: #f53b57;
+  --sh-pink: #ff906f;
+  --sh-pinkish: #fff0eb;
   --sh-blue: #5777ff;
   --sh-black: #141618;
-  --sh-blackish: #353b48;
+  --sh-blackish: #232730;
+  --sh-other-black: #16181c;
+  --sh-another-black: #101214;
   --sh-white: ghostwhite;
-  --sh-mobile: 768px;
 }
 
 html, body {
-  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {

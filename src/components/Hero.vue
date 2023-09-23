@@ -1,42 +1,35 @@
 <script setup>
     import { ref, onMounted } from 'vue';
+    // Importing custom function that fetches images from unsplush api
+    import { getImagesFromUnsplush } from './modules/getImages.js'
 
     // random image url
-    const rectImageUrl = ref('');
-    const circleImageUrl = ref('');
-
-    // function for handling new images request
-    const requestUrl = 'https://api.unsplash.com/photos/?query=human&client_id=vH6o9AwtVj5590-cuJIt5YegPLHKJqqg66Tr_FlDC3k';
-    async function getNewImage(data) {
-        let randomNumber = Math.floor(Math.random() * 10);
-        let result = await fetch(requestUrl).then((res) => res.json()).then((data) => data);
-        
-        data.value = result[randomNumber].urls.regular
-    }
+    const imgArray = ref([]);
 
     onMounted(async () => {
-        await getNewImage(rectImageUrl);
-        await getNewImage(circleImageUrl);
+        await getImagesFromUnsplush(2, imgArray.value);
     })
 </script>
 
 <template>
-    <div class="hero-container">
-        <div id="hero-text-content-1">
+    <div class="hero-container" id="hero">
+        <div id="hero-text-content-1" style="background: #123;">
             <p>Welcome to</p>
             <h1>KanapkaMan<br>Software <span>House</span></h1>
         </div>
 
-        <div id="hero-text-content-2">
-            <div class="image-rect" v-bind:style="{ backgroundImage: `url(${rectImageUrl})` }">
+        <div id="hero-text-content-2" style="background: #254;">
+            <div class="image-rect" v-bind:style="{ backgroundImage: `url(${imgArray[0]})` }">
                 <div class="play-button"></div>
             </div>
         </div>
 
-        <div id="hero-text-content-3">
+        <div id="hero-text-content-3" style="background: #494;">
             <p>Place where well-crafted <br>software projects are born.</p>
             <div class="subscribe">
-                <div class="image-circle" v-bind:style="{backgroundImage: `url(${circleImageUrl})`}"></div>
+                <div class="image-circle" v-bind:style="{backgroundImage: `url(${imgArray[1]})`}">
+                    <p><span>Our</span><br>newsletter</p>
+                </div>
                 <div class="button">
                     <p>Subscribe</p>
                     <div class="button-bg"></div>
@@ -44,7 +37,7 @@
             </div>
         </div>
 
-        <div id="hero-text-content-4">
+        <div id="hero-text-content-4" style="background: #f89;">
             <h1><i>Of</i> digital <br>aesthetics</h1>
             <div class="bottom-text">
                 <p>We produce</p>
@@ -62,6 +55,10 @@
         grid-template-rows: 25vw 25vw;
         grid-template-columns: 1fr 1fr;
         position: relative;
+
+        @media screen and (max-width: 768px) {
+            grid-template-rows: 70vw 30vw;
+        }
     
         #hero-text-content {
             &-1 {
@@ -71,6 +68,7 @@
                     font-size: 5vw;
                     line-height: 5vw;
                     span {
+                        font-weight: 200;
                         color: var(--sh-pink);
                     }
                 }
@@ -117,6 +115,17 @@
                         margin-left: 0.7vw;
                         background-size: cover;
                         background-position: center;
+
+                        p {
+                            display: block;
+                            font-size: 1.3vw;
+                            transform: translate(5.5vw, 1.2vw);
+                            line-height: 1.3vw;
+
+                            span {
+                                color: var(--sh-blue);
+                            }
+                        }
                     }
 
                     .button {
@@ -176,6 +185,10 @@
                     line-height: 5vw;
                     display: block;
                     margin-top: -4vw;
+
+                    i {
+                        font-weight: 200;
+                    }
                 }
 
                 .bottom-text {

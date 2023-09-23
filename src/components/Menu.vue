@@ -1,19 +1,19 @@
 <script setup>
     import { ref } from 'vue';
 
-    const menuText = ref([{id: 0, text: "Projects"}, {id: 1, text: "About us"}, {id: 2, text: "Contacts"}]);
+    const menuText = ref([{id: 0, text: "Projects", link: '#projects'}, {id: 1, text: "About us", link: '#about'}, {id: 2, text: "Contacts", link: '#contact'}]);
 </script>
 
 <template>
     <menu>
         <div class="content">
             <div class="logo">
-                <img src="../assets/kanapka_white.png" alt="thunderbolt logo">
+                <a href="#hero"><img src="../assets/kanapka_white.png" alt="thunderbolt logo"></a>
             </div>
             <div class="links">
                 <ul>
                     <li v-for="(menu) in menuText" v-bind:key="menu.id">
-                        <a href="#">
+                        <a v-bind:href='`${menu.link}`'>
                             <div class="text-1">
                                 <span v-for="(char) in menu.text">{{ char.charCodeAt(0) === 32 ? "&nbsp;" : char }}</span>
                             </div>
@@ -33,11 +33,15 @@
 
 <style scoped lang="scss">
     menu {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0vw;
         width: 100vw;
         height: auto;
         display: flex;
         font-size: 1.8vw;
         padding: 2vw 0;
+        z-index: 1;
         .content {
             width: 100%;
             height: 100%;
@@ -47,8 +51,17 @@
 
             .logo {
                 margin: 0 0 0 5vw;
-                img {
+
+                @media screen and (max-width: 768px) {
+                    margin: 0 0 0 5vw;
+                }
+
+                img { 
                     width: 6vw;
+                    
+                    @media screen and (max-width: 768px) {
+                        width: 10vw;
+                    }
                 }
             }
 
@@ -64,12 +77,23 @@
                     align-items: center;
                     justify-items: center;
                     margin-right: 5vw;
+
+                    @media screen and (max-width: 768px) {
+                        width: 5vw;
+                        height: 5vw;
+                    }
+
                     .burger {
                         width: 3vw;
                         height: 0.1vw;
                         background: var(--sh-white);
                         transition: all .6s cubic-bezier(.23,1,.32,1);
                         transform: rotate(180deg);
+
+                        @media screen and (max-width: 768px) {
+                            width: 5vw;
+                            height: 0.3vw;
+                        }
 
                         &::before, &::after {
                             content: '';
@@ -79,68 +103,88 @@
                             height: 0.1vw;
                             background: var(--sh-white);
                             transition: all .6s cubic-bezier(.23,1,.32,1);
+
+                            @media screen and (max-width: 768px) {
+                                width: 5vw;
+                                height: 0.3vw;
+                            }
                         }
 
-                        &::before {
-                            transform: translate(0, 1vw);
-                        }
+                        &::before { 
+                            transform: translate(0, 1vw); 
 
-                        &::after {
-                            transform: translate(0, -1vw);
+                            @media screen and (max-width: 768px) {
+                                transform: translate(0, 1.5vw); 
+                            }
+                        }
+                        &::after { 
+                            transform: translate(0, -1vw); 
+
+                            @media screen and (max-width: 768px) {
+                                transform: translate(0, -1.5vw); 
+                            }
                         }
                     }
 
-                    &:hover {
-                        .burger::after { width: 2vw; }
-                        .burger::before { width: 1.5vw;}
-                        .burger { width: 2.5vw; }
+                    @media screen and (min-width: 769px) {
+                        &:hover {
+                            .burger::after { width: 2vw; }
+                            .burger::before { width: 1.5vw;}
+                            .burger { width: 2.5vw; }
+                        }   
                     }
                 }
 
-                ul li {
-                    display: inline-block;
-                    margin: 0 7vw 0 0;
+                ul {
+                    @media screen and (max-width: 768px) {
+                        display: none;
+                    }
 
-                    a {
-                        display: block;
-                        height: 1.8vw;
-                        line-height: 1.7vw;
-                        position: relative;
-                        font-weight: 500;
-                        overflow-y: hidden;
+                    li {
+                        display: inline-block;
+                        margin: 0 7vw 0 0;
 
-                        .text-1, .text-2 {
-                            transition: all .6s cubic-bezier(.23,1,.32,1);
+                        a {
+                            display: block;
+                            height: 1.8vw;
+                            line-height: 1.7vw;
+                            position: relative;
+                            font-weight: 500;
+                            overflow-y: hidden;
 
-                            span {
+                            .text-1, .text-2 {
                                 transition: all .6s cubic-bezier(.23,1,.32,1);
-                                position: relative;
-                                display: inline-block;
-                            }
 
-                            @for $i from 1 through 8 {
-                                span:nth-of-type(#{$i}) {
-                                    transition-delay: calc(1.5s / ($i * 10));
+                                span {
+                                    transition: all .6s cubic-bezier(.23,1,.32,1);
+                                    position: relative;
+                                    display: inline-block;
+                                }
+
+                                @for $i from 1 through 8 {
+                                    span:nth-of-type(#{$i}) {
+                                        transition-delay: calc(0.2s * ($i / 10));
+                                    }
                                 }
                             }
-                        }
 
-                        .text-2 {
-                            opacity: 0;
-                            transform: rotateX(-90deg);
-                            color: var(--sh-blue);
-                        }
-
-                        &:hover {
-                            span { transform: translate(0, -1.8vw); }
-                            .text-2 { 
-                                transform: rotateX(0deg); 
-                                opacity: 1;
+                            .text-2 {
+                                opacity: 0;
+                                transform: rotateX(-90deg);
+                                color: var(--sh-blue);
                             }
 
-                            .text-1 {
-                                transform: rotateX(90deg);
-                                opacity: 0;
+                            &:hover {
+                                span { transform: translate(0, -1.8vw); }
+                                .text-2 { 
+                                    transform: rotateX(0deg); 
+                                    opacity: 1;
+                                }
+
+                                .text-1 {
+                                    transform: rotateX(90deg);
+                                    opacity: 0;
+                                }
                             }
                         }
                     }

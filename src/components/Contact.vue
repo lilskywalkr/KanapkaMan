@@ -1,0 +1,57 @@
+<script setup>
+    import {ref, onMounted} from 'vue';
+    import { getImagesFromUnsplush } from './modules/getImages';
+
+    const imgArray = ref([]);
+
+    onMounted(async () => {
+        await getImagesFromUnsplush(1, imgArray.value);
+    });
+</script>
+
+<template>
+    <div class="contact-container" id="contact">
+        <div class="contact-img" v-bind:style="{backgroundImage: `url(${imgArray[0]})`}"></div>
+        <div class="contact-text">
+            <p>UX/UI</p>
+            <p>We’ve been researching interfaces in Fiddle’s secret laboratories with no sleep all days and nights.</p>
+        </div>
+    </div>
+</template>
+
+<style lang="scss">
+    .contact-container {
+        width: 120vw;
+        height: 50vw;
+        background: var(--sh-another-black);
+        border-radius: 80%;
+        position: absolute;
+        transform: translate(-10vw, -15vw);
+        display: flex;
+        justify-content: center;
+        gap: 10vw;
+        padding: 2vw 0 0 0;
+
+        .contact-img {
+            width: 20vw;
+            height: 30vw;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .contact-text {
+            width: 30vw;
+            color: var(--sh-white);
+            padding: 2vw 0 0 0;
+
+            p:nth-of-type(1) {
+                font-size: 1.2vw;
+            }
+
+            p:nth-of-type(2) {
+                font-size: 2vw;
+                padding: 3vw 0 0 0;
+            }
+        }
+    }
+</style>
