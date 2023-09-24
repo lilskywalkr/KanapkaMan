@@ -28,7 +28,7 @@
         </div>
 
         <div class="about-team">
-            <p>Our team puts client’s<br>business needs above all, and <br>by saying that <span class="gradient-text">we make communication with <br><span class="last-line">clients the priority number one.</span></span></p>
+            <p>Our team puts client's<br>business needs above all, and <br>by saying that <span class="gradient-text">we make communication with <br><span class="last-line">clients the priority number one.</span></span></p>
         </div>
     </div>
 </template>
@@ -48,6 +48,12 @@
         color: var(--sh-black);
         padding: 15vw 0 0 0;
 
+        @media screen and (max-width: 768px) {
+            padding: 15vw 0 0 8vw;
+            align-items: start;
+            height: 180vw;
+        }
+
         .about-upper {
             width: 65vw;
             padding: 5vw 0;
@@ -56,11 +62,23 @@
             border-bottom: 0.1vw solid var(--sh-pink);
             gap: 5vw;
 
+            @media screen and (max-width: 768px) {
+                flex-flow: column nowrap;
+            }
+
             .upper-one {
                 line-height: 4vw;
+                
+                @media screen and (max-width: 768px) {
+                    line-height: 6vw;
+                }
 
                 h2 {
                     font-size: 3.5vw;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 7vw;
+                    }
 
                     span {
                         font-weight: 200;
@@ -76,6 +94,11 @@
                     font-size: 1vw;
                     margin-bottom: 2vw;
 
+                    @media screen and (max-width: 768px) {
+                        font-size: 2vw;
+                        margin-bottom: 5vw;
+                    }
+
                     span {
                         display: inline-block;
 
@@ -87,6 +110,11 @@
 
                 p:nth-of-type(2) {
                     font-size: 2vw;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 4vw;
+                        line-height: 4vw;
+                    }
                 }
             }
         }
@@ -96,13 +124,27 @@
             padding: 5vw 0;
             display: flex;
             justify-content: space-between;
+            
+            @media screen and (max-width: 768px) {
+                width: 90vw;
+                flex-flow: column nowrap;
+            }
 
             .lower-content {
                 width: 17.5vw;
                 height: auto;
+
+                @media screen and (max-width: 768px) {
+                    width: 100%;
+                }
                 
                 p {
                     font-size: 1.5vw;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 2.5vw;
+                        padding: 2vw 0;
+                    }
                 }
             }
         }
@@ -116,6 +158,11 @@
             p {
                 font-size: 1.8vw;
 
+                @media screen and (max-width: 768px) {
+                    width: 100vw;
+                    font-size: 3vw;
+                }
+
                 .gradient-text {
                     background: linear-gradient(90deg, rgba(119,0,112,1) 0%, rgba(9,9,121,1) 37%, rgba(0,212,255,1) 100%);
                     -webkit-background-clip: text;
@@ -124,6 +171,10 @@
                     .last-line {
                         display: inline-block;
                         padding-left: 12vw;
+
+                        @media screen and (max-width: 768px) {
+                            padding-left: 20vw;
+                        }
                     }
                 }
             }

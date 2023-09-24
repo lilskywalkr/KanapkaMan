@@ -2,6 +2,13 @@
     import { ref } from 'vue';
 
     const menuText = ref([{id: 0, text: "Projects", link: '#projects'}, {id: 1, text: "About us", link: '#about'}, {id: 2, text: "Contacts", link: '#contact'}]);
+    const burger = ref(null);
+    const openMenu = ref(false);
+
+    function changeBurgerClass() {
+        burger.value.classList.toggle('close');
+        openMenu.value = !openMenu.value;
+    }
 </script>
 
 <template>
@@ -23,11 +30,12 @@
                         </a>
                     </li>
                 </ul>
-                <div class="burger-container">
-                    <div class="burger"></div>
+                <div class="burger-container" @click="changeBurgerClass">
+                    <div class="burger" ref="burger"></div>
                 </div>
             </div>
         </div>
+        <slot v-if="openMenu"></slot>
     </menu>
 </template>
 
@@ -51,6 +59,8 @@
 
             .logo {
                 margin: 0 0 0 5vw;
+                position: relative;
+                z-index: 2;
 
                 @media screen and (max-width: 768px) {
                     margin: 0 0 0 5vw;
@@ -77,6 +87,8 @@
                     align-items: center;
                     justify-items: center;
                     margin-right: 5vw;
+                    position: relative;
+                    z-index: 2;
 
                     @media screen and (max-width: 768px) {
                         width: 5vw;
@@ -123,6 +135,18 @@
                             @media screen and (max-width: 768px) {
                                 transform: translate(0, -1.5vw); 
                             }
+                        }
+                    }
+
+                    .close {
+                        transform: rotate(45deg);
+
+                        &::after {
+                            transform: translate(0, 0vw) rotate(-95deg);
+                        }
+
+                        &::before {
+                            opacity: 0;
                         }
                     }
 

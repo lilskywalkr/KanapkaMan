@@ -15,7 +15,9 @@
         </div> 
         <div class="footer-lower">
             <div class="lower-conter" v-for="content in footerContent" v-bind:key="content.id">
-                <span v-for="n in (content.id + 1)"></span>
+                <div>
+                    <span v-for="n in (content.id + 1)"></span>
+                </div>
                 <p>{{ content.text }}</p>
             </div>
         </div>
@@ -33,6 +35,10 @@
         align-items: center;
         padding: 30vw 0 0 0;
 
+        @media screen and (max-width: 768px) {
+            padding: 0;
+        }
+
         .footer-upper {
             width: 60vw;
             padding: 2vw 0;
@@ -40,9 +46,18 @@
             justify-content: space-between;
             border-bottom: 0.1vw solid var(--sh-blackish);
 
+            @media screen and (max-width: 768px) {
+                width: 85vw;
+                border-bottom: 0.2vw solid var(--sh-blackish);
+            }
+
             p {
                 color: var(--sh-white);
                 font-size: 3vw;
+
+                @media screen and (max-width: 768px) {
+                    font-size: 6vw;
+                }
             }
 
             .button {
@@ -56,12 +71,22 @@
                 cursor: pointer;
                 overflow: hidden;
                 position: relative;
+                z-index: 0;
+
+                @media screen and (max-width: 768px) {
+                    width: 20vw;
+                    height: 7vw;
+                }
 
                 p {
                     font-size: 1.4vw;
                     position: relative;
                     z-index: 1;
                     transition: all 1s cubic-bezier(.23,1,.32,1);
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 2.4vw;
+                    }
                 }
 
                 &-bg {
@@ -73,18 +98,24 @@
                     z-index: 0;
                     transition: all 1s cubic-bezier(.23,1,.32,1);
                     transform: translate(0, 100%);
+
+                    @media screen and (max-width: 768px) {
+                        transform: translate(0, 150%);
+                    }
                 }
 
-                &:hover {
-                    .button-bg {
-                        transform: translate(0, 0%);
-                        width: 20vw;
-                        height: 20vw;
-                    }
+                @media screen and (min-width: 769px) {
+                    &:hover {
+                        .button-bg {
+                            transform: translate(0, 0%);
+                            width: 20vw;
+                            height: 20vw;
+                        }
 
-                    p {
-                        color: var(--sh-blue);
-                    }
+                        p {
+                            color: var(--sh-blue);
+                        }
+                    }   
                 }
             }
         }
@@ -95,8 +126,18 @@
             width: 60vw;
             padding: 3vw 0;
 
-            .lower-conter {
+            @media screen and (max-width: 768px) {
+                width: 85vw;
+                padding: 5vw 0;
+                flex-flow: column nowrap;
+            }
 
+            .lower-conter {
+                @media screen and (max-width: 768px) {
+                    padding: 2vw 0;
+                    display: flex;
+                    justify-content: space-between;
+                }
 
                 span {
                     display: inline-block;
@@ -105,11 +146,21 @@
                     border-radius: 1vw;
                     background: var(--sh-pink);
                     margin: 0 1vw 1vw 0;
+
+                    @media screen and (max-width: 768px) {
+                        width: 2vw;
+                        height: 2vw;
+                        border-radius: 2vw;
+                    }
                 }
 
                 p {
                     font-size: 2vw;
                     color: var(--sh-white);
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 3vw;
+                    }
                 }
             }
         }

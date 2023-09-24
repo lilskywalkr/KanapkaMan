@@ -36,6 +36,7 @@ html, body {
 
 body {
   background: var(--sh-black);
+  overflow-x: hidden;
 }
 
 a {

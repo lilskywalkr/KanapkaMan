@@ -27,6 +27,9 @@ devDependencies:
   sass:
     specifier: ^1.67.0
     version: 1.67.0
+  three:
+    specifier: ^0.156.1
+    version: 0.156.1
   vite:
     specifier: ^4.4.5
     version: 4.4.5(sass@1.67.0)
@@ -570,6 +573,10 @@ packages:
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
+
+  /three@0.156.1:
+    resolution: {integrity: sha512-kP7H0FK9d/k6t/XvQ9FO6i+QrePoDcNhwl0I02+wmUJRNSLCUIDMcfObnzQvxb37/0Uc9TDT0T1HgsRRrO6SYQ==}
+    dev: true
 
   /to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}

@@ -13,18 +13,18 @@
 
 <template>
     <div class="hero-container" id="hero">
-        <div id="hero-text-content-1" style="background: #123;">
+        <div id="hero-text-content-1">
             <p>Welcome to</p>
             <h1>KanapkaMan<br>Software <span>House</span></h1>
         </div>
 
-        <div id="hero-text-content-2" style="background: #254;">
+        <div id="hero-text-content-2">
             <div class="image-rect" v-bind:style="{ backgroundImage: `url(${imgArray[0]})` }">
                 <div class="play-button"></div>
             </div>
         </div>
 
-        <div id="hero-text-content-3" style="background: #494;">
+        <div id="hero-text-content-3">
             <p>Place where well-crafted <br>software projects are born.</p>
             <div class="subscribe">
                 <div class="image-circle" v-bind:style="{backgroundImage: `url(${imgArray[1]})`}">
@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <div id="hero-text-content-4" style="background: #f89;">
+        <div id="hero-text-content-4">
             <h1><i>Of</i> digital <br>aesthetics</h1>
             <div class="bottom-text">
                 <p>We produce</p>
@@ -67,6 +67,13 @@
                 h1 {
                     font-size: 5vw;
                     line-height: 5vw;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 7vw;
+                        line-height: 8vw;
+                        padding: 3vw 0 0 0vw;
+                    }
+
                     span {
                         font-weight: 200;
                         color: var(--sh-pink);
@@ -75,6 +82,10 @@
 
                 p {
                     font-size: 1.2vw;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 2.5vw;
+                    }
                 }
             }
 
@@ -82,6 +93,44 @@
                 display: flex;
                 justify-content: flex-end;
                 padding: 4vw 5vw 0 0;
+
+                .image-rect {
+                    width: 10vw;
+                    height: 15vw;
+                    background-position: center;
+                    background-size: 250%;
+                    border-radius: 1vw;
+                    transition: all .6s cubic-bezier(.23,1,.32,1);
+                    position: relative;
+                    cursor: pointer;
+
+                    @media screen and (max-width: 768px) {
+                        width: 25vw;
+                        height: 40vw;
+                    }
+
+                    &:hover {
+                        background-size: 280%;
+                    }
+
+                    .play-button {
+                        width: 3vw;
+                        height: 3vw;
+                        border-radius: 2vw;
+                        background: var(--sh-blue);
+                        position: absolute;
+                        right: 0;
+                        z-index: 0;
+                        transform: translate(1vw, -1.5vw);
+
+                        @media screen and (max-width: 768px) {
+                            width: 6vw;
+                            height: 6vw;
+                            border-radius: 6vw;
+                            transform: translate(2vw, -2.5vw);
+                        }
+                    }
+                }
             }
 
             &-3 {
@@ -92,6 +141,10 @@
 
                 p {
                     font-size: 1.2vw;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 2.5vw;
+                    }
                 }
 
                 .subscribe {
@@ -106,6 +159,17 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    z-index: 0;
+
+                    @media screen and (max-width: 768px) {
+                        width: 90vw;
+                        height: 30vw;
+                        border-radius: 4vw;
+                        flex-flow: column nowrap;
+                        bottom: -10vw;
+                        transform: translate(-50%, 10vw);
+                        padding: 4vw 0;
+                    }
 
                     .image-circle {
                         width: 5vw;
@@ -116,11 +180,24 @@
                         background-size: cover;
                         background-position: center;
 
+                        @media screen and (max-width: 768px) {
+                            width: 12vw;
+                            height: 12vw;
+                            border-radius: 12vw;
+                            margin-left: -10vw;
+                        }
+
                         p {
                             display: block;
                             font-size: 1.3vw;
                             transform: translate(5.5vw, 1.2vw);
                             line-height: 1.3vw;
+
+                            @media screen and (max-width: 768px) {
+                                font-size: 3vw;
+                                line-height: 2.7vw;
+                                transform: translate(13.5vw, 3vw);
+                            }
 
                             span {
                                 color: var(--sh-blue);
@@ -141,11 +218,21 @@
                         overflow: hidden;
                         position: relative;
 
+                        @media screen and (max-width: 768px) {
+                            width: 70vw;
+                            height: 6vw;
+                            border-radius: 2vw;
+                        }
+
                         p {
                             font-size: 1.4vw;
                             position: relative;
                             z-index: 1;
                             transition: all 1s cubic-bezier(.23,1,.32,1);
+
+                            @media screen and (max-width: 768px) {
+                                font-size: 3vw;
+                            }
                         }
 
                         &-bg {
@@ -157,17 +244,23 @@
                             z-index: 0;
                             transition: all 1s cubic-bezier(.23,1,.32,1);
                             transform: translate(0, 100%);
+
+                            @media screen and (max-width: 768px) {
+                                transform: translate(0, 120%);
+                            }
                         }
 
-                        &:hover {
-                            .button-bg {
-                                transform: translate(0, 0%);
-                                width: 20vw;
-                                height: 20vw;
-                            }
+                        @media screen and (min-width: 769px) {
+                            &:hover {
+                                .button-bg {
+                                    transform: translate(0, 0%);
+                                    width: 20vw;
+                                    height: 20vw;
+                                }
 
-                            p {
-                                color: var(--sh-blue);
+                                p {
+                                    color: var(--sh-blue);
+                                }
                             }
                         }
                     }
@@ -180,11 +273,21 @@
                 align-items: end;
                 padding: 0 5vw 0 0;
 
+                @media screen and (max-width: 768px) {
+                    padding: 0 5vw 0 0;
+                }
+
                 h1 {
                     font-size: 5vw;
                     line-height: 5vw;
                     display: block;
                     margin-top: -4vw;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 8vw;
+                        line-height: 7vw;
+                        margin-top: -10vw;
+                    }
 
                     i {
                         font-weight: 200;
@@ -201,34 +304,13 @@
                         font-size: 1.2vw;
                         display: block;
                         margin: 0 4.7vw 0 0;
+
+                        @media screen and (max-width: 768px) {
+                            font-size: 2vw;
+                            margin: 0 3vw 0 0;
+                        }
                     }
                 }
-            }
-        }
-
-        .image-rect {
-            width: 10vw;
-            height: 15vw;
-            background-position: center;
-            background-size: 250%;
-            border-radius: 1vw;
-            transition: all .6s cubic-bezier(.23,1,.32,1);
-            position: relative;
-            cursor: pointer;
-
-            &:hover {
-                background-size: 280%;
-            }
-
-            .play-button {
-                width: 3vw;
-                height: 3vw;
-                border-radius: 2vw;
-                background: var(--sh-blue);
-                position: absolute;
-                right: 0;
-                z-index: 1;
-                transform: translate(1vw, -1.5vw);
             }
         }
     }

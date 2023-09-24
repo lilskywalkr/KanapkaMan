@@ -5,11 +5,17 @@
   import AboutUs from './components/AboutUs.vue';
   import Contact from './components/Contact.vue';
   import Footer from './components/Footer.vue'
+  import Canvas from './components/Canvas.vue';
+
+  import OpenMenu from './components/modules/OpenMenu.vue';
 </script>
 
 <template>
-  <Menu></Menu>
+  <Menu>
+    <OpenMenu />
+  </Menu>
   
+  <Canvas></Canvas>
   <Hero />
   <Projects/>
   <AboutUs />

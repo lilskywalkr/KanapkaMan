@@ -51,7 +51,9 @@
         </div>
         <div class="projects">
             <div v-for="project in projects" v-bind:key="project.id" class="project-container" ref="projectBoxes" @mousemove="e => { floatingBoxFadeIn(e, project.id) }" @mouseleave="floatingBoxFadeOur">
-                <div class="project" v-bind:style="{backgroundImage: `url(${imgArray[project.id]})`}"></div>
+                <div class="project">
+                    <img v-bind:src="`${imgArray[project.id]}`" alt="">
+                </div>
                 <div class="project-text">
                     <h2>{{ project.name }}</h2>
                     <p> {{ project.desc }} </p>
@@ -74,6 +76,11 @@
         margin: auto;
         background: var(--sh-blackish);
 
+        @media screen and (max-width: 768px) {
+            height: auto;
+            margin-top: 25vw;
+        }
+
         .upper-header {
             width: 100%;
             display: flex;
@@ -83,6 +90,10 @@
             h1 {
                 font-size: 3vw;
                 color: var(--sh-white);
+
+                @media screen and (max-width: 768px) {
+                    font-size: 6vw;
+                }
             }
 
             .arrow-container {
@@ -97,12 +108,22 @@
                 position: relative;
                 overflow: hidden;
 
+                @media screen and (max-width: 768px) {
+                    width: 6vw;
+                    height: 6vw;
+                }
+
                 .arrow {
                     width: 2vw;
                     height: 0.1vw;
                     background: var(--sh-white);
                     transform: rotate(45deg);
                     transition: all .6s cubic-bezier(.23,1,.32,1);
+
+                    @media screen and (max-width: 768px) {
+                        width: 3vw;
+                        height: 0.2vw;
+                    }
 
                     &::before {
                         content: '';
@@ -112,6 +133,12 @@
                         height: 0.1vw;
                         background: var(--sh-white);
                         transform: translate(0.8vw, -0.5vw) rotate(45deg);
+
+                        @media screen and (max-width: 768px) {
+                            width: 2.5vw;
+                            height: 0.2vw;
+                            transform: translate(1vw, -0.8vw) rotate(45deg);
+                        }
                     }
 
                     &::after {
@@ -122,6 +149,12 @@
                         height: 0.1vw;
                         background: var(--sh-white);
                         transform: translate(0.8vw, 0.5vw) rotate(-45deg);
+
+                        @media screen and (max-width: 768px) {
+                            width: 2.5vw;
+                            height: 0.2vw;
+                            transform: translate(1vw, 0.8vw) rotate(-45deg);
+                        }
                     }
                 }
 
@@ -139,6 +172,11 @@
                     position: absolute;
                     transform: translate(0, 4vw);
                     transition: all .4s cubic-bezier(.23,1,.32,1);
+
+                    @media screen and (max-width: 768px) {
+                        transform: translate(0, 7vw);
+                        font-size: 2vw;
+                    }
                 }
 
                 &:hover {
@@ -162,17 +200,38 @@
             justify-content: space-between;
             padding: 5vw 3vw 0 3vw;
 
+            @media screen and (max-width: 768px) {
+                flex-flow: column nowrap;
+                align-items: center;
+            }
+
             .project-container {
                 cursor: pointer;
                 overflow: hidden;
+
+                @media screen and (max-width: 768px) {
+                    margin-bottom: 20vw;
+                }
 
                 .project {
                     width: 25vw;
                     height: 25vw;
                     border-radius: 2vw;
-                    background-position: center;
-                    background-size: 140% 100%;
                     transition: all .4s cubic-bezier(.23,1,.32,1);
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                        transition: all .4s cubic-bezier(.23,1,.32,1);
+                    }
+
+                    @media screen and (max-width: 768px) {
+                        width: 80vw;
+                        height: 80vw;
+                        margin-bottom: 4vw;
+                        background-size: cover;;
+                    }
                 }
 
                 .project-text {
@@ -184,6 +243,10 @@
                         font-size: 2vw;
                         font-weight: 600;
                         color: var(--sh-pink);
+
+                        @media screen and (max-width: 768px) {
+                            font-size: 5vw;
+                        }
                     }
 
                     p {
@@ -195,18 +258,26 @@
                         font-size: 1.1vw;
                         opacity: 0.3;
                         color: var(--sh-white);
+
+                        @media screen and (max-width: 768px) {
+                            font-size: 3vw;
+                        }
                     }
                 }
 
-                &:hover {
-                    .project {
-                        background-size: 180% 120%;
-                    }
+                @media screen and (min-width: 769px) {
+                    &:hover {
+                        .project {
+                            img {
+                                width: 120%;
+                            }
+                        }
 
-                    .project-text {
-                        transform: translate(0, -2vw);
-                        opacity: 0;
-                    }
+                        .project-text {
+                            transform: translate(0, -2vw);
+                            opacity: 0;
+                        }
+                    }   
                 }
             }
         }
@@ -224,6 +295,10 @@
             line-height: 3vw;
             user-select: none;
             color: var(--sh-blue);
+
+            @media screen and (max-width: 768px) {
+                opacity: 0 !important;
+            }
 
 
             h2 {
