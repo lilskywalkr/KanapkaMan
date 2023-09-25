@@ -14,7 +14,7 @@
         <div class="contact-img" v-bind:style="{backgroundImage: `url(${imgArray[0]})`}"></div>
         <div class="contact-text">
             <p>UX/UI</p>
-            <p>We’ve been researching interfaces in Fiddle’s secret laboratories with no sleep all days and nights.</p>
+            <p>We've been researching interfaces in KanapkaMan's secret laboratories with no sleep all days and nights.</p>
         </div>
     </div>
 </template>
