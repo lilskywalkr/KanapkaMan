@@ -11,7 +11,7 @@ export default defineConfig({
       injectRegister: 'auto',
       workbox: {
         cleanupOutdatedCaches: true,
-        globPatterns: ['**/*.{js, css, html, ico, png, svg, json, vue, txt, woff2}']
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,json,vue,txt,woff2}']
       },
       includeAssets: ['**/src/assets/*.png'],
       manifest: {
@@ -23,17 +23,17 @@ export default defineConfig({
         display: 'standalone',
         icons: [
           {
-            src: 'img/icon-192x192.png',
+            src: '/icon-192x192.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: 'img/icon-256x256.png',
+            src: '/icon-256x256.png',
             sizes: '256x256',
             type: 'image/png'
           },
           {
-            src: 'img/icon-512x512.png',
+            src: '/icon-512x512.png',
             sizes: '512x512',
             type: 'image/png'
           }
@@ -41,4 +41,9 @@ export default defineConfig({
       }
     })
   ],
+  server: {
+    fs: {
+      allow: ['..'],
+    },
+  },
 })
