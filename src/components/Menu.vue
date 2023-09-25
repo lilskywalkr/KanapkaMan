@@ -9,6 +9,8 @@
         burger.value.classList.toggle('close');
         openMenu.value = !openMenu.value;
     }
+
+    import OpenMenu from './modules/OpenMenu.vue';
 </script>
 
 <template>
@@ -35,7 +37,7 @@
                 </div>
             </div>
         </div>
-        <slot v-if="openMenu"></slot>
+        <OpenMenu @change-burger-class="changeBurgerClass" v-if="openMenu" />
     </menu>
 </template>
 

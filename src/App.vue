@@ -6,14 +6,10 @@
   import Contact from './components/Contact.vue';
   import Footer from './components/Footer.vue'
   import Canvas from './components/Canvas.vue';
-
-  import OpenMenu from './components/modules/OpenMenu.vue';
 </script>
 
 <template>
-  <Menu>
-    <OpenMenu />
-  </Menu>
+  <Menu></Menu>
   
   <Canvas></Canvas>
   <Hero />

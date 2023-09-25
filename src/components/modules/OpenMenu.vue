@@ -1,8 +1,18 @@
 <script setup>
-    import { ref } from 'vue'
+    import { ref, defineEmits } from 'vue'
 
+    // Icons for socials
     const icons = ref(['facebook-f', 'instagram', 'dribbble']);
-    const openMenu = ref(true);
+    const openMenu = ref(true);  // flag for opening the menu
+
+    // defining an emit for handling the burger animation
+    const emit = defineEmits(['changeBurgerClass']);
+
+    // calling the emmit in a function
+    function handleClicking() {
+        emit('changeBurgerClass');
+    }
+
 </script>
 
 <template>
@@ -16,9 +26,9 @@
         </div>
         <div class="menu-right">
             <div class="links">
-                <a href="#projects" @click="openMenu = !openMenu" ><span>Juicy<br>things</span>Projects</a>
-                <a href="#about" @click="openMenu = !openMenu">About us<span>Coffe<br>time</span></a>
-                <a href="#contact" @click="openMenu = !openMenu"><span>Good<br>company</span>Contact</a>
+                <a href="#projects" @click="handleClicking" ><span>Juicy<br>things</span>Projects</a>
+                <a href="#about" @click="handleClicking">About us<span>Coffe<br>time</span></a>
+                <a href="#contact" @click="handleClicking"><span>Good<br>company</span>Contact</a>
             </div>
             <div class="socials">
                 <p>Follow us</p>
