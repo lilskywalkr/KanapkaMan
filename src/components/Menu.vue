@@ -1,7 +1,12 @@
 <script setup>
     import { ref } from 'vue';
 
-    const menuText = ref([{id: 0, text: "Projects", link: '#projects'}, {id: 1, text: "About us", link: '#about'}, {id: 2, text: "Contacts", link: '#contact'}]);
+    const menuText = ref([
+            {id: 0, text: "Projects", link: 'projects'}, 
+            {id: 1, text: "About us", link: 'about'}, 
+            {id: 2, text: "Contacts", link: 'contact'},
+            {id: 3, text: "Services", link: "services"}
+        ]);
     const burger = ref(null);
     const openMenu = ref(false);
 
@@ -17,19 +22,19 @@
     <menu>
         <div class="content">
             <div class="logo">
-                <a href="#hero"><img src="../assets/kanapka_white.png" alt="thunderbolt logo"></a>
+                <router-link v-bind:to="{name: 'home'}"><img src="../assets/kanapka_white.png" alt="thunderbolt logo"></router-link>
             </div>
             <div class="links">
                 <ul>
                     <li v-for="(menu) in menuText" v-bind:key="menu.id">
-                        <a v-bind:href='`${menu.link}`'>
+                        <router-link v-bind:to="{name: menu.link}">
                             <div class="text-1">
                                 <span v-for="(char) in menu.text">{{ char.charCodeAt(0) === 32 ? "&nbsp;" : char }}</span>
                             </div>
                             <div class="text-2">
                                 <span v-for="(char) in menu.text">{{ char.charCodeAt(0) === 32 ? "&nbsp;" : char  }}</span>
                             </div>
-                        </a>
+                        </router-link>
                     </li>
                 </ul>
                 <div class="burger-container" @click="changeBurgerClass">
