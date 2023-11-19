@@ -12,6 +12,19 @@
         {id: 4, name: 'Hardware + software', icon: "../src/assets/hardware.svg", desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut turpis arcu. Ut quis efficitur nunc.'}
     ])
 
+    // content for "technologies" section
+    const technologies = ref([
+        {id: 0, icon: '../src/assets/aws.png'},
+        {id: 1, icon: '../src/assets/firebase.png'},
+        {id: 2, icon: '../src/assets/flutter.png'},
+        {id: 3, icon: '../src/assets/java.png'},
+        {id: 4, icon: '../src/assets/mongo.png'},
+        {id: 5, icon: '../src/assets/pwa.png'},
+        {id: 6, icon: '../src/assets/ruby.png'},
+        {id: 7, icon: '../src/assets/swift.png'},
+        {id: 8, icon: '../src/assets/vue.png'},
+    ]);
+
     const imgArray = ref([]);
 
     onMounted(async () => {
@@ -45,6 +58,12 @@
                 <p>See more</p>
                 <div class="button-bg"></div>
             </div>
+        </div>
+    </section>
+
+    <section class="technologies">
+        <div class="boxes" v-for="technology in technologies" v-bind:key="technology.id">
+            <img v-bind:src="`${technology.icon}`" alt="">
         </div>
     </section>
 
@@ -90,6 +109,7 @@
     .we-do {
         width: 90vw;
         height: auto;
+        padding: 4vw 0;
         background: var(--sh-blue);
         margin: auto;
         border-radius: 4vw;
@@ -173,6 +193,45 @@
                         color: var(--sh-blue);
                     }
                 }
+            }
+        }
+    }
+
+    .technologies {
+        width: 100vw;
+        height: auto;
+        padding: 20vw 10vw 10vw 15vw;
+        background: var(--sh-white);
+        border-radius: 5vw 5vw 0 0;
+        position: relative;
+        transform: translate(0, -10vw);
+        z-index: -1;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-flow: row wrap;
+        gap: 0vw;
+
+        .boxes {
+            width: 15vw;
+            height: 15vw;
+            display: grid;
+            place-items: center;
+            border-right: 0.15vw solid var(--sh-black);
+            border-bottom: 0.15vw solid var(--sh-black);
+
+            @for $i from 6 through 9 {
+                &:nth-child(#{$i}) {
+                    border-bottom: none;
+                }
+            }
+
+            &:nth-child(5) {
+                border-right: none;
+            }
+
+            img {
+                width: 10vw;
             }
         }
     }
