@@ -1,31 +1,25 @@
 <script setup>
     import Footer from '@/components/Footer.vue';
+    import ContactForm from '@/components/ContactForm.vue';
     import { ref, onMounted } from 'vue';
     import { getImagesFromUnsplush } from '../components/modules/getImages';
 
+    import SwiperCore from 'swiper';
 
     // import Swiper core and required modules
-    import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+    import {Pagination, A11y } from 'swiper/modules';
+    // Define the modules property
+    const modules = [Pagination, A11y];
 
     // Import Swiper styles
     import 'swiper/css';
-    import 'swiper/css/navigation';
     import 'swiper/css/pagination';
-    import 'swiper/css/scrollbar';
 
     // Import Swiper Vue.js components
     import { Swiper, SwiperSlide } from 'swiper/vue';
 
-    // Import Swiper styles
-    import 'swiper/css';
-
-    const onSwiper = (swiper) => {
-        console.log(swiper);
-    };
-
-    const onSlideChange = () => {
-        console.log('slide change');
-    };
+    // Define the modules property
+    SwiperCore.use([Pagination, A11y]);
 
     // content for "we-do" section
     const weDoing = ref([
@@ -127,24 +121,18 @@
         <swiper
             :modules="modules"
             :slides-per-view="1"
-            :space-between="350"
-            navigation
+            :space-between="0"
             :pagination="{ clickable: true }"
-            :scrollbar="{ draggable: true }"
-            @swiper="onSwiper"
-            @slideChange="onSlideChange"
         >
             <!-- Dynamic rendering of slides -->
             <swiper-slide v-for="client in clients" :key="client.id">
                 <img :src="client.src" alt="Client 1">
             </swiper-slide>
-
-            <!-- Navigation buttons inside the swiper component -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
         </swiper>
 
     </section>
+
+    <ContactForm/>
 
     <Footer></Footer>
 </template>
@@ -160,6 +148,12 @@
         border-radius: 4vw 4vw 0 0;
         overflow: hidden;
 
+        @media screen and (max-width: 768px) {
+            min-height: 150vw;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+
         .desc-box {
             padding-left: 10vw;
             padding-top: 10vw;
@@ -169,11 +163,20 @@
             h1 {
                 font-size: 4vw;
                 line-height: 4vw;
+
+                @media screen and (max-width: 768px) {
+                    font-size: 10vw;
+                    line-height: 10vw;
+                }
             }
 
             p {
                 font-size: 1vw;
                 padding: 3vw 0 0 0;
+
+                @media screen and (max-width: 768px) {
+                    font-size: 2.5vw;
+                }
             }
         }
 
@@ -211,6 +214,11 @@
            flex-flow: column wrap;
            color: var(--sh-white);
 
+           @media screen and (max-width: 768px) {
+                width: 80vw;
+                height: 40vw;
+           }
+
            &-header {
                 display: flex;
                 align-items: center;
@@ -218,16 +226,28 @@
 
                 h1 {
                     font-size: 1.5vw;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 6vw;
+                    }
                 }
 
                 img {
                     width: 4vw;
+
+                    @media screen and (max-width: 768px) {
+                        width: 12vw;
+                    }
                 }
            }
 
            .doing-desc {
-            font-size: 1vw;
-            margin-top: 2vw;
+                font-size: 1vw;
+                margin-top: 2vw;
+
+                @media screen and (max-width: 768px) {
+                    font-size: 3vw;
+                }
            }
 
            .button {
@@ -243,11 +263,21 @@
                 position: relative;
                 margin: 2vw auto 0 auto;
 
+                @media screen and (max-width: 768px) {
+                    width: 40vw;
+                    height: 10vw;
+                    border-radius: 2vw;
+                }
+
                 p {
                     font-size: 1.2vw;
                     position: relative;
                     z-index: 1;
                     transition: all 1s cubic-bezier(.23,1,.32,1);
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 3vw;
+                    }
                 }
 
 
@@ -259,7 +289,12 @@
                     background: var(--sh-white);
                     z-index: 0;
                     transition: all 1s cubic-bezier(.23,1,.32,1);
-                    transform: translate(0, 100%);
+                    transform: translate(0, 150%);
+
+                    @media screen {
+                        width: 12vw;
+                        height: 12vw;
+                    }
                 }
 
                 &:hover {
@@ -267,6 +302,12 @@
                         transform: translate(0, 0%);
                         width: 20vw;
                         height: 20vw;
+
+                        @media screen and (max-width: 768px) {
+                            width: 45vw;
+                            height: 35vw;
+
+                        }
                     }
 
                     p {
@@ -281,17 +322,25 @@
         width: 100vw;
         height: auto;
         padding: 15vw 10vw 10vw 15vw;
-        background: var(--sh-white);
+        background: var(--sh-pinkish);
         border-radius: 5vw 5vw 0 0;
         position: relative;
         transform: translate(0, -10vw);
         z-index: -1;
+
+        @media screen and (max-width: 768px) {
+            padding-left: 20vw;
+        }
 
         h1 {
             text-align: center;
             font-size: 3vw;
             letter-spacing: 1vws;
             margin-bottom: 5vw;
+
+            @media screen and (max-width: 768px) {
+                font-size: 5vw;
+            }
         }
         
 
@@ -310,18 +359,38 @@
                 border-right: 0.15vw solid var(--sh-black);
                 border-bottom: 0.15vw solid var(--sh-black);
 
-                @for $i from 6 through 9 {
-                    &:nth-child(#{$i}) {
+                @media screen and (max-width: 768px) {
+                    width: 20vw;
+                    height: 20vw;
+                }
+
+                
+                @media screen and (min-width: 769px) {
+                    &:nth-child(6), &:nth-child(7), &:nth-child(8), &:nth-child(9) {
+                        border-bottom: none;
+                    }
+
+                    &:nth-child(5) {
+                        border-right: none;
+                    }
+                }
+
+                @media screen and (max-width: 768px) {
+                    &:nth-child(3), &:nth-child(6), &:nth-child(9) {
+                        border-right: none;
+                    }
+
+                    &:nth-child(7), &:nth-child(8), &:nth-child(9) {
                         border-bottom: none;
                     }
                 }
 
-                &:nth-child(5) {
-                    border-right: none;
-                }
-
                 img {
                     width: 10vw;
+
+                    @media screen and (max-width: 768px) {
+                        width: 17vw;
+                    }
                 }
             }
         }
@@ -339,6 +408,10 @@
             color: var(--sh-white);
             text-align: center;
             padding: 5vw 0 5vw 0;
+
+            @media screen and (max-width: 768px) {
+                font-size: 5vw;
+            }
         }
 
         .boxes-container {
@@ -357,24 +430,43 @@
                 gap: 1vw;
                 padding: 1.5vw 2vw 0 2vw;
 
-                &:nth-child(1),
-                &:nth-child(2) {
-                    border-bottom: 0.2vw solid var(--sh-white);
+                @media screen and (max-width: 768px) {
+                    width: 80vw;
+                    height: 30vw;
+                }
+
+
+                @media screen and (min-width: 769px) {
+                    &:nth-child(1), &:nth-child(2) {
+                        border-bottom: 0.2vw solid var(--sh-white);
+                    }   
                 }
 
                 img {
                     width: 3vw;
+
+                    @media screen and (max-width: 768px) {
+                        width: 10vw;
+                    }
                 }
 
                 h3 {
                     color: var(--sh-white);
                     font-size: 2vw;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 3vw;
+                    }
                 }
 
                 p {
                     color: var(--sh-white);
                     text-align: center;
                     font-size: 1vw;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 1.6vw;
+                    }
                 }
             }
         }
@@ -383,22 +475,37 @@
     .our-clients {
         width: 100vw;
         height: auto;
-        padding: 15vw 10vw 10vw 15vw;
-        background: var(--sh-white);
+        padding: 10vw 10vw 10vw 15vw;
+        // background: var(--sh-white);
+        background: var(--sh-pinkish);
         border-radius: 5vw 5vw 0 0;
         position: relative;
-        // transform: translate(0, -10vw);
-        z-index: -1;
+        z-index: 1;
 
         h1 {
             text-align: center;
             font-size: 3vw;
             letter-spacing: 1vws;
             margin-bottom: 5vw;
+
+            @media screen and (max-width: 768px) {
+                font-size: 6vw;
+            }
         }
 
-        img {
-            width: 10vw;
+        .swiper-slide {
+            padding-bottom: 1vw;
+
+            img {
+                width: 15vw;
+                display: block;
+                margin: auto;
+                user-select: none;
+
+                @media screen and (max-width: 768px) {
+                    width: 30vw;
+                }
+            }
         }
     }
 </style>

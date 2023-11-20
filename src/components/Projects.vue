@@ -170,7 +170,7 @@
                     font-weight: bold;
                     font-size: 1vw;
                     position: absolute;
-                    transform: translate(0, 4vw);
+                    transform: translate(0, 5vw);
                     transition: all .4s cubic-bezier(.23,1,.32,1);
 
                     @media screen and (max-width: 768px) {
