@@ -29,6 +29,7 @@
                 <a href="#projects" @click="handleClicking" ><span>Juicy<br>things</span>Projects</a>
                 <a href="#about" @click="handleClicking">About us<span>Coffe<br>time</span></a>
                 <a href="#contact" @click="handleClicking"><span>Good<br>company</span>Contact</a>
+                <a href="#services" @click="handleClicking"><span>No<br>Sandwiches</span>Services</a>
             </div>
             <div class="socials">
                 <p>Follow us</p>
@@ -136,7 +137,7 @@
                 }
 
                 span:nth-of-type(1) {
-                    transform: translate(-4vw, 1vw);
+                    transform: translate(-5vw, 1vw);
                     color: var(--sh-pink);
 
                     @media screen and (max-width: 768px) {
