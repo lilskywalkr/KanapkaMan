@@ -1,6 +1,6 @@
 <script setup>
     import {ref, onMounted} from 'vue';
-    import { getImagesFromUnsplush } from './modules/getImages';
+    import { getImagesFromUnsplush } from '../modules/getImages';
 
     const imgArray = ref([]);
 

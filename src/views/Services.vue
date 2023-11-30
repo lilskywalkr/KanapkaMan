@@ -1,6 +1,7 @@
 <script setup>
     import Footer from '@/components/Footer.vue';
     import ContactForm from '@/components/ContactForm.vue';
+    import Hero from '@/components/Hero.vue';
     import { ref, onMounted } from 'vue';
     import { getImagesFromUnsplush } from '../components/modules/getImages';
 
@@ -60,25 +61,17 @@
 
     const imgArray = ref([]);
 
+    // content for hero section
+    const heroHeader = ref('Usługi<br>programistyczne<br>dla firm');
+    const heroContent = ref("Wytwarzamy oprogramowanie rozwiązujące potrzeby<br>użytkowników a dzięki naszemu doświadczeniu, zajmuje ono solidną<br>pozycję na rynku. Ogromna pasja oraz precyzja sprawiają, że<br>pisany przez nas kod jest czysty i bardzo wysokiej jakości. Dzięki<br>temu, jest on łatwy do zrozumienia, utrzymania i rozszerzania przez<br>inne zespoły programistyczne.");
+
     onMounted(async () => {
         await getImagesFromUnsplush(1, imgArray.value);
     });
 </script>
 
 <template>
-    <section class="our-services">
-        <div class="desc-box">
-            <h1>Usługi<br>programistyczne<br>dla firm</h1>
-            <p>
-                Wytwarzamy oprogramowanie rozwiązujące potrzeby<br>użytkowników a dzięki naszemu doświadczeniu, zajmuje ono solidną<br>
-                pozycję na rynku. Ogromna pasja oraz precyzja sprawiają, że<br>pisany przez nas kod jest czysty i bardzo wysokiej jakości. Dzięki<br>
-                temu, jest on łatwy do zrozumienia, utrzymania i rozszerzania przez<br>inne zespoły programistyczne.
-            </p>
-        </div>
-        <div class="image-box">
-            <img v-bind:src="`${imgArray[0]}`" alt="">
-        </div>
-    </section>
+    <Hero :imgArray="imgArray" :header="heroHeader" :content="heroContent"/>
 
     <section class="we-do">
         <div class="doing-box" v-for="doing in weDoing" v-bind:key="doing.id">
@@ -139,55 +132,55 @@
 
 
 <style scoped lang="scss">
-    .our-services {
-        width: 100vw;
-        height: 50vw;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
-        border-radius: 4vw 4vw 0 0;
-        overflow: hidden;
+    // .our-services {
+    //     width: 100vw;
+    //     height: 50vw;
+    //     display: grid;
+    //     grid-template-columns: 1fr 1fr;
+    //     grid-template-rows: 1fr;
+    //     border-radius: 4vw 4vw 0 0;
+    //     overflow: hidden;
 
-        @media screen and (max-width: 768px) {
-            min-height: 150vw;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr;
-        }
+    //     @media screen and (max-width: 768px) {
+    //         min-height: 150vw;
+    //         grid-template-columns: 1fr;
+    //         grid-template-rows: 1fr 1fr;
+    //     }
 
-        .desc-box {
-            padding-left: 10vw;
-            padding-top: 10vw;
-            background: var(--sh-white);
+    //     .desc-box {
+    //         padding-left: 10vw;
+    //         padding-top: 10vw;
+    //         background: var(--sh-white);
 
 
-            h1 {
-                font-size: 4vw;
-                line-height: 4vw;
+    //         h1 {
+    //             font-size: 4vw;
+    //             line-height: 4vw;
 
-                @media screen and (max-width: 768px) {
-                    font-size: 10vw;
-                    line-height: 10vw;
-                }
-            }
+    //             @media screen and (max-width: 768px) {
+    //                 font-size: 10vw;
+    //                 line-height: 10vw;
+    //             }
+    //         }
 
-            p {
-                font-size: 1vw;
-                padding: 3vw 0 0 0;
+    //         p {
+    //             font-size: 1vw;
+    //             padding: 3vw 0 0 0;
 
-                @media screen and (max-width: 768px) {
-                    font-size: 2.5vw;
-                }
-            }
-        }
+    //             @media screen and (max-width: 768px) {
+    //                 font-size: 2.5vw;
+    //             }
+    //         }
+    //     }
 
-        .image-box {
-            overflow: hidden;
+    //     .image-box {
+    //         overflow: hidden;
 
-            img {
-                width: 100%;
-            }
-        }
-    }
+    //         img {
+    //             width: 100%;
+    //         }
+    //     }
+    // }
 
     .we-do {
         width: 90vw;

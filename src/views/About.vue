@@ -1,5 +1,6 @@
 <script setup>
     import Footer from '@/components/Footer.vue';
+    import Hero from '@/components/Hero.vue';
     import { ref, onMounted } from 'vue';
     import { getImagesFromUnsplush } from '../components/modules/getImages';
 
@@ -14,6 +15,10 @@
 
     const imgArray = ref([]);
 
+    // content for hero section
+    const heroHeader = ref('Kim jesteśmy');
+    const heroContent = ref('Firma KanapkaMan powstała z pasji do nowych technologii. Do dzielenia<br>się naszą wiedzą. Do projektowania i tworzenia użytecznych i<br>nowoczesnych rozwiązań dla Was - naszych klientów.');
+
     onMounted(async () => {
         await getImagesFromUnsplush(1, imgArray.value);
     });
@@ -21,88 +26,12 @@
 </script>
 
 <template>
-    <section class="our-services">
-        <div class="desc-box">
-            <h1>Kim jesteśmy</h1>
-            <p>
-                Firma it-solve powstała z pasji do nowych technologii. Do dzielenia<br>
-                się naszą wiedzą. Do projektowania i tworzenia użytecznych i<br>
-                nowoczesnych rozwiązań dla Was - naszych klientów.
-            </p>
-        </div>
-        <div class="image-box">
-            <img v-bind:src="`${imgArray[0]}`" alt="">
-        </div>
-    </section>
-
-    <section class="we-do">
-        <div class="doing-box" v-for="doing in weDoing" v-bind:key="doing.id">
-            <div class="doing-box-header">
-                <img v-bind:src="`${doing.icon}`" alt="">
-                <h1>{{ doing.name }}</h1>
-            </div>
-            <p class="doing-desc">{{ doing.desc }}</p>
-            <div class="button">
-                <p>See more</p>
-                <div class="button-bg"></div>
-            </div>
-        </div>
-    </section>
+    <Hero :imgArray="imgArray" :header="heroHeader" :content="heroContent"/>
 
     <Footer></Footer>
 </template>
 
 <style scoped lang="scss">
-    .our-services {
-        width: 100vw;
-        height: 50vw;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
-        border-radius: 4vw 4vw 0 0;
-        overflow: hidden;
-
-        @media screen and (max-width: 768px) {
-            min-height: 150vw;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr;
-        }
-
-        .desc-box {
-            padding-left: 10vw;
-            padding-top: 10vw;
-            background: var(--sh-white);
-
-
-            h1 {
-                font-size: 4vw;
-                line-height: 4vw;
-
-                @media screen and (max-width: 768px) {
-                    font-size: 10vw;
-                    line-height: 10vw;
-                }
-            }
-
-            p {
-                font-size: 1vw;
-                padding: 3vw 0 0 0;
-
-                @media screen and (max-width: 768px) {
-                    font-size: 2.5vw;
-                }
-            }
-        }
-
-        .image-box {
-            overflow: hidden;
-
-            img {
-                width: 100%;
-            }
-        }
-    }
-
     .we-do {
         width: 90vw;
         height: auto;

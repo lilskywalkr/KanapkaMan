@@ -1,16 +1,16 @@
 <script setup>
-  import Hero from '@/components/Hero.vue';
-  import Projects from '@/components/Projects.vue';
-  import AboutUs from '@/components/AboutUs.vue';
-  import Contact from '@/components/Contact.vue';
+  import Greedings from '@/components/home/Greedings.vue';
+  import Projects from '@/components/home/Projects.vue';
+  import AboutUs from '@/components/home/AboutUs.vue';
+  import Contact from '@/components/home/Contact.vue';
   import Footer from '@/components/Footer.vue'
-  import Canvas from '@/components/Canvas.vue';
+  import Canvas from '@/components/home/Canvas.vue';
 </script>
 
 <template>
   
   <Canvas></Canvas>
-  <Hero />
+  <Greedings />
   <Projects/>
   <AboutUs />
   <Contact />

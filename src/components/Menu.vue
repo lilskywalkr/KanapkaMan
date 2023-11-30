@@ -4,7 +4,7 @@
     const menuText = ref([
             {id: 0, text: "Projects", link: 'projects'}, 
             {id: 1, text: "About us", link: 'about'}, 
-            {id: 2, text: "Contacts", link: 'contact'},
+            {id: 2, text: "Team", link: 'team'},
             {id: 3, text: "Services", link: "services"}
         ]);
     const burger = ref(null);
