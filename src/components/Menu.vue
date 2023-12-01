@@ -1,4 +1,5 @@
 <script setup>
+    import OpenMenu from './modules/OpenMenu.vue';
     import { ref } from 'vue';
 
     const menuText = ref([
@@ -14,8 +15,6 @@
         burger.value.classList.toggle('close');
         openMenu.value = !openMenu.value;
     }
-
-    import OpenMenu from './modules/OpenMenu.vue';
 </script>
 
 <template>
