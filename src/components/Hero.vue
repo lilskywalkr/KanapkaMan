@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <section class="our-services">
+    <section class="hero-container">
         <div class="desc-box">
             <h1 v-html="props.header"></h1>
             <p v-html="props.content"></p>
@@ -18,7 +18,7 @@
 
 
 <style lang="scss">
-    .our-services {
+    .hero-container {
         width: 100vw;
         height: 50vw;
         display: grid;
