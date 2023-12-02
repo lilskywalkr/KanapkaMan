@@ -10,15 +10,15 @@
 
         <div class="form-content">
             <form action="">
-                <input placeholder="Imię" type="text">
-                <input placeholder="Email" type="email">
-                <input placeholder="Telefonu" type="tel">
-                <input placeholder="Wiadomość" type="text">
+                <input :placeholder="$t('contactName')" type="text">
+                <input :placeholder="$t('contactEmail')" type="email">
+                <input :placeholder="$t('contactPhone')" type="tel">
+                <input :placeholder="$t('contactMessage')" type="text">
 
                 <button class="arrow-container">
                     <div class="arrow"></div>
                     <div class="go">
-                        <p>Wyślij swoją<br>wiadomość</p>
+                        <p v-html="$t('contactSendMessage')"></p>
                     </div>
                 </button>
             </form>

@@ -6,8 +6,13 @@ import { createI18n } from 'vue-i18n';
 import en from './locale/en.json';
 import pl from './locale/pl.json';
 
+if (!window.sessionStorage.getItem('locale')) {
+    window.sessionStorage.setItem('locale', 'en');
+}
+
 const i18n = createI18n({
-    locale: "en",
+    locale: window.sessionStorage.getItem('locale'),
+    legacy: false,
     messages: {
         en: en,
         pl: pl
@@ -25,5 +30,6 @@ library.add(fas, fab);
 createApp(App)
     .use(router)
     .use(i18n)
+    .provide('i18n', i18n)
     .component('fa', FontAwesomeIcon)
     .mount('#app')

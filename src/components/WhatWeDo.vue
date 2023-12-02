@@ -1,13 +1,16 @@
 <script setup>
     import { ref } from 'vue';
+    import { useI18n } from 'vue-i18n';
+
+    const { t } = useI18n(); 
 
     // content for "we-do" section
     const weDoing = ref([
-        {id: 0, name: 'Aplikacje webowe', icon: "../src/assets/web-development.svg", desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut turpis arcu. Ut quis efficitur nunc.'}, 
-        {id: 1, name: 'Aplikcaje mobilne', icon: "../src/assets/app-development.svg", desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut turpis arcu. Ut quis efficitur nunc.'}, 
-        {id: 2, name: 'Outsourcing', icon: "../src/assets/outsourcing.svg", desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut turpis arcu. Ut quis efficitur nunc.'},
-        {id: 3, name: 'Product Design', icon: "../src/assets/product-design.svg",  desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut turpis arcu. Ut quis efficitur nunc.'},
-        {id: 4, name: 'Hardware + software', icon: "../src/assets/hardware.svg", desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut turpis arcu. Ut quis efficitur nunc.'}
+        {id: 0, name: t('doingWebName'), icon: "../src/assets/web-development.svg", desc: t('doingWebDesc')}, 
+        {id: 1, name: t('doingMobName'), icon: "../src/assets/app-development.svg", desc: t('doingMobDesc')}, 
+        {id: 2, name: t('doingOutName'), icon: "../src/assets/outsourcing.svg", desc: t('doingOutDesc')},
+        {id: 3, name: t('doingDesignName'), icon: "../src/assets/product-design.svg",  desc: t('doingDesignDesc')},
+        {id: 4, name: t('doingHardSoftName'), icon: "../src/assets/hardware.svg", desc: t('doingHardSoftDesc')}
     ])
 </script>
 

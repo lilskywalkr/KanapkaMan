@@ -1,12 +1,16 @@
 <script setup>
     import OpenMenu from './modules/OpenMenu.vue';
-    import { ref } from 'vue';
+    import { ref, inject, onMounted } from 'vue';
+    import { useI18n } from 'vue-i18n';
+
+    const { t, locale } = useI18n(); 
+    const i18n = inject('i18n');
 
     const menuText = ref([
-            {id: 0, text: "Projects", link: 'projects'}, 
-            {id: 1, text: "About us", link: 'about'}, 
-            {id: 2, text: "Team", link: 'team'},
-            {id: 3, text: "Services", link: "services"}
+            {id: 0, text: t('menuProjects'), link: 'projects'}, 
+            {id: 1, text: t('menuAbout'), link: 'about'}, 
+            {id: 2, text: t('menuTeam'), link: 'team'},
+            {id: 3, text: t('menuServices'), link: "services"}
         ]);
     const burger = ref(null);
     const openMenu = ref(false);
@@ -14,6 +18,15 @@
     function changeBurgerClass() {
         burger.value.classList.toggle('close');
         openMenu.value = !openMenu.value;
+    }
+
+    // creating reactive variable for locale value
+    const sessionLocale = ref(window.sessionStorage.getItem('locale'));
+
+    // handling the locale change
+    function changeLocale() {
+        window.sessionStorage.setItem('locale', sessionLocale.value)
+        window.location.reload()
     }
 </script>
 
@@ -36,6 +49,12 @@
                         </router-link>
                     </li>
                 </ul>
+                <div class="language">
+                    <select name="language" id="lang" v-model="sessionLocale" @change="changeLocale">
+                        <option value="en">🇬🇧</option>
+                        <option value="pl">🇵🇱</option>
+                    </select>
+                </div>
                 <div class="burger-container" @click="changeBurgerClass">
                     <div class="burger" ref="burger"></div>
                 </div>
@@ -217,6 +236,23 @@
                                 }
                             }
                         }
+                    }
+                }
+
+                #lang {
+                    width: 4vw;
+                    height: 4vw;
+                    display: block;
+                    background: transparent;
+                    border: none;
+                    color: var(--sh-white);
+                    font-size: 2vw;
+                    transform: translate(-3.5vw, -0.3vw);
+
+                    @media screen and (max-width: 768px) {
+                        width: 10vw;
+                        height: 5vw;
+                        font-size: 4vw;
                     }
                 }
             }

@@ -1,5 +1,9 @@
 <script setup>
     import { ref, onMounted } from 'vue';
+    import { useI18n } from 'vue-i18n';
+
+    const { t } = useI18n(); 
+
     // Importing custom function that fetches images from unsplush api
     import { getImagesFromUnsplush } from '../modules/getImages.js'
 
@@ -14,7 +18,7 @@
 <template>
     <div class="hero-container" id="hero">
         <div id="hero-text-content-1">
-            <p>Welcome to</p>
+            <p>{{ $t('welcomeTo') }}</p>
             <h1>KanapkaMan<br>Software <span>House</span></h1>
         </div>
 
@@ -25,23 +29,24 @@
         </div>
 
         <div id="hero-text-content-3">
-            <p>Place where well-crafted <br>software projects are born.</p>
+            <p v-html="$t('placeWhere')"></p>
             <div class="subscribe">
                 <div class="image-circle" v-bind:style="{backgroundImage: `url(${imgArray[1]})`}">
-                    <p><span>Our</span><br>newsletter</p>
+                    <!-- <p><span>Our</span><br>newsletter</p> -->
+                    <p v-html="$t('ourNewsletter')"></p>
                 </div>
                 <div class="button">
-                    <p>Subscribe</p>
+                    <p>{{ $t("subscribe") }}</p>
                     <div class="button-bg"></div>
                 </div>
             </div>
         </div>
 
         <div id="hero-text-content-4">
-            <h1><i>Of</i> digital <br>aesthetics</h1>
+            <h1 v-html="$t('ofDigitalAesthetics')"></h1>
             <div class="bottom-text">
-                <p>We produce</p>
-                <p>digital & <br>brand design</p>
+                <p>{{ $t('weProduce') }}</p>
+                <p v-html="$t('digitalAndBrandDesign')"></p>
             </div>
         </div>
     </div>

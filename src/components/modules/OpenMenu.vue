@@ -19,20 +19,21 @@
     <div class="open-menu-container" v-if="openMenu">
         <div class="menu-left">
             <div class="content-box">
-                <p>Hello stranger!<br>So, you need some beautiful solutions for your business? Great! We're here to help you! Tell us what are you looking for. </p>
-                <p>hello@fiddle.digital</p>
+                <!-- <p>Hello stranger!<br>So, you need some beautiful solutions for your business? Great! We're here to help you! Tell us what are you looking for. </p> -->
+                <p v-html="$t('helloStranger')"></p>
+                <p>hello@kanapka.digital</p>
                 <p>+48 001 002 003</p>
             </div>
         </div>
         <div class="menu-right">
             <div class="links">
-                <a href="#projects" @click="handleClicking" ><span>Juicy<br>things</span>Projects</a>
-                <a href="#about" @click="handleClicking">About us<span>Coffe<br>time</span></a>
-                <a href="#contact" @click="handleClicking"><span>Good<br>company</span>Contact</a>
-                <a href="#services" @click="handleClicking"><span>No<br>Sandwiches</span>Services</a>
+                <a href="#projects" @click="handleClicking" ><span>Juicy<br>things</span>{{ $t('menuProjects') }}</a>
+                <a href="#about" @click="handleClicking">{{ $t('menuAbout') }}<span>Coffe<br>time</span></a>
+                <a href="#team" @click="handleClicking"><span>Good<br>company</span>{{ $t('menuTeam') }}</a>
+                <a href="#services" @click="handleClicking"><span>No<br>Sandwiches</span>{{ $t('menuServices') }}</a>
             </div>
             <div class="socials">
-                <p>Follow us</p>
+                <p>{{ $t('followUs') }}</p>
                 <ul>
                     <li v-for="(icon, index) in icons" v-bind:key="index">
                         <a href="#"><fa class="icon" v-bind:icon="['fab', `${icon}`]"/></a>

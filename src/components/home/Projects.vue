@@ -41,11 +41,11 @@
 <template>
     <div class="projects-container" id="projects">
         <div class="upper-header">
-            <h1>Selected</h1>
+            <h1>{{ $t('selected') }}</h1>
             <div class="arrow-container">
                 <div class="arrow"></div>
                 <div class="go">
-                    <p>Go</p>
+                    <p>{{ $t('go') }}</p>
                 </div>
             </div>
         </div>

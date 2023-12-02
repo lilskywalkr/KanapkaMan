@@ -5,6 +5,9 @@
     import WhatWeDo from '@/components/WhatWeDo.vue';
     import { ref, onMounted } from 'vue';
     import { getImagesFromUnsplush } from '../components/modules/getImages';
+    import { useI18n } from 'vue-i18n';
+
+    const { t } = useI18n(); 
 
     import SwiperCore from 'swiper';
 
@@ -37,11 +40,11 @@
     ]);
 
     // content for "starting-from" section
-    const startingFrom = ref([
-        {id: 0, name: "Zapytanie biznesowe", icon: "../src/assets/bidness_qna_white.svg", desc: "Na początku przeprowadzamy wstępną analizę biznesową, której celem jest dogłębne zrozumienie Twoich potrzeb. Proponujemy spotkanie, gdzie zapoznamy się z Twoimi celami, problemami i głównym celem oprogramowania. Posiadasz kod lub aplikację? Na tym etapie możemy je poddać analizie."},
-        {id: 1, name: "Warsztaty projektowe", icon: "../src/assets/meeting_white.svg", desc: "Następnym etapem jest organizacja warsztatów projektowych. Jesteśmy elastyczni, stąd Ty zadecydujesz czy odbędą się u nas czy w Twojej firmie. Podczas zajęć wyszczególniamy zakres prac, dobierzemy zespół do Twoich wymagań, a także dołączymy opiekuna projektu (reprezentanta, który w każdym momencie będzie reprezentował Twoją firmę). W tym momencie ustalimy wszystkie szczegóły projektu i zaczynamy współpracę."},
-        {id: 2, name: "Rozwój oprogramowania", icon: "../src/assets/software_dev_white.svg", desc: "To najważniejszy moment podczas tworzenia Twojego programu. Projekt zostanie rozdzielony na dwutygodniowe sprinty. Po każdym z nich dostaniesz aplikację do sprawdzenia i zatwierdzenia. W tym momencie Twoja drużyna może zostać rozwinięta o grafika i testerów. Wszystko zależy od zapotrzebowania."},
-        {id: 3, name: "Wsparcie i dalszy rozwój projektu", icon: "../src/assets/support_white.svg",  desc: "Nie jesteśmy jedną z firm porzucających swoich klientów po zakończeniu projektów. Oferujemy długofalową współpracę. Jeśli oczekujesz pomocy technologicznej, zapewnimy Ci zespół. Zapewniamy wszystko co będzie niezbędne do rozwoju Twojego projektu, w tym dostosowanie go do nowych wersji systemów czy przeglądarek oraz tworzenie nowych funkcji."}
+    const startFrom = ref([
+        {id: 0, name: t('startFromQueriesName'), icon: "../src/assets/bidness_qna_white.svg", desc: t('startFromQueriesDesc')},
+        {id: 1, name: t('startFromWorkshopName'), icon: "../src/assets/meeting_white.svg", desc: t('startFromWorkshopDesc')},
+        {id: 2, name: t('startFromSoftName'), icon: "../src/assets/software_dev_white.svg", desc: t('startFromSoftDesc')},
+        {id: 3, name: t('startFromSupportName'), icon: "../src/assets/support_white.svg",  desc: t('startFromSupportDesc')}
     ])
 
     // client array
@@ -53,21 +56,17 @@
 
     const imgArray = ref([]);
 
-    // content for hero section
-    const heroHeader = ref('Usługi<br>programistyczne<br>dla firm');
-    const heroContent = ref("Wytwarzamy oprogramowanie rozwiązujące potrzeby<br>użytkowników a dzięki naszemu doświadczeniu, zajmuje ono solidną<br>pozycję na rynku. Ogromna pasja oraz precyzja sprawiają, że<br>pisany przez nas kod jest czysty i bardzo wysokiej jakości. Dzięki<br>temu, jest on łatwy do zrozumienia, utrzymania i rozszerzania przez<br>inne zespoły programistyczne.");
-
     onMounted(async () => {
         await getImagesFromUnsplush(1, imgArray.value);
     });
 </script>
 
 <template>
-    <Hero :imgArray="imgArray" :header="heroHeader" :content="heroContent"/>
+    <Hero :imgArray="imgArray" :header="$t('servicesHeroHeader')" :content="$t('servicesHeroContent')"/>
     <WhatWeDo />
 
     <section class="technologies">
-        <h1>Technologie jakie używamy</h1>
+        <h1>{{ $t('techWeUse') }}</h1>
         <div class="boxes-container">
             <div class="boxes" v-for="technology in technologies" v-bind:key="technology.id">
                 <img v-bind:src="`${technology.icon}`" alt="">
@@ -76,10 +75,10 @@
     </section>
 
     <section class="starting-from">
-        <h1>Od czego zaczynamy</h1>
+        <h1>{{ $t('startFromWhere') }}</h1>
 
         <div class="boxes-container">
-            <div class="boxes" v-for="start in startingFrom" v-bind:key="start.id">
+            <div class="boxes" v-for="start in startFrom" v-bind:key="start.id">
                 <img v-bind:src="`${start.icon}`" alt="">
                 <h3>{{ start.name }}</h3>
                 <p>{{ start.desc }}</p>
@@ -88,7 +87,7 @@
     </section>
 
     <section class="our-clients">
-        <h1>Nasi klienci</h1>
+        <h1>{{t('ourClientsServices')}}</h1>
 
         <swiper
             :modules="modules"
@@ -246,6 +245,7 @@
                 h3 {
                     color: var(--sh-white);
                     font-size: 2vw;
+                    text-align: center;
 
                     @media screen and (max-width: 768px) {
                         font-size: 3vw;

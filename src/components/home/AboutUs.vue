@@ -1,10 +1,13 @@
 <script setup>
     import {ref} from 'vue';
+    import { useI18n } from 'vue-i18n';
+
+    const { t } = useI18n(); 
 
     const aboutUsContent = ref([
-        {id: 0, text: 'Our clients get industry leading digital products, all looking into the future. Years pass by and designs we provide are still worthy.'},
-        {id: 1, text: 'We make it possible as 10+ years experience in digital world doesn’t go unnoticed.'},
-        {id: 2, text: 'Gathering the best talents — engineers in minds helps us craft the best thought-out solutions.'}
+        {id: 0, text: t('ourClientsHome')},
+        {id: 1, text: t('weMake')},
+        {id: 2, text: t('gathering')}
     ]);
 
     
@@ -14,11 +17,11 @@
     <div class="about-container" id="about">
         <div class="about-upper">
             <div class="upper-one">
-                <h2>We empower<br>client <span>to be loved</span></h2>
+                <h2 v-html="$t('weEmpower')"></h2>
             </div>
             <div class="upper-two">
-                <p><span>We deliver</span> <span>what we promise</span></p>
-                <p>Engaging user experience, classy<br>web design & development, unique<br>brand identity solutions to shine.</p>
+                <p v-html="$t('weDeliver')"></p>
+                <p v-html="$t('engagingUser')"></p>
             </div>
         </div>
         <div class="about-lower">
@@ -28,7 +31,7 @@
         </div>
 
         <div class="about-team">
-            <p>Our team puts client's<br>business needs above all, and <br>by saying that <span class="gradient-text">we make communication with <br><span class="last-line">clients the priority number one.</span></span></p>
+            <p v-html="$t('ourTeam')"></p>
         </div>
     </div>
 </template>
@@ -128,6 +131,7 @@
             @media screen and (max-width: 768px) {
                 width: 90vw;
                 flex-flow: column nowrap;
+                padding: 0 3vw 0 0;
             }
 
             .lower-content {
@@ -173,7 +177,7 @@
                         padding-left: 12vw;
 
                         @media screen and (max-width: 768px) {
-                            padding-left: 20vw;
+                            padding-left: 10vw;
                         }
                     }
                 }

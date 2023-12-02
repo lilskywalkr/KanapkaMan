@@ -1,15 +1,18 @@
 <script setup>
     import {ref} from 'vue';
+    import { useI18n } from 'vue-i18n';
 
-    const footerContent = ref([{id: 0, text: 'Startup companies'}, {id: 1, text: 'E-commerce'}, {id: 2, text: 'Premium products'}]);
+    const { t } = useI18n(); 
+
+    const footerContent = ref([{id: 0, text: t('startup')}, {id: 1, text: t('eCommerce')}, {id: 2, text: t('premium')}]);
 </script>
 
 <template>
     <div class="footer-container">
         <div class="footer-upper">
-            <p>Need a software?</p>
+            <p>{{ $t('needSoftware') }}</p>
             <div class="button">
-                <p>Become a client</p>
+                <p>{{ $t('becomeClient') }}</p>
                 <div class="button-bg"></div>
             </div>
         </div> 
