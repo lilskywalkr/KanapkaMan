@@ -27,7 +27,7 @@
     </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
     .footer-container {
         width: 100vw;
         height: 70vw;

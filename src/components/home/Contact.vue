@@ -19,7 +19,7 @@
     </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
     .contact-container {
         width: 120vw;
         height: 50vw;

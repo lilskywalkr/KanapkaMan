@@ -23,14 +23,14 @@
             </div>
             <p class="doing-desc">{{ doing.desc }}</p>
             <div class="button">
-                <p>See more</p>
+                <p>{{ $t('seeMore') }}</p>
                 <div class="button-bg"></div>
             </div>
         </div>
     </section>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
     .we-do {
         width: 90vw;
         height: auto;

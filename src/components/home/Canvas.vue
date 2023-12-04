@@ -126,7 +126,7 @@
     <canvas ref="canvas"></canvas>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
     canvas {
         position: fixed;
         left: 50%;

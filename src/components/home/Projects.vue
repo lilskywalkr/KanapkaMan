@@ -68,7 +68,7 @@
     </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
     .projects-container {
         width: 90vw;
         height: 55vw;

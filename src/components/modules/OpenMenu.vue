@@ -44,7 +44,7 @@
     </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
     .open-menu-container {
         width: 100vw;
         height: 100vh;

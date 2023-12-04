@@ -44,6 +44,7 @@
     "doingDesignDesc": "Our services include product workshops, product strategy development as well as the creation of closed trainings",
     "doingHardSoftName": "QA & software testing",
     "doingHardSoftDesc": "Our services include quality consulting and audit, full cycle application testing, test automation and independent testing.",
+    "seeMore": "See more",
 
     "startFromWhere": "Where do we start from",
     "startFromQueriesName": "Business inquiry",
@@ -64,5 +65,10 @@
     "contactSendMessage": "Send your<br>message",
 
     "aboutHeroHeader": "Who we are",
-    "aboutHeroContent": "IT-SOLVE was founded out of passion for new technologies. To share our knowledge with pashion and to design and create useful as well as modern solutions for you- our clients."
+    "aboutHeroContent": "IT-SOLVE was founded out of passion for new technologies. To share our knowledge with pashion and to design and create useful as well as modern solutions for you- our clients.",
+
+    "weDoHeader": "What we do<br>at KanapkaMan Software <br>House",
+    "weDoContent": "Every day we create software that solves the needs of users and finds its pernament place on the market. Each line of code is created with precision and great passion. This allows us to write clean, high- quality code that is easy for other programmers to understand, maintain and extend.",
+    "ourMissionHeader": "Out mission<br>at KanapkaMan <br>Software<br>House",
+    "ourMissionContent": "Our mission is to transform your idea into a useful, well- designed, sucessful product. We will guide you through a difficult beginning, which is the implementation of your idea, we will introduce it to the market and support you  afterwards."
 }

@@ -17,7 +17,7 @@
 </template>
 
 
-<style lang="scss">
+<style scoped lang="scss">
     .hero-container {
         width: 100vw;
         height: 50vw;

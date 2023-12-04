@@ -26,7 +26,7 @@
     </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
     .contact-form-container {
         width: 100vw;
         height: auto;
