@@ -1,16 +1,12 @@
 <script setup>
-    import { ref, onMounted } from 'vue';
+    import { ref, onMounted, defineProps } from 'vue';
     import { useI18n } from 'vue-i18n';
 
     // Importing custom function that fetches images from unsplush api
     import { getImagesFromUnsplush } from '../modules/getImages.js'
 
-    // random image url
-    const imgArray = ref([]);
-
-    onMounted(async () => {
-        await getImagesFromUnsplush(1, imgArray.value);
-    })
+    // getting the array of images through props
+    const props = defineProps(['imgArray']);
 </script>
 
 <template>
@@ -21,7 +17,7 @@
                 <img src="../../assets/light-bulb_white.svg" alt="light bulb" class="light-bulb">
                 <p class="we-doing-content">{{ $t('weDoContent') }}</p>
             </div>
-            <div v-bind:style="{backgroundImage: `url(${imgArray[0]})`}" class="we-doing-img"></div>
+            <div v-bind:style="{backgroundImage: `url(${props.imgArray[1]})`}" class="we-doing-img"></div>
         </div>
 
         <div class="our-mission-section">
@@ -40,7 +36,7 @@
         height: auto;
         margin: auto;
         // border: 1px solid var(--sh-white);
-        padding: 5vw 0;
+        padding: 5vw 0 10vw 0;
 
         @media screen and (max-width: 768px) {
             width: 100vw;
@@ -54,6 +50,10 @@
             .we-doing{
                 position: relative;
                 transform: translate(0, 10vw);
+
+                @media screen and (max-width: 768px) {
+                    padding-left: 6vw;
+                }
 
                 h2 {
                     background: linear-gradient(70deg,#a166ed,#5777ff);

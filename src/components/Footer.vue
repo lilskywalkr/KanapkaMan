@@ -77,7 +77,7 @@
                 z-index: 0;
 
                 @media screen and (max-width: 768px) {
-                    width: 20vw;
+                    width: 25vw;
                     height: 7vw;
                 }
 

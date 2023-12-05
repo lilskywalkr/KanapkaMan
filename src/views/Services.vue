@@ -227,13 +227,6 @@
                     height: 30vw;
                 }
 
-
-                @media screen and (min-width: 769px) {
-                    &:nth-child(1), &:nth-child(2) {
-                        border-bottom: 0.2vw solid var(--sh-white);
-                    }   
-                }
-
                 img {
                     width: 3vw;
 

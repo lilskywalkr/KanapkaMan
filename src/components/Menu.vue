@@ -74,7 +74,7 @@
         display: flex;
         font-size: 1.8vw;
         padding: 2vw 0;
-        z-index: 1;
+        z-index: 4;
         .content {
             width: 100%;
             height: 100%;
