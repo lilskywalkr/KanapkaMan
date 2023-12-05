@@ -98,7 +98,7 @@
         .office-2 {
             width: 70vw;
             height: auto;
-            padding: 10vw 0;
+            padding: 3vw 0 10vw 0;
             display: flex;
             flex-flow: column nowrap;
             align-items: end;
