@@ -30,6 +30,10 @@
         flex-flow: row wrap;
         gap: 5vw 10vw;
 
+        @media screen and (max-width: 768px) {
+            // padding: 10vw 5vw;
+        }
+
         .person-box {
             width: auto;
             height: auto;
@@ -42,8 +46,15 @@
                 border-radius: 10vw;
                 background-position: center;
                 background-size: contain;
+                margin: auto;
 
                 background: white;
+
+                @media screen and (max-width: 768px) {
+                    width: 25vw;
+                    height: 25vw;
+                    border-radius: 20vw;
+                }
             }
 
             .person-desc {
@@ -53,10 +64,18 @@
 
                 h1 {
                     font-size: 1.5vw;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 3.5vw;
+                    }
                 }
 
                 p {
                     font-size: 1vw;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 2.5vw;
+                    }
                 }
             }
         }

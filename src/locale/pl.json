@@ -14,7 +14,7 @@
     "ourNewsletter": "<span style='color: #5777ff'>Nasz</span><br>newsletter",
     "subscribe": "Zasubskrybuj",
     "selected": "Wybrane",
-    "go": "Sprójrz",
+    "go": "Go",
     "weEmpower": "Wzmocniamy klientów<br> <span>aby byli kochani</span>",
     "weDeliver": "<span>Dostarczamy</span> <span>to co obiecujemy</span>",
     "engagingUser": "Zachęcające doświadczenie <br>użytkownika, elegancki projekt<br> i rozwój strony internetowej, <br>unikalne rozwiązania tożsamości marki, aby być rozpoznawalnym.",
@@ -57,6 +57,7 @@
 
     "ourClientsServices": "Nasi klienci",
 
+    "contactHeader": "Contact us",
     "contactName": "Imię",
     "contactEmail": "Email",
     "contactPhone": "Telefonu",

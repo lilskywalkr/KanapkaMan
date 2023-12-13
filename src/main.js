@@ -5,6 +5,8 @@ import router from '@/plugins/router'
 import { createI18n } from 'vue-i18n';
 import en from './locale/en.json';
 import pl from './locale/pl.json';
+import ua from './locale/ua.json';
+import ru from './locale/ru.json';
 
 if (!window.sessionStorage.getItem('locale')) {
     window.sessionStorage.setItem('locale', 'en');
@@ -15,7 +17,9 @@ const i18n = createI18n({
     legacy: false,
     messages: {
         en: en,
-        pl: pl
+        pl: pl,
+        ua: ua,
+        ru: ru
     }
 });
 

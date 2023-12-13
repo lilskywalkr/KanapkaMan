@@ -53,6 +53,8 @@
                     <select name="language" id="lang" v-model="sessionLocale" @change="changeLocale">
                         <option value="en">🇬🇧</option>
                         <option value="pl">🇵🇱</option>
+                        <option value="ua">🇺🇦</option>
+                        <option value="ru">🇷🇺</option>
                     </select>
                 </div>
                 <div class="burger-container" @click="changeBurgerClass">

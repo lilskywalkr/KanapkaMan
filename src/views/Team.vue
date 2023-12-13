@@ -2,6 +2,7 @@
     import Hero from '@/components/Hero.vue';
     import Footer from '@/components/Footer.vue';
     import People from '@/components/team/People.vue';
+    import ContactForm from '@/components/ContactForm.vue';
     import { ref, onMounted } from 'vue';
     import { getImagesFromUnsplush } from '../components/modules/getImages';
     
@@ -24,6 +25,7 @@
 <template>
     <Hero :imgArray="imgArray" :header="$t('ourTeamHeroHeader')" :content="$t('ourTeamHeroContent')"/>
     <People :imgArray="imgArray" :names="names" :desc="descs" />
+    <ContactForm />
 
     <Footer></Footer>
 </template>

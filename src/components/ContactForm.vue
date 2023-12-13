@@ -5,7 +5,7 @@
 <template>
     <div class="contact-form-container">
         <div class="header-cont">
-            <h1>Kontakt z nami</h1>
+            <h1>{{ $t('contactHeader') }}</h1>
         </div>
 
         <div class="form-content">

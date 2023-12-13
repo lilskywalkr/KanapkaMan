@@ -1,6 +1,7 @@
 <script setup>
     import Footer from '@/components/Footer.vue';
     import Hero from '@/components/Hero.vue';
+    import ContactForm from '@/components/ContactForm.vue';
     import WhatWeDo from '@/components/WhatWeDo.vue';
     import OurMission from '@/components/about/OurMission.vue';
     import OurOffices from '@/components/about/OurOffices.vue';
@@ -23,6 +24,8 @@
     <OurMission :imgArray="imgArray" />
     <OurOffices :imgArray="imgArray" />
     <OurClients :imgArray="imgArray" />
+    
+    <ContactForm />
 
     <Footer></Footer>
 </template>
