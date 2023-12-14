@@ -57,7 +57,8 @@
 
     "ourClientsServices": "Nasi klienci",
 
-    "contactHeader": "Contact us",
+    "contactTopic": "Temat",
+    "contactHeader": "Skontaktujmy się",
     "contactName": "Imię",
     "contactEmail": "Email",
     "contactPhone": "Telefonu",

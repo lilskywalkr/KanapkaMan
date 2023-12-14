@@ -13,6 +13,7 @@
                 <input :placeholder="$t('contactName')" type="text">
                 <input :placeholder="$t('contactEmail')" type="email">
                 <input :placeholder="$t('contactPhone')" type="tel">
+                <input :placeholder="$t('contactTopic')" type="text">
                 <input :placeholder="$t('contactMessage')" type="text">
 
                 <button class="arrow-container">
@@ -58,7 +59,7 @@
         }
 
         .form-content {
-            width: 45vw;
+            width: 55vw;
             height: auto;
             padding: 2vw 0 0 0;
 
@@ -70,7 +71,7 @@
                 width: 100%;
                 height: 100%;
                 display: flex;
-                justify-content: flex-start;
+                justify-content: center;
                 gap: 1vw;
                 flex-flow: row wrap;
 
@@ -88,10 +89,18 @@
                         padding: 7vw 4vw 3vw 3vw;
                         font-size: 2.5vw;
                     }
+
+                    &:nth-of-type(5) {
+                        margin-right: 21vw;
+
+                        @media screen and (max-width: 768px) {
+                            margin-right: 36vw;
+                        }
+                    }
                 }
 
                 .arrow-container {
-                    width: 20vw;
+                    width: 40vw;
                     height: 20vw;
                     border: none;
                     border-radius: 10vw;
@@ -101,11 +110,11 @@
                     justify-items: center;
                     cursor: pointer;
                     position: relative;
-                    transform: translate(35vw, 0);
+                    transform: translate(0vw, 5vw);
                     overflow: hidden;
 
                     @media screen and (max-width: 768px) {
-                        transform: translate(60vw, 2vw);
+                        transform: translate(0, 6vw);
                     }
 
                     .arrow {
@@ -137,10 +146,10 @@
                     }
 
                     .go {
-                        width: 50%;
-                        height: 50%;
+                        width: 100%;
+                        height: 200%;
                         background: var(--sh-white);
-                        border-radius: 5vw;
+                        border-radius: 50vw;
                         display: grid;
                         justify-items: center;
                         align-items: center;
@@ -148,7 +157,7 @@
                         font-weight: bold;
                         font-size: 1vw;
                         position: absolute;
-                        transform: translate(0, 16vw);
+                        transform: translate(0, 30vw);
                         transition: all .4s cubic-bezier(.23,1,.32,1);
 
                         @media screen and (max-width: 768px) {

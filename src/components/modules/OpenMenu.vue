@@ -112,7 +112,7 @@
                 a {
                     display: block;
                     overflow: hidden;
-                    font-size: 7vw;
+                    font-size: 5vw;
                     color: var(--sh-pink);
                     transition: all .6s cubic-bezier(.23,1,.32,1);
                     border-radius: 2vw;
@@ -135,14 +135,25 @@
                         background: var(--sh-black);
                         color: var(--sh-blue);
                     }
-                }
 
-                span:nth-of-type(1) {
-                    transform: translate(-5vw, 1vw);
-                    color: var(--sh-pink);
+                    &:nth-of-type(1), &:nth-of-type(3) {
+                        span {
+                            transform: translate(-4vw, 1vw);
 
-                    @media screen and (max-width: 768px) {
-                        transform: translate(-6vw, -5vw);
+                            @media screen and (max-width: 768px) {
+                                transform: translate(-6vw, -5vw);
+                            }
+                        }
+                    }
+
+                    &:nth-of-type(4) {
+                        span {
+                            transform: translate(-6vw, 1vw);
+
+                            @media screen and (max-width: 768px) {
+                                transform: translate(-6vw, -5vw);
+                            }
+                        } 
                     }
                 }
             }
