@@ -7,7 +7,7 @@
     const i18n = inject('i18n');
 
     const menuText = ref([
-            {id: 0, text: t('menuProjects'), link: 'projects'}, 
+            {id: 0, text: t('menuBlog'), link: 'blog'}, 
             {id: 1, text: t('menuAbout'), link: 'about'}, 
             {id: 2, text: t('menuTeam'), link: 'team'},
             {id: 3, text: t('menuServices'), link: "services"}

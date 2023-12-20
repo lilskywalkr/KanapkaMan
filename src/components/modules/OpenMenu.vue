@@ -27,7 +27,7 @@
         </div>
         <div class="menu-right">
             <div class="links">
-                <a href="#projects" @click="handleClicking" ><span>Juicy<br>things</span>{{ $t('menuProjects') }}</a>
+                <a href="#blog" @click="handleClicking" ><span>Juicy<br>things</span>{{ $t('menuBlog') }}</a>
                 <a href="#about" @click="handleClicking">{{ $t('menuAbout') }}<span>Coffe<br>time</span></a>
                 <a href="#team" @click="handleClicking"><span>Good<br>company</span>{{ $t('menuTeam') }}</a>
                 <a href="#services" @click="handleClicking"><span>No<br>Sandwiches</span>{{ $t('menuServices') }}</a>

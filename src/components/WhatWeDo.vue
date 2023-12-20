@@ -131,9 +131,9 @@
                     background: var(--sh-white);
                     z-index: 0;
                     transition: all 1s cubic-bezier(.23,1,.32,1);
-                    transform: translate(0, 150%);
+                    transform: translate(0, 95%);
 
-                    @media screen {
+                    @media screen and (max-width: 768px) {
                         width: 12vw;
                         height: 12vw;
                     }
