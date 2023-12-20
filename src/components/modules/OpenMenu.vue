@@ -104,6 +104,7 @@
             .links {
                 border-bottom: 0.2vw solid var(--sh-black);
                 padding-bottom: 2vw;
+                text-align: center;
 
                 @media screen and (max-width: 768px) {
                     border-bottom: 0.3vw solid var(--sh-black);
