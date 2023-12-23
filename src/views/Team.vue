@@ -9,10 +9,6 @@
 
     const imgArray = ref([]);
 
-    // content for hero section component
-    const heroHeader = ref('');
-    const heroContent = ref('')
-
     onMounted(async () => {
         await getImagesFromUnsplush(7, imgArray.value);
     });

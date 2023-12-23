@@ -11,7 +11,7 @@
   
   <Canvas></Canvas>
   <Greedings />
-  <Projects/>
+  <Projects />
   <AboutUs />
   <Contact />
 
