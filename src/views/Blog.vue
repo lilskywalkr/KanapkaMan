@@ -1,26 +1,23 @@
 <script setup>
     import Footer from '@/components/Footer.vue';
     import BlogPost from '@/components/blog/BlogPost.vue';
-    import ContactForm  from '@/components/ContactForm.vue';
+    import ContactForm from '@/components/ContactForm.vue';
     import { getBlogs } from '../firebase';
     import { ref, onMounted, computed } from 'vue';
-    import { useI18n } from 'vue-i18n';
 
     // array for blogs
     const blogs = ref([]);
-    const pageSize = 1; // Number of blogs per page
+    const pageSize = 6; // Number of blogs per page
     const currentPage = ref(1);
 
     async function gettingBlogs() {
-        blogs.value =  await getBlogs();
-        console.log(blogs.value)
+        blogs.value = await getBlogs();
+        console.log(blogs.value);
     }
-
-    gettingBlogs();
 
     onMounted(async () => {
         await gettingBlogs();
-    })
+    });
 
     // Compute the visible blogs based on the current page
     const visibleBlogs = computed(() => {
@@ -38,6 +35,13 @@
             currentPage.value++;
         }
     };
+
+    // Method to load the previous page
+    const loadPreviousPage = () => {
+      if (currentPage.value > 1) {
+        currentPage.value--;
+      }
+    };
 </script>
 
 <template>
@@ -47,35 +51,35 @@
         </header>
 
         <div class="blogs">
-            <BlogPost v-for="(blog, index) in blogs" :key="index" 
-                :title="blog.title" 
-                :author="blog.author" 
-                :time="blog.time" 
-                :date="blog.date" 
-                :desc="blog.desc" 
-            />
-
-            <BlogPost v-for="(blog, index) in blogs" :key="index" 
-                :title="blog.title" 
-                :author="blog.author" 
-                :time="blog.time" 
-                :date="blog.date" 
-                :desc="blog.desc" 
-            />
-
-            <BlogPost v-for="(blog, index) in blogs" :key="index" 
-                :title="blog.title" 
-                :author="blog.author" 
-                :time="blog.time" 
-                :date="blog.date" 
-                :desc="blog.desc" 
+            <BlogPost
+                v-for="(blog, index) in visibleBlogs"
+                :key="index"
+                :title="blog.title"
+                :author="blog.author"
+                :time="blog.time"
+                :date="blog.date"
+                :desc="blog.desc"
             />
         </div>
 
         <div v-if="totalPages > 1" class="pagination">
-            <button @click="loadNextPage" :disabled="currentPage === totalPages">
-                Next Page
+            <button @click="loadPreviousPage" :disabled="currentPage === totalPages / totalPages" class="arrow-container">
+                <div class="arrow" id="arrow_1"></div>
+                <div class="go">
+                    <p>{{ $t('go') }}</p>
+                </div>
             </button>
+
+            <p class="page-number">{{ currentPage }}</p>
+
+            <button @click="loadNextPage" :disabled="currentPage === totalPages" class="arrow-container">
+                <div class="arrow" id="arrow_2"></div>
+                <div class="go">
+                    <p>{{ $t('go') }}</p>
+                </div>
+            </button>
+            <!-- <button @click="loadPreviousPage" :disabled="currentPage === totalPages / totalPages">Prev Page</button>
+            <button @click="loadNextPage" :disabled="currentPage === totalPages">Next Page</button> -->
         </div>
     </div>
 
@@ -108,6 +112,137 @@
             flex-flow: row wrap;
             justify-content: space-around;
             // gap: 3vw;
+        }
+
+        .pagination {
+            width: 100%;
+            margin-top: 5vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5vw;
+
+            @media screen and (max-width: 768px) {
+                margin-top: 10vw;
+            }
+
+            .page-number {
+                font-size: 2vw;
+                color: var(--sh-blue);
+
+                @media screen and (max-width: 768px) {
+                    font-size: 5vw;
+                }
+            }
+
+            .arrow-container {
+                width: 4vw;
+                height: 4vw;
+                border-radius: 4vw;
+                border: none;
+                background: var(--sh-blue);
+                display: grid;
+                align-items: center;
+                justify-items: center;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+
+                @media screen and (max-width: 768px) {
+                    width: 8vw;
+                    height: 8vw;
+                }
+
+                .arrow {
+                    width: 2vw;
+                    height: 0.1vw;
+                    background: var(--sh-white);
+                    transition: all .6s cubic-bezier(.23,1,.32,1);
+
+                    @media screen and (max-width: 768px) {
+                        width: 3vw;
+                        height: 0.2vw;
+                    }
+
+                    &::before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        width: 1.5vw;
+                        height: 0.1vw;
+                        background: var(--sh-white);
+                        transform: translate(0.8vw, -0.5vw) rotate(45deg);
+
+                        @media screen and (max-width: 768px) {
+                            width: 2.5vw;
+                            height: 0.2vw;
+                            transform: translate(1vw, -0.8vw) rotate(45deg);
+                        }
+                    }
+
+                    &::after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        width: 1.5vw;
+                        height: 0.1vw;
+                        background: var(--sh-white);
+                        transform: translate(0.8vw, 0.5vw) rotate(-45deg);
+
+                        @media screen and (max-width: 768px) {
+                            width: 2.5vw;
+                            height: 0.2vw;
+                            transform: translate(1vw, 0.8vw) rotate(-45deg);
+                        }
+                    }
+                }
+
+                #arrow_1 {
+                    transform: rotate(-180deg);
+                }
+
+                #arrow_2 {
+                    transform: rotate(0deg);
+                }
+
+                .go {
+                    width: 50%;
+                    height: 100%;
+                    background: var(--sh-white);
+                    border-radius: 4vw;
+                    display: grid;
+                    justify-items: center;
+                    align-items: center;
+                    color: var(--sh-blue);
+                    font-weight: bold;
+                    font-size: 1vw;
+                    position: absolute;
+                    transform: translate(0, 5vw);
+                    transition: all .4s cubic-bezier(.23,1,.32,1);
+
+                    @media screen and (max-width: 768px) {
+                        transform: translate(0, 9vw);
+                        font-size: 2vw;
+                    }
+                }
+
+                &:hover {
+                    #arrow_1 {
+                        transform: translate(1vw, 1vw) rotate(45deg);
+                        opacity: 0;
+                    }
+
+                    #arrow_2 {
+                        transform: translate(1vw, 1vw) rotate(90deg);
+                        opacity: 0;
+                    }
+
+                    .go {
+                        width: 100%;
+                        transform: translate(0, 0);
+                    }
+                }
+            }
         }
     }
 </style>

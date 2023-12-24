@@ -32,6 +32,11 @@
         margin-top: 5vw;
         // border: 0.1vw solid var(--sh-white);
 
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            margin-top: 10vw;
+        }
+
         &-header {
             width: 100%;
             height: auto;
@@ -45,15 +50,28 @@
                 h3 {
                     font-size: 3vw;
                     line-height: 3vw;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 6vw;
+                        line-height: 6vw;
+                    }
                 }
 
                 p {
                     font-size: 1.5vw;
                     padding-top: 2vw;
 
+                    @media screen and (max-width: 768px) {
+                        font-size: 3vw;
+                    }
+
                     span {
                         display: inline-block;
                         margin-left: 2vw;
+
+                        @media screen and (max-width: 768px) {
+                            margin-left: 5vw;
+                        }
 
                         &::before {
                             content: '';
@@ -62,6 +80,12 @@
                             height: 2vw;
                             background: var(--sh-white);
                             transform: translate(-1.2vw, 0);
+
+                            @media screen and (max-width: 768px) {
+                                width: 0.4vw;
+                                height: 3vw;
+                                transform: translate(-2.5vw, 0.5vw);
+                            }
                         }
                     }
                 }
@@ -69,12 +93,22 @@
 
             .date {
                 border-left: 0.2vw solid var(--sh-pink);
+                display: grid;
+                place-items: center;
+
+                @media screen and (max-width: 768px) {
+                    border-left: 0.4vw solid var(--sh-pink);
+                }
 
                 h3 {
                     color: var(--sh-pink);
                     font-size: 2vw;
                     text-align: center;
-                    padding-top: 3vw;
+                    // padding-top: 3vw;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 3vw;
+                    }
                 }
             }
         }
@@ -87,6 +121,10 @@
             p {
                 font-size: 1.2vw;
                 color: var(--sh-white);
+
+                @media screen and (max-width: 768px) {
+                        font-size: 3vw;
+                }
             }
         }
     }
