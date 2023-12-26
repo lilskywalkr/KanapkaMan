@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, getDocs, collection } from 'firebase/firestore';
+import { getFirestore, getDocs, collection, query, where } from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -40,3 +40,23 @@ export const getBlogs = async () => {
       throw error;
     }
   };
+
+  // function for fetching a specific blog post
+  export const getBlogPostById = async (postId) => {
+    try {
+      const q = query(usersCollection, where("id", "==", Number(postId)));
+      const querySnapshot = await getDocs(q);
+
+      const blogPost = [];
+      querySnapshot.forEach((doc) => {
+        // Access all fields from the document
+        const data = doc.data();
+        blogPost.push(data);
+      });
+      
+      return blogPost;
+    } catch (error) {
+      console.error('Error getting a blog post of an id ' + postId);
+      throw error;
+    }
+  }

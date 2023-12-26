@@ -2,7 +2,7 @@
     import { ref, onMounted, defineProps } from 'vue';
     import { useI18n } from 'vue-i18n';
 
-    const props = defineProps(['title', 'author', 'time', 'date', 'desc']);
+    const props = defineProps(['title', 'author', 'time', 'date', 'desc', 'postName', 'postId']);
 
 </script>
 
@@ -22,6 +22,8 @@
         <div class="blog-desc">
             <p>{{ props.desc }}</p>
         </div>
+
+        <router-link class="post-link" v-bind:to="{name: 'blogPostDetail', params: { postName: props.postName, postId: props.postId }}"><p>read more</p></router-link>
     </div>
 </template>
 
@@ -125,6 +127,24 @@
                 @media screen and (max-width: 768px) {
                         font-size: 3vw;
                 }
+            }
+        }
+
+
+        .post-link {
+            font-size: 2vw;
+            padding-top: 4vw;
+            text-align: right;
+            transition: all 0.6s;
+
+            @media screen and (max-width: 768px) {
+                font-size: 4vw;
+                display: block;
+                margin-right: 4vw;
+            }
+
+            &:hover {
+                color: var(--sh-blue);
             }
         }
     }

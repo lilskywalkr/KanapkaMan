@@ -33,6 +33,7 @@ library.add(fas, fab);
 
 createApp(App)
     .use(router)
+    .provide('router', router)
     .use(i18n)
     .provide('i18n', i18n)
     .component('fa', FontAwesomeIcon)

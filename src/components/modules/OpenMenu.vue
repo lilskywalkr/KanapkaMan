@@ -27,10 +27,10 @@
         </div>
         <div class="menu-right">
             <div class="links">
-                <a href="#blog" @click="handleClicking" ><span>Juicy<br>things</span>{{ $t('menuBlog') }}</a>
-                <a href="#about" @click="handleClicking">{{ $t('menuAbout') }}<span>Coffe<br>time</span></a>
-                <a href="#team" @click="handleClicking"><span>Good<br>company</span>{{ $t('menuTeam') }}</a>
-                <a href="#services" @click="handleClicking"><span>No<br>Sandwiches</span>{{ $t('menuServices') }}</a>
+                <router-link v-bind:to="{name: 'blog'}" @click="handleClicking"><span>Juicy<br>things</span>{{ $t('menuBlog') }}</router-link>
+                <router-link v-bind:to="{name: 'about'}" @click="handleClicking">{{ $t('menuAbout') }}<span>Coffe<br>time</span></router-link>
+                <router-link v-bind:to="{name: 'team'}" @click="handleClicking"><span>Good<br>company</span>{{ $t('menuTeam') }}</router-link>
+                <router-link v-bind:to="{name: 'services'}" @click="handleClicking"><span>No<br>Sandwiches</span>{{ $t('menuServices') }}</router-link>
             </div>
             <div class="socials">
                 <p>{{ $t('followUs') }}</p>

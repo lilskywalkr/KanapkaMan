@@ -59,6 +59,8 @@
                 :time="blog.time"
                 :date="blog.date"
                 :desc="blog.desc"
+                :postName="blog.title.toLowerCase().split(' ').join('-')"
+                :postId="index"
             />
         </div>
 
