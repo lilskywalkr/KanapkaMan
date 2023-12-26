@@ -13,13 +13,14 @@
 
     onMounted(async () => {
         const postId = router.currentRoute.value.params.postId;
-        await gettingBlogPostById(postId);
+        await gettingBlogPostById(postId)
     });
 </script>
 
 <template>
-    <div class="content-container">
-        <p></p>
+    <div v-if="blogPost" class="content-container">
+        <h2>{{ blogPost[0].title}}</h2>
+        <p>{{ blogPost[0].content }}</p>
     </div>
 
     <Footer></Footer>
@@ -29,8 +30,18 @@
     .content-container {
         width: 100vw;
         padding: 10vw 5vw;
-        font-size: 3vw;
-        line-height: 4vw;
         color: var(--sh-white);
+
+        h2 {
+            font-size: 4.5vw;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.5vw;
+            line-height: 2vw;
+            margin-top: 5vw;
+            text-align: justify;
+        }
     }
 </style>
