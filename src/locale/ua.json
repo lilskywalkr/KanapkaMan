@@ -66,6 +66,8 @@
     "contactPhone": "Phone number",
     "contactMessage": "Your message",
     "contactSendMessage": "Send your<br>message",
+    "contactError": "Some fields are invalid or incomplete",
+    "contactDone": "Your message has been sent",
 
     "aboutHeroHeader": "Who we are",
     "aboutHeroContent": "IT-SOLVE was founded out of passion for new technologies. To share our knowledge with pashion and to design and create useful as well as modern solutions for you- our clients.",

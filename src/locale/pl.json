@@ -65,6 +65,8 @@
     "contactPhone": "Telefonu",
     "contactMessage": "Wiadomość",
     "contactSendMessage": "Wyślij swoją<br>wiadomość",
+    "contactError": "Niektóre pola są nieprawidłowe lub niekompletne",
+    "contactDone": "Twoja wiadomość została wysłana",
 
     "aboutHeroHeader": "Kim jesteśmy",
     "aboutHeroContent": "Firma KanapkaMan powstała z pasji do nowych technologii. Do dzielenia się naszą wiedzą. Do projektowania i tworzenia użytecznych i nowoczesnych rozwiązań dla Was - naszych klientów.",

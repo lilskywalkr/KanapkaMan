@@ -1,23 +1,108 @@
 <script setup>
+    import {ref, onMounted} from 'vue';
+    import { useI18n } from 'vue-i18n';
 
+    const { t } = useI18n(); 
+
+    const errorMessage = ref('')
+
+    const name = ref('');
+    const email = ref('');
+    const phone = ref('');
+    const topic = ref('');
+    const message = ref('');
+
+    const nameRef = ref(null);
+    const emailRef = ref(null);
+    const phoneRef = ref(null);
+    const topicRef = ref(null);
+    const messageRef = ref(null);
+
+    function validateForm() {
+        const emailRegex = new RegExp(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/, "gm");
+        const phoneRegex = new RegExp(/^\d{9,15}$/);
+        let valid = true;
+
+        const fields = new Map();
+        fields.set("name", [nameRef.value, true]);
+        fields.set("email", [emailRef.value, true]);
+        fields.set("phone", [phoneRef.value, true]);
+        fields.set("topic", [topicRef.value, true]);
+        fields.set("message", [messageRef.value, true]);
+
+        // validation name
+        if (!name.value.trim()) {
+            fields.get('name')[0].style.border = '1px solid var(--sh-pink)'
+            fields.get('name')[1] = false;
+        }
+
+        // validation email
+        if (!email.value.trim() || !emailRegex.test(email.value)) {
+            fields.get('email')[0].style.border = '1px solid var(--sh-pink)'
+            fields.get('email')[1] = false;
+        }
+
+        // validation phone
+        if (!phone.value.trim() || !phoneRegex.test(phone.value)) {
+            fields.get('phone')[0].style.border = '1px solid var(--sh-pink)'
+            fields.get('phone')[1] = false;
+        }
+
+        // validation message
+        if (!message.value.trim()) {
+            fields.get('message')[0].style.border = '1px solid var(--sh-pink)'
+            fields.get('message')[1] = false;
+        }
+
+        // validation topic
+        if (!topic.value.trim()) {
+            fields.get('topic')[0].style.border = '1px solid var(--sh-pink)'
+            fields.get('topic')[1] = false;
+        }
+
+        // reseting the proper fields borders
+        for (const [key, value] of fields) {
+            if (value[1] === false) {
+                errorMessage.value = t('contactError');
+                valid = false;
+                continue;
+            }
+
+            value[0].style.border = 'none';
+        }
+
+        if (valid) {
+            errorMessage.value = t('contactDone');
+        }
+
+        return valid;
+    }
+
+    onMounted(() => {
+
+    });
 </script>
 
 <template>
     <div class="contact-form-container">
         <div class="header-cont">
             <h1>{{ $t('contactHeader') }}</h1>
+
+            <div class="message">
+                <h2 v-html="errorMessage"></h2>
+            </div>
         </div>
 
         <div class="form-content">
-            <form action="">
-                <input :placeholder="$t('contactName')" type="text">
-                <input :placeholder="$t('contactEmail')" type="email">
-                <input :placeholder="$t('contactPhone')" type="tel">
-                <input :placeholder="$t('contactTopic')" type="text">
-                <input :placeholder="$t('contactMessage')" type="text">
+            <form  @submit.prevent="validateForm">
+                <input ref="nameRef" v-model="name" :placeholder="$t('contactName')" type="text">
+                <input ref="emailRef" v-model="email" :placeholder="$t('contactEmail')" type="email">
+                <input ref="phoneRef" v-model="phone" :placeholder="$t('contactPhone')" type="tel">
+                <input ref="topicRef" v-model="topic" :placeholder="$t('contactTopic')" type="text">
+                <input ref="messageRef" v-model="message" :placeholder="$t('contactMessage')" type="text">
 
-                <button class="arrow-container">
-                    <div class="arrow"></div>
+                <button type="submit" class="send-container">
+                    <div class="send">Send</div>
                     <div class="go">
                         <p v-html="$t('contactSendMessage')"></p>
                     </div>
@@ -54,6 +139,15 @@
 
                 @media screen and (max-width: 768px) {
                     font-size: 6vw;
+                }
+            }
+
+            .message {
+                width: auto;
+
+                h2 {
+                    font-size: 2vw;
+                    color: var(--sh-pink);
                 }
             }
         }
@@ -99,7 +193,7 @@
                     }
                 }
 
-                .arrow-container {
+                .send-container {
                     width: 40vw;
                     height: 20vw;
                     border: none;
@@ -117,31 +211,14 @@
                         transform: translate(0, 6vw);
                     }
 
-                    .arrow {
-                        width: 4vw;
-                        height: 0.1vw;
-                        background: var(--sh-white);
-                        transform: rotate(-45deg);
+                    .send {
+                        font-size: 1.4vw;
+                        color: var(--sh-white);
+                        position: relative;
                         transition: all .6s cubic-bezier(.23,1,.32,1);
 
-                        &::before {
-                            content: '';
-                            display: block;
-                            position: absolute;
-                            width: 3vw;
-                            height: 0.1vw;
-                            background: var(--sh-white);
-                            transform: translate(1.6vw, -1vw) rotate(45deg);
-                        }
-
-                        &::after {
-                            content: '';
-                            display: block;
-                            position: absolute;
-                            width: 3vw;
-                            height: 0.1vw;
-                            background: var(--sh-white);
-                            transform: translate(1.6vw, 1vw) rotate(-45deg);
+                        @media screen and (max-width: 768px)  {
+                            font-size: 2.4vw;
                         }
                     }
 
@@ -166,8 +243,8 @@
                     }
 
                     &:hover {
-                        .arrow {
-                            transform: translate(1vw, -1vw) rotate(-45deg);
+                        .send {
+                            transform: translate(0vw, -1vw);
                             opacity: 0;
                         }
 

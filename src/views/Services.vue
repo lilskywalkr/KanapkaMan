@@ -148,8 +148,6 @@
                 height: 15vw;
                 display: grid;
                 place-items: center;
-                border-right: 0.15vw solid var(--sh-black);
-                border-bottom: 0.15vw solid var(--sh-black);
 
                 @media screen and (max-width: 768px) {
                     width: 20vw;
