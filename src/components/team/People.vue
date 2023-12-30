@@ -7,7 +7,6 @@
 </script>
 
 <template>
-    {{ console.log(props.names) }}
     <div class="people-container">
         <div class="person-box" v-for="(img, index) in imgArray" :key="index">
             <div class="person-img" v-bind:style="{backgroundImage: `url(${img})`}"></div>

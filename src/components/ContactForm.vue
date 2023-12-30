@@ -1,6 +1,7 @@
 <script setup>
     import {ref, onMounted} from 'vue';
     import { useI18n } from 'vue-i18n';
+    import {setContact} from '../firebase'
 
     const { t } = useI18n(); 
 
@@ -78,6 +79,13 @@
         return valid;
     }
 
+    async function addNewContact() {
+        if (validateForm()) {
+            await setContact(name.value, email.value, phone.value, topic.value, message.value);
+            name.value = '', email.value = '', phone.value = '', topic.value = '', message.value = ''
+        }
+    }
+
     onMounted(() => {
 
     });
@@ -94,7 +102,7 @@
         </div>
 
         <div class="form-content">
-            <form  @submit.prevent="validateForm">
+            <form  @submit.prevent="addNewContact">
                 <input ref="nameRef" v-model="name" :placeholder="$t('contactName')" type="text">
                 <input ref="emailRef" v-model="email" :placeholder="$t('contactEmail')" type="email">
                 <input ref="phoneRef" v-model="phone" :placeholder="$t('contactPhone')" type="tel">

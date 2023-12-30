@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, getDocs, collection, query, where } from 'firebase/firestore';
+import { getFirestore, getDocs, collection, query, where, addDoc } from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,12 +20,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
-const usersCollection = collection(db, 'blogs');
+const blogsCollection = collection(db, 'blogs');
+const contactsCollection = collection(db, 'contacts');
 
 // function for fetching all the blog posts
 export const getBlogs = async () => {
     try {
-      const querySnapshot = await getDocs(usersCollection);
+      const querySnapshot = await getDocs(blogsCollection);
   
       const blogs = [];
       querySnapshot.forEach((doc) => {
@@ -44,7 +45,7 @@ export const getBlogs = async () => {
   // function for fetching a specific blog post
   export const getBlogPostById = async (postId) => {
     try {
-      const q = query(usersCollection, where("id", "==", Number(postId)));
+      const q = query(blogsCollection, where("id", "==", Number(postId)));
       const querySnapshot = await getDocs(q);
 
       const blogPost = [];
@@ -55,6 +56,22 @@ export const getBlogs = async () => {
       });
       
       return blogPost;
+    } catch (error) {
+      console.error('Error getting a blog post of an id ' + postId);
+      throw error;
+    }
+  }
+
+  // add a document in contact collection
+  export const setContact = async (name, email, number, topic, message) => {
+    try {
+      await addDoc(contactsCollection, {
+        name: name,
+        email: email,
+        number: number,
+        topic: topic,
+        message: message
+      });
     } catch (error) {
       console.error('Error getting a blog post of an id ' + postId);
       throw error;
