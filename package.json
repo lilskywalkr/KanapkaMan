@@ -10,10 +10,11 @@
   },
   "dependencies": {
     "firebase": "^10.7.1",
-    "vue": "^3.3.4",
+    "locomotive-scroll": "^4.1.4",
     "swiper": "^11.0.4",
     "three": "^0.156.1",
     "vite": "^4.4.5",
+    "vue": "^3.3.4",
     "vue-i18n": "^9.4.1",
     "vue-router": "^4.2.5"
   },

@@ -129,9 +129,9 @@
 <style scoped lang="scss">
     canvas {
         position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        left: 50vw;
+        top: 40vw;
+        transform: translate(-50vw, -50vw);
         z-index: -2;
     }
 </style>

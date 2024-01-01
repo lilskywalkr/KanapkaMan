@@ -5,19 +5,33 @@
   import Contact from '@/components/home/Contact.vue';
   import Footer from '@/components/Footer.vue'
   import Canvas from '@/components/home/Canvas.vue';
+
+  import LocomotiveScroll from 'locomotive-scroll';
+  import { onMounted } from 'vue';
+
+  onMounted(() => {
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        resetNativeScroll: true
+    });
+  })
 </script>
 
 <template>
-  
-  <Canvas></Canvas>
-  <Greedings />
-  <Projects />
-  <AboutUs />
-  <Contact />
+  <div class="home-container" data-scroll-container>
+    <Canvas></Canvas>
+    <Greedings />
+    <Projects />
+    <AboutUs />
+    <Contact />
 
-  <Footer></Footer>
+    <Footer></Footer>
+  </div>
 </template>
 
 <style scoped>
-
+  .home-container {
+    height: 250vh;
+  }
 </style>

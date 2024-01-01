@@ -8,6 +8,12 @@ import pl from './locale/pl.json';
 import ua from './locale/ua.json';
 import ru from './locale/ru.json';
 
+// Fontawesome icons
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 if (!window.sessionStorage.getItem('locale')) {
     window.sessionStorage.setItem('locale', 'en');
 }
@@ -23,11 +29,6 @@ const i18n = createI18n({
     }
 });
 
-// Fontawesome icons
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(fas, fab);
 

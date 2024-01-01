@@ -156,6 +156,10 @@
                 h2 {
                     font-size: 2vw;
                     color: var(--sh-pink);
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 4vw;
+                    }
                 }
             }
         }
