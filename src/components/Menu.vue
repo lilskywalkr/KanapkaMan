@@ -6,6 +6,8 @@
     const { t, locale } = useI18n(); 
     const i18n = inject('i18n');
 
+    const menuRef = ref(null);
+
     const menuText = ref([
             {id: 0, text: t('menuBlog'), link: 'blog'}, 
             {id: 1, text: t('menuAbout'), link: 'about'}, 
@@ -28,10 +30,27 @@
         window.sessionStorage.setItem('locale', sessionLocale.value)
         window.location.reload()
     }
+
+    // change menu background on scroll
+    function changeMenuBackground() {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY) {
+                menuRef.value.style.background = 'var(--sh-black)';
+                return;
+            }
+
+            menuRef.value.style.background = 'none';
+        }, false);
+    }
+
+    onMounted(() => {
+        // console.log(menuRef.value)
+        changeMenuBackground();
+    });
 </script>
 
 <template>
-    <menu>
+    <menu ref="menuRef">
         <div class="content">
             <div class="logo">
                 <router-link v-bind:to="{name: 'home'}"><img src="../assets/kanapka_white.png" alt="thunderbolt logo"></router-link>
@@ -77,6 +96,10 @@
         font-size: 1.8vw;
         padding: 2vw 0;
         z-index: 4;
+        border-radius: 0 0 4vw 4vw;
+        transition: all .6s cubic-bezier(.23,1,.32,1);
+        background: none;
+
         .content {
             width: 100%;
             height: 100%;
@@ -255,6 +278,11 @@
                         width: 10vw;
                         height: 5vw;
                         font-size: 4vw;
+                    }
+
+                    option {
+                        background: var(--sh-blackish);
+                        border: none;
                     }
                 }
             }

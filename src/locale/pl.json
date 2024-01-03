@@ -64,6 +64,7 @@
     "contactEmail": "Email",
     "contactPhone": "Telefonu",
     "contactMessage": "Wiadomość",
+    "contactSend": "Wyślij",
     "contactSendMessage": "Wyślij swoją<br>wiadomość",
     "contactError": "Niektóre pola są nieprawidłowe lub niekompletne",
     "contactDone": "Twoja wiadomość została wysłana",

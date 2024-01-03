@@ -65,6 +65,7 @@
     "contactEmail": "Email",
     "contactPhone": "Phone number",
     "contactMessage": "Your message",
+    "contactSend": "Send",
     "contactSendMessage": "Send your<br>message",
     "contactError": "Some fields are invalid or incomplete",
     "contactDone": "Your message has been sent",

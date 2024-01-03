@@ -110,7 +110,7 @@
                 <input ref="messageRef" v-model="message" :placeholder="$t('contactMessage')" type="text">
 
                 <button type="submit" class="send-container">
-                    <div class="send">Send</div>
+                    <div class="send">{{$t('contactSend')}}</div>
                     <div class="go">
                         <p v-html="$t('contactSendMessage')"></p>
                     </div>
@@ -125,10 +125,11 @@
         width: 100vw;
         height: auto;
         background: var(--sh-other-black);
-        padding: 20vw 0 0 20vw;
+        padding: 10vw 0 0 20vw;
 
         @media screen and (max-width: 768px) {
             padding: 20vw 0 0 10vw;
+            margin-bottom: 10vw;
         }
 
         .header-cont {
@@ -197,17 +198,17 @@
                     }
 
                     &:nth-of-type(5) {
-                        margin-right: 21vw;
+                        width: 41vw;
 
                         @media screen and (max-width: 768px) {
-                            margin-right: 36vw;
+                            width: 71vw;
                         }
                     }
                 }
 
                 .send-container {
-                    width: 40vw;
-                    height: 20vw;
+                    width: 30vw;
+                    height: 10vw;
                     border: none;
                     border-radius: 10vw;
                     background: var(--sh-blue);

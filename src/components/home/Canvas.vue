@@ -130,7 +130,7 @@
     canvas {
         position: fixed;
         left: 50vw;
-        top: 40vw;
+        top: 50vw;
         transform: translate(-50vw, -50vw);
         z-index: -2;
     }

@@ -4,6 +4,7 @@
     import ContactForm from '@/components/ContactForm.vue';
     import { getBlogs } from '../firebase';
     import { ref, onMounted, computed } from 'vue';
+    import moment from 'moment'
 
     // array for blogs
     const blogs = ref([]);
@@ -13,6 +14,7 @@
     async function gettingBlogs() {
         blogs.value = await getBlogs();
         console.log(blogs.value);
+        console.log(moment.unix(`${blogs.value[0].date.seconds}`).format("DD<br>MMM<br>YYYY"))
     }
 
     onMounted(async () => {
@@ -57,7 +59,7 @@
                 :title="blog.title"
                 :author="blog.author"
                 :time="blog.time"
-                :date="blog.date"
+                :date="moment.unix(`${blog.date.seconds}`).format('DD<br>MMM<br>YYYY')"
                 :desc="blog.desc"
                 :postName="blog.title.toLowerCase().split(' ').join('-')"
                 :postId="index"

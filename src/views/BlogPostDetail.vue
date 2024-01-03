@@ -21,7 +21,7 @@
 <template>
     <div v-if="blogPost" class="content-container">
         <h2>{{ blogPost[0].title}}</h2>
-        <p>{{ blogPost[0].content }}</p>
+        <p v-html="blogPost[0].content "></p>
     </div>
 
     <ContactForm />

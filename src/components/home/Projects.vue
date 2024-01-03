@@ -20,7 +20,7 @@
         floatingBox.value.style.opacity = 1;
 
         floatingBox.value.style.left = `${e.pageX}px`;
-        floatingBox.value.style.top = `${e.pageY + 100}px`;
+        floatingBox.value.style.top = `${e.pageY}px`;
         floatingBox.value.style.transform = 'rotateX(0deg)';
 
         floatinTextHeader.value.textContent = projectBoxes.value[id].lastChild.firstChild.textContent;
