@@ -7,7 +7,7 @@ const routes = [
     {path: '/about', name: 'about', component: () => import('@/views/About.vue')},
     {path: '/team', name: 'team', component: () => import('@/views/Team.vue')},
     {path: '/cookies', name: 'cookies', component: () => import('@/views/Cookies.vue')},
-    {path: '/policy', name: 'policy', component: () => import('@/views/Policy.vue')},
+    {path: '/privacy', name: 'privacy', component: () => import('@/views/Privacy.vue')},
     {path: '/blog', name: 'blog', component: () => import('@/views/Blog.vue')},
     {path: '/blog/:postId/:postName', name: 'blogPostDetail', component: BlogPostDetail},
 ]

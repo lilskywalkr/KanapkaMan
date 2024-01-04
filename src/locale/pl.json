@@ -29,6 +29,9 @@
     "startup": "firmy Startupowe",
     "eCommerce": "E-biznes",
     "premium": "Produkty premium",
+    "cookies": "Pliki cookies",
+    "privacy": "Polityka prywatności",
+
     "servicesHeroHeader": "Usługi<br>programistyczne<br>dla firm",
     "servicesHeroContent": "Wytwarzamy oprogramowanie rozwiązujące potrzeby<br>użytkowników a dzięki naszemu doświadczeniu, zajmuje ono solidną<br>pozycję na rynku. Ogromna pasja oraz precyzja sprawiają, że<br>pisany przez nas kod jest czysty i bardzo wysokiej jakości. Dzięki<br>temu, jest on łatwy do zrozumienia, utrzymania i rozszerzania przez<br>inne zespoły programistyczne.",
 

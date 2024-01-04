@@ -6,7 +6,11 @@
 
     const footerMiddleContent = ref([{id: 0, text: t('startup')}, {id: 1, text: t('eCommerce')}, {id: 2, text: t('premium')}]);
     const footerLowerContent = ref([{id: 0, text: 'hello@kanapka.digital'}, {id: 1, text: '+48 001 002 003'}])
-    const footerLowestContent = ref([{id: 0, name: 'cookies'}, {id: 1, name: 'policy'}]);
+    
+    const footerLowestContent = ref([
+        {id: 0, text: t('cookies'), link: 'cookies'}, 
+        {id: 1, text: t('privacy'), link: 'privacy'}
+    ]);
 </script>
 
 <template>
@@ -39,7 +43,9 @@
         <div class="footer-content lower-content">
             <div class="conter" v-for="content in footerLowestContent" v-bind:key="content.id">
                 <div>
-                    <p>{{ content.name }}</p>
+                    <router-link v-bind:to="{name: content.link}" class="footer-links">
+                        <p>{{ content.text }}</p>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -49,16 +55,17 @@
 <style scoped lang="scss">
     .footer-container {
         width: 100vw;
-        height: 70vw;
+        height: auto;
         background: var(--sh-other-black);
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
-        padding: 30vw 0 0 0;
+        padding: 40vw 0 5vw 0;
 
         @media screen and (max-width: 768px) {
-            padding: 0;
+            padding: 15vw 0 0 0;
+            height: auto;
         }
 
         .footer-upper {
@@ -146,7 +153,7 @@
             display: flex;
             justify-content: space-between;
             width: 60vw;
-            padding: 3vw 0;
+            padding: 2vw 0;
 
             @media screen and (max-width: 768px) {
                 width: 85vw;
@@ -182,6 +189,20 @@
                         width: 2vw;
                         height: 2vw;
                         border-radius: 2vw;
+                    }
+                }
+
+                .footer-links {
+                    display: block;
+                    border-bottom: 0.2vw solid var(--sh-pink);
+
+                    p {
+                        transition: all .6s cubic-bezier(.23,1,.32,1);
+                        color: var(--sh-white);
+                        
+                        &:hover {
+                            color: var(--sh-pink)
+                        }
                     }
                 }
 
