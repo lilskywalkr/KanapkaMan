@@ -9,7 +9,6 @@
 
     async function gettingBlogPostById(postId) {
         blogPost.value = await getBlogPostById(postId);
-        console.log(blogPost.value);
     }
 
     onMounted(async () => {

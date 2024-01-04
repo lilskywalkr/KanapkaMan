@@ -4,7 +4,9 @@
 
     const { t } = useI18n(); 
 
-    const footerContent = ref([{id: 0, text: t('startup')}, {id: 1, text: t('eCommerce')}, {id: 2, text: t('premium')}]);
+    const footerMiddleContent = ref([{id: 0, text: t('startup')}, {id: 1, text: t('eCommerce')}, {id: 2, text: t('premium')}]);
+    const footerLowerContent = ref([{id: 0, text: 'hello@kanapka.digital'}, {id: 1, text: '+48 001 002 003'}])
+    const footerLowestContent = ref([{id: 0, name: 'cookies'}, {id: 1, name: 'policy'}]);
 </script>
 
 <template>
@@ -16,12 +18,29 @@
                 <div class="button-bg"></div>
             </div>
         </div> 
-        <div class="footer-lower">
-            <div class="lower-conter" v-for="content in footerContent" v-bind:key="content.id">
+
+        <div class="footer-content">
+            <div class="conter" v-for="content in footerMiddleContent" v-bind:key="content.id">
                 <div>
                     <span v-for="n in (content.id + 1)"></span>
                 </div>
                 <p>{{ content.text }}</p>
+            </div>
+        </div>
+
+        <div class="footer-content lower-content">
+            <div class="conter" v-for="content in footerLowerContent" v-bind:key="content.id">
+                <div>
+                    <p>{{ content.text }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-content lower-content">
+            <div class="conter" v-for="content in footerLowestContent" v-bind:key="content.id">
+                <div>
+                    <p>{{ content.name }}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -123,7 +142,7 @@
             }
         }
 
-        .footer-lower {
+        .footer-content {
             display: flex;
             justify-content: space-between;
             width: 60vw;
@@ -135,7 +154,16 @@
                 flex-flow: column nowrap;
             }
 
-            .lower-conter {
+            &.lower-content {
+                justify-content: flex-start;
+                gap: 5vw;
+
+                @media screen and (max-width: 768px) {
+                    gap: 0vw;
+                }
+            }
+
+            .conter {
                 @media screen and (max-width: 768px) {
                     padding: 2vw 0;
                     display: flex;

@@ -13,8 +13,6 @@
 
     async function gettingBlogs() {
         blogs.value = await getBlogs();
-        console.log(blogs.value);
-        console.log(moment.unix(`${blogs.value[0].date.seconds}`).format("DD<br>MMM<br>YYYY"))
     }
 
     onMounted(async () => {
