@@ -8,7 +8,7 @@
 </script>
 
 <template>
-  <!-- <Canvas></Canvas> -->
+  <Canvas></Canvas>
   <Greedings />
   <Projects />
   <AboutUs />

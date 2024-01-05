@@ -144,7 +144,7 @@
             }
 
             &:hover {
-                color: var(--sh-blue);
+                color: var(--sh-pink);
             }
         }
     }

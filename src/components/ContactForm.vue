@@ -125,10 +125,10 @@
         width: 100vw;
         height: auto;
         background: var(--sh-other-black);
-        padding: 10vw 0 0 20vw;
+        padding: 5vw 0 0 20vw;
 
         @media screen and (max-width: 768px) {
-            padding: 20vw 0 0 10vw;
+            padding: 5vw 0 0 10vw;
         }
 
         .header-cont {
