@@ -2,7 +2,7 @@
     import { ref, defineEmits } from 'vue'
 
     // Icons for socials
-    const icons = ref(['facebook-f', 'instagram', 'dribbble']);
+    const icons = ref(['facebook-f', 'instagram', 'linkedin']);
     const openMenu = ref(true);  // flag for opening the menu
 
     // defining an emit for handling the burger animation

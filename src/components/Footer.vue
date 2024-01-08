@@ -11,6 +11,13 @@
         {id: 0, text: t('cookies'), link: 'cookies'}, 
         {id: 1, text: t('privacy'), link: 'privacy'}
     ]);
+
+    // Icons for socials
+    const icons = ref([
+        {icon: 'facebook-f', link: 'https://www.facebook.com/kanapkaman/'}, 
+        {icon: 'instagram', link: 'https://www.instagram.com/kanapkaman'},
+        {icon: 'linkedin', link: 'https://pl.linkedin.com/showcase/kanapkaman/'}
+    ]);
 </script>
 
 <template>
@@ -49,6 +56,14 @@
                     </router-link>
                 </div>
             </div>
+        </div>
+        
+        <div class="socials">
+            <ul>
+                <li v-for="(icon, index) in icons" v-bind:key="index">
+                    <a :href="icon.link" target="_blank"><fa class="icon" v-bind:icon="['fab', `${icon.icon}`]"/></a>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -215,6 +230,46 @@
                         font-size: 3vw;
                     }
                 }
+            }
+        }
+
+        .socials {
+            width: 60vw;
+            display: flex;
+            justify-content: flex-start;
+            padding: 2vw 0 0 0;
+            
+            @media screen and (max-width: 768px) {
+                width: 85vw;
+                padding: 0vw 0 8vw 0;
+                flex-flow: column nowrap;
+            }
+
+            ul {
+                display: flex;
+                gap: 2vw;
+
+                @media screen and (max-width: 768px) {
+                    gap: 4vw;
+                }
+                
+                a {
+                    color: var(--sh-pink);
+
+                    .icon {
+                        font-size: 2vw;
+                        transition: all .6s cubic-bezier(.23,1,.32,1);
+
+                        &:hover {
+                            transform: scale(1.5);
+                        }
+
+                        @media screen and (max-width: 768px) {
+                            font-size: 4vw;
+                        }
+                    }
+                }
+                
             }
         }
     }
