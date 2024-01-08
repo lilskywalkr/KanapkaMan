@@ -92,7 +92,7 @@
 </script>
 
 <template>
-    <div class="contact-form-container">
+    <div class="contact-form-container" id="contact-form">
         <div class="header-cont">
             <h1>{{ $t('contactHeader') }}</h1>
 

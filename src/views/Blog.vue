@@ -2,7 +2,7 @@
     import Footer from '@/components/Footer.vue';
     import BlogPost from '@/components/blog/BlogPost.vue';
     import ContactForm from '@/components/ContactForm.vue';
-    import { getBlogs } from '../firebase';
+    import { getBlogs, getBlogsLanguage } from '../firebase';
     import { ref, onMounted, computed } from 'vue';
     import moment from 'moment'
 
@@ -12,10 +12,11 @@
     const currentPage = ref(1);
 
     async function gettingBlogs() {
-        blogs.value = await getBlogs();
+        blogs.value = await getBlogsLanguage();
     }
 
     onMounted(async () => {
+        console.log(window.sessionStorage.getItem('locale'))
         await gettingBlogs();
     });
 
@@ -59,7 +60,7 @@
                 :time="blog.time"
                 :date="moment.unix(`${blog.date.seconds}`).format('DD<br>MMM<br>YYYY')"
                 :desc="blog.desc"
-                :postName="blog.title.toLowerCase().split(' ').join('-')"
+                :postName="blog.title.toLowerCase().replace(/[.,?]/gm, ' ').split(' ').join('-')"
                 :postId="index"
             />
         </div>

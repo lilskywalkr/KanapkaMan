@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, getDocs, collection, query, where, addDoc } from 'firebase/firestore';
+import { getFirestore, getDocs, collection, query, where, addDoc, and } from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -25,55 +25,75 @@ const contactsCollection = collection(db, 'contacts');
 
 // function for fetching all the blog posts
 export const getBlogs = async () => {
-    try {
-      const querySnapshot = await getDocs(blogsCollection);
-  
-      const blogs = [];
-      querySnapshot.forEach((doc) => {
-        // Access all fields from the document
-        const data = doc.data();
-        blogs.push(data);
-      });
-  
-      return blogs;
-    } catch (error) {
-      console.error('Error getting blogs:', error);
-      throw error;
-    }
-  };
+  try {
+    const querySnapshot = await getDocs(blogsCollection);
 
-  // function for fetching a specific blog post
-  export const getBlogPostById = async (postId) => {
-    try {
-      const q = query(blogsCollection, where("id", "==", Number(postId)));
-      const querySnapshot = await getDocs(q);
+    const blogs = [];
+    querySnapshot.forEach((doc) => {
+      // Access all fields from the document
+      const data = doc.data();
+      blogs.push(data);
+    });
 
-      const blogPost = [];
-      querySnapshot.forEach((doc) => {
-        // Access all fields from the document
-        const data = doc.data();
-        blogPost.push(data);
-      });
-      
-      return blogPost;
-    } catch (error) {
-      console.error('Error getting a blog post of an id ' + postId);
-      throw error;
-    }
+    return blogs;
+  } catch (error) {
+    console.error('Error getting blogs:', error);
+    throw error;
   }
+};
 
-  // add a document in contact collection
-  export const setContact = async (name, email, number, topic, message) => {
-    try {
-      await addDoc(contactsCollection, {
-        name: name,
-        email: email,
-        number: number,
-        topic: topic,
-        message: message
-      });
-    } catch (error) {
-      console.error('Error getting a blog post of an id ' + postId);
-      throw error;
-    }
+// function for fetching all the plogs in specific language
+export const getBlogsLanguage = async () => {
+  try {
+    const q = query(blogsCollection, where("lang", "==", String(window.sessionStorage.getItem('locale'))));
+    const querySnapshot = await getDocs(q);
+
+    const blogs = [];
+    querySnapshot.forEach((doc) => {
+      // Access all the fields from the document
+      const data = doc.data();
+      blogs.push(data);
+    });
+
+    return blogs;
+  } catch(error) {
+    console.log('Error getting blogs: ', error);
+    throw error;
   }
+}
+
+// function for fetching a specific blog post
+export const getBlogPostById = async (postId) => {
+  try {
+    const q = query(blogsCollection, and(where("id", "==", Number(postId)), where("lang", "==", String(window.sessionStorage.getItem('locale')))));
+    const querySnapshot = await getDocs(q);
+
+    const blogPost = [];
+    querySnapshot.forEach((doc) => {
+      // Access all fields from the document
+      const data = doc.data();
+      blogPost.push(data);
+    });
+    
+    return blogPost;
+  } catch (error) {
+    console.error('Error getting a blog post of an id ' + postId);
+    throw error;
+  }
+}
+
+// add a document in contact collection
+export const setContact = async (name, email, number, topic, message) => {
+  try {
+    await addDoc(contactsCollection, {
+      name: name,
+      email: email,
+      number: number,
+      topic: topic,
+      message: message
+    });
+  } catch (error) {
+    console.error('Error getting a blog post of an id ' + postId);
+    throw error;
+  }
+}

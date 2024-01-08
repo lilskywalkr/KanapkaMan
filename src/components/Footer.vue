@@ -17,10 +17,11 @@
     <div class="footer-container">
         <div class="footer-upper">
             <p>{{ $t('needSoftware') }}</p>
-            <div class="button">
+
+            <router-link v-bind:to="{name: 'services'}" class="button">
                 <p>{{ $t('becomeClient') }}</p>
                 <div class="button-bg"></div>
-            </div>
+            </router-link>
         </div> 
 
         <div class="footer-content">
