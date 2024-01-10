@@ -7,7 +7,13 @@
     const projects = ref([
         {id: 0, name: 'Lorem ipsum', desc: 'Web Design, Development'}, 
         {id: 1, name: 'sit dolor', desc: 'Web Design, Illustration, Motion, Development'}, 
-        {id: 2, name: 'consectetur adipiscing', desc: 'Web Design, Development, Animations'}
+        {id: 2, name: 'consectetur adipiscing', desc: 'Web Design, Development, Animations'},
+        {id: 3, name: 'Lorem ipsum', desc: 'Web Design, Development'}, 
+        {id: 4, name: 'sit dolor', desc: 'Web Design, Illustration, Motion, Development'}, 
+        {id: 5, name: 'consectetur adipiscing', desc: 'Web Design, Development, Animations'},
+        {id: 6, name: 'sit dolor', desc: 'Web Design, Illustration, Motion, Development'}, 
+        {id: 7, name: 'consectetur adipiscing', desc: 'Web Design, Development, Animations'},
+        {id: 8, name: 'Lorem ipsum', desc: 'Web Design, Development'}
     ]);
 
     const floatinTextHeader = ref(null);
@@ -34,21 +40,12 @@
     }
     
     onMounted(async () => {
-        await getImagesFromUnsplush(3, imgArray.value);
+        await getImagesFromUnsplush(9, imgArray.value);
     });
 </script>
 
 <template>
     <div class="projects-container" id="projects">
-        <div class="upper-header">
-            <h1>{{ $t('selected') }}</h1>
-            <div class="arrow-container">
-                <div class="arrow"></div>
-                <div class="go">
-                    <p>{{ $t('go') }}</p>
-                </div>
-            </div>
-        </div>
         <div class="projects">
             <div v-for="project in projects" v-bind:key="project.id" class="project-container" ref="projectBoxes" @mousemove="e => { floatingBoxFadeIn(e, project.id) }" @mouseleave="floatingBoxFadeOur">
                 <div class="project">
@@ -71,134 +68,21 @@
 <style scoped lang="scss">
     .projects-container {
         width: 90vw;
-        height: 55vw;
+        height: auto;
+        padding-bottom: 10vw;
         border-radius: 4vw;
         margin: auto;
         background: var(--sh-blackish);
-
-        @media screen and (max-width: 768px) {
-            height: auto;
-            margin-top: 25vw;
-        }
-
-        .upper-header {
-            width: 100%;
-            display: flex;
-            gap: 2vw;
-            padding: 4vw 0 0 4vw;
-
-            h1 {
-                font-size: 3vw;
-                color: var(--sh-white);
-
-                @media screen and (max-width: 768px) {
-                    font-size: 6vw;
-                }
-            }
-
-            .arrow-container {
-                width: 4vw;
-                height: 4vw;
-                border-radius: 4vw;
-                background: var(--sh-blue);
-                display: grid;
-                align-items: center;
-                justify-items: center;
-                cursor: pointer;
-                position: relative;
-                overflow: hidden;
-
-                @media screen and (max-width: 768px) {
-                    width: 6vw;
-                    height: 6vw;
-                }
-
-                .arrow {
-                    width: 2vw;
-                    height: 0.1vw;
-                    background: var(--sh-white);
-                    transform: rotate(45deg);
-                    transition: all .6s cubic-bezier(.23,1,.32,1);
-
-                    @media screen and (max-width: 768px) {
-                        width: 3vw;
-                        height: 0.2vw;
-                    }
-
-                    &::before {
-                        content: '';
-                        display: block;
-                        position: absolute;
-                        width: 1.5vw;
-                        height: 0.1vw;
-                        background: var(--sh-white);
-                        transform: translate(0.8vw, -0.5vw) rotate(45deg);
-
-                        @media screen and (max-width: 768px) {
-                            width: 2.5vw;
-                            height: 0.2vw;
-                            transform: translate(1vw, -0.8vw) rotate(45deg);
-                        }
-                    }
-
-                    &::after {
-                        content: '';
-                        display: block;
-                        position: absolute;
-                        width: 1.5vw;
-                        height: 0.1vw;
-                        background: var(--sh-white);
-                        transform: translate(0.8vw, 0.5vw) rotate(-45deg);
-
-                        @media screen and (max-width: 768px) {
-                            width: 2.5vw;
-                            height: 0.2vw;
-                            transform: translate(1vw, 0.8vw) rotate(-45deg);
-                        }
-                    }
-                }
-
-                .go {
-                    width: 50%;
-                    height: 100%;
-                    background: var(--sh-white);
-                    border-radius: 4vw;
-                    display: grid;
-                    justify-items: center;
-                    align-items: center;
-                    color: var(--sh-blue);
-                    font-weight: bold;
-                    font-size: 1vw;
-                    position: absolute;
-                    transform: translate(0, 5vw);
-                    transition: all .4s cubic-bezier(.23,1,.32,1);
-
-                    @media screen and (max-width: 768px) {
-                        transform: translate(0, 7vw);
-                        font-size: 2vw;
-                    }
-                }
-
-                &:hover {
-                    .arrow {
-                        transform: translate(1vw, 1vw) rotate(45deg);
-                        opacity: 0;
-                    }
-
-                    .go {
-                        width: 100%;
-                        transform: translate(0, 0);
-                    }
-                }
-            }
-        }
+        position: relative;
+        transform: translate(0, -5vw);
 
         .projects {
             width: 100%;
             height: auto;
             display: flex;
             justify-content: space-between;
-            padding: 5vw 3vw 0 3vw;
+            flex-flow: row wrap;
+            padding: 0 3vw;
 
             @media screen and (max-width: 768px) {
                 flex-flow: column nowrap;
@@ -219,6 +103,7 @@
                     border-radius: 2vw;
                     transition: all .4s cubic-bezier(.23,1,.32,1);
                     overflow: hidden;
+                    margin-top: 10vw;
 
                     img {
                         width: 100%;

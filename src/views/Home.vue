@@ -1,6 +1,6 @@
 <script setup>
   import Greedings from '@/components/home/Greedings.vue';
-  import Projects from '@/components/home/Projects.vue';
+  import SelectedProjects from '@/components/home/SelectedProjects.vue';
   import AboutUs from '@/components/home/AboutUs.vue';
   import Contact from '@/components/home/Contact.vue';
   import Footer from '@/components/Footer.vue'
@@ -10,7 +10,7 @@
 <template>
   <Canvas></Canvas>
   <Greedings />
-  <Projects />
+  <SelectedProjects />
   <AboutUs />
   <Contact />
 

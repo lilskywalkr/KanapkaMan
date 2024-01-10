@@ -31,6 +31,7 @@
                 <router-link v-bind:to="{name: 'about'}" @click="handleClicking">{{ $t('menuAbout') }}<span>Coffe<br>time</span></router-link>
                 <router-link v-bind:to="{name: 'team'}" @click="handleClicking"><span>Good<br>company</span>{{ $t('menuTeam') }}</router-link>
                 <router-link v-bind:to="{name: 'services'}" @click="handleClicking"><span>No<br>Sandwiches</span>{{ $t('menuServices') }}</router-link>
+                <router-link v-bind:to="{name: 'projects'}" @click="handleClicking">{{ $t('menuProjects') }}<span>Unreal<br>art</span></router-link>
             </div>
             <div class="socials">
                 <p>{{ $t('followUs') }}</p>
