@@ -1,22 +1,39 @@
 {
   "name": "kanapkaman",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "nuxi dev --port='5173'",
+    "build": "nuxi build",
+    "build-ci": "nuxi build",
+    "generate": "nuxi generate",
+    "postinstall": "nuxi prepare",
+    "start": "node .output/server/index.mjs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "vue-tsc --noEmit",
+    "up": "taze major -I"
   },
   "dependencies": {
+    "@antfu/eslint-config": "2.6.2",
+    "@nuxt/content": "2.10.0",
+    "@nuxt/devtools": "1.0.6",
+    "@nuxt/types": "2.17.2",
+    "@nuxtjs/i18n": "npm:@nuxtjs/i18n-edge",
+    "@vite-pwa/nuxt": "0.4.0",
+    "@vue-macros/nuxt": "1.9.20",
+    "eslint": "8.56.0",
+    "nuxt": "3.9.1",
+    "taze": "0.13.1",
+    "vue-tsc": "1.8.27",
+    "simple-git-hooks": "2.9.0",
+
     "firebase": "^10.7.1",
     "moment": "^2.30.1",
     "swiper": "^11.0.4",
     "three": "^0.156.1",
-    "vite": "^4.4.5",
-    "vue": "^3.3.4",
-    "vue-i18n": "^9.4.1",
-    "vue-router": "^4.2.5"
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
@@ -24,7 +41,19 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/vue-fontawesome": "^3.0.3",
-    "@vitejs/plugin-vue": "^4.2.3",
     "sass": "^1.67.0"
+  },
+
+  "browserslist": [
+    "defaults",
+    "not dead",
+    "not op_mini all"
+  ],
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
+
 }
