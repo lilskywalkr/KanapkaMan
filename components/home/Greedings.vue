@@ -36,22 +36,6 @@ onMounted(async () => {
 
     <div id="hero-text-content-3">
       <p>{{ $t('placeWhere') }}</p>
-
-      <div class="subscribe">
-        <div
-          class="image-circle"
-          :style="{'backgroundImage': `url(${imgArray[1]})`}"
-        >
-          <!-- <p><span>Our</span><br>newsletter</p> -->
-          <p>{{ $t('ourNewsletter') }}</p>
-        </div>
-
-        <div class="button">
-          <p>{{ $t("subscribe") }}</p>
-
-          <div class="button-bg" />
-        </div>
-      </div>
     </div>
 
     <div id="hero-text-content-4">
@@ -153,6 +137,7 @@ onMounted(async () => {
             }
 
             &-3 {
+                width: 30vw;
                 padding: 0vw 0 0 5vw;
                 display: flex;
                 flex-flow: column nowrap;
@@ -289,7 +274,7 @@ onMounted(async () => {
             &-4 {
                 display: flex;
                 flex-flow: column nowrap;
-                align-items: end;
+                align-items: flex-end;
                 padding: 0 5vw 0 0;
 
                 @media screen and (max-width: 768px) {
@@ -301,6 +286,8 @@ onMounted(async () => {
                     line-height: 5vw;
                     display: block;
                     margin-top: -4vw;
+                    text-align: right;
+                    margin-right: 4vw;
 
                     @media screen and (max-width: 768px) {
                         font-size: 8vw;
@@ -320,6 +307,7 @@ onMounted(async () => {
                     font-size: 1vw;
 
                     p {
+                        width: 9vw;
                         font-size: 1.2vw;
                         display: block;
                         margin: 0 4.7vw 0 0;

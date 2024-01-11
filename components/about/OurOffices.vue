@@ -110,7 +110,7 @@ const { t } = useI18n()
             padding: 3vw 0 10vw 0;
             display: flex;
             flex-flow: column nowrap;
-            align-items: end;
+            align-items: flex-end;
             gap: 3vw;
 
             @media screen and (max-width: 768px) {
