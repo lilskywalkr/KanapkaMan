@@ -1,2 +1,2 @@
 # KanapkaMan
-landing page for KanapkaMan
+Software website for KanapkaMan
