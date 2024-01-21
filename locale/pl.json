@@ -15,13 +15,22 @@
     "subscribe": "Zasubskrybuj",
     "selected": "Wybrane",
     "go": "Go",
-    "weEmpower": "Wzmocniamy klientów<br> <span>aby byli kochani</span>",
-    "weDeliver": "<span>Dostarczamy</span> <span>to co obiecujemy</span>",
-    "engagingUser": "Zachęcające doświadczenie <br>użytkownika, elegancki projekt<br> i rozwój strony internetowej, <br>unikalne rozwiązania tożsamości marki, aby być rozpoznawalnym.",
+    "weEmpower": "Wzmocniamy klientów",
+    "weEmpowerSpan": "aby byli kochani",
+    "weDeliverSpanOne": "Dostarczamy",
+    "weDeliverSpanTwo": "to co obiecujemy",
+    "engagingUser": "Zachęcające doświadczenie użytkownika, elegancki projekt i rozwój strony internetowej, unikalne rozwiązania tożsamości marki, aby być rozpoznawalnym.",
     "ourClientsHome": "Nasi klienci otrzymują wiodące na rynku produkty cyfrowe. Lata mijają, a dostarczane przez nas projekty są wciąż wartościowe.",
     "weMake": "Robimy to możliwe, ponieważ ponad 10 lat doświadczenia w świecie cyfrowym nie idzie niezauważone.",
     "gathering": "Zbieranie najlepszych talentów - inżynierów w umysłach pomaga nam tworzyć najlepiej przemyślane rozwiązania.",
-    "ourTeam": "Nasz zespół stawia potrzeby<br>biznesowe klienta ponad wszystko,<br> i mówiąc to <span class='gradient-text'>stawiamy komunikację z naszymi <br><span class='last-line'>klientami jako priorytet numer jeden.</span></span>",
+
+    "ourTeamOne": "Nasz zespół stawia potrzeby",
+    "ourTeamTwo": "biznesowe klienta ponad wszystko,",
+    "ourTeamThree": "i mówiąc to ",
+    "ourTeamSpanOne": "stawiamy komunikację z naszymi ",
+    "ourTeamSpanTwo": "klientami jako priorytet numer jeden.",
+
+
     "weveBeen": "Przez wszystkie dni i noce nieprzerwanie badaliśmy interfejsy w tajnych laboratoriach KanapkaMan bez snu.",
     "needSoftware": "Potrzebujesz oprogramowania?",
     "becomeClient": "Zostań klientem",
@@ -31,8 +40,8 @@
     "cookies": "Pliki cookies",
     "privacy": "Polityka prywatności",
 
-    "servicesHeroHeader": "Usługi<br>programistyczne<br>dla firm",
-    "servicesHeroContent": "Wytwarzamy oprogramowanie rozwiązujące potrzeby<br>użytkowników a dzięki naszemu doświadczeniu, zajmuje ono solidną<br>pozycję na rynku. Ogromna pasja oraz precyzja sprawiają, że<br>pisany przez nas kod jest czysty i bardzo wysokiej jakości. Dzięki<br>temu, jest on łatwy do zrozumienia, utrzymania i rozszerzania przez<br>inne zespoły programistyczne.",
+    "servicesHeroHeader": "Usługi programistyczne dla firm",
+    "servicesHeroContent": "Wytwarzamy oprogramowanie rozwiązujące potrzeby użytkowników a dzięki naszemu doświadczeniu, zajmuje ono solidną pozycję na rynku. Ogromna pasja oraz precyzja sprawiają, że pisany przez nas kod jest czysty i bardzo wysokiej jakości. Dzięki temu, jest on łatwy do zrozumienia, utrzymania i rozszerzania przez inne zespoły programistyczne.",
 
     "techWeUse": "Technologie jakie używamy",
 
@@ -67,7 +76,7 @@
     "contactPhone": "Telefonu",
     "contactMessage": "Wiadomość",
     "contactSend": "Wyślij",
-    "contactSendMessage": "Wyślij swoją<br>wiadomość",
+    "contactSendMessage": "Wyślij swoją wiadomość",
     "contactError": "Niektóre pola są nieprawidłowe lub niekompletne",
     "contactDone": "Twoja wiadomość została wysłana",
 
@@ -75,11 +84,11 @@
     "aboutHeroContent": "Firma KanapkaMan powstała z pasji do nowych technologii. Do dzielenia się naszą wiedzą. Do projektowania i tworzenia użytecznych i nowoczesnych rozwiązań dla Was - naszych klientów.",
 
     "projectsHeader": "Nasze projekty",
-    "projectsContent": "Zobacz jakie projekty realizujemy dla<br>naszych Klientów w które angażujemy się w 100%",
+    "projectsContent": "Zobacz jakie projekty realizujemy dla naszych Klientów w które angażujemy się w 100%",
 
-    "weDoHeader": "Co robimy do<br>w KanapkaMan Software <br>House",
+    "weDoHeader": "Co robimy w KanapkaMan Software House",
     "weDoContent": "Każdego dnia tworzymy oprogramowanie, które rozwiązuje potrzeby użytkowników i znajduje swoje trwałe miejsce na rynku. Każda linia kodu jest tworzona z precyzją oraz ogromną pasją. To pozwala nam pisać czysty, wysokiej jakości kod, który jest łatwy do zrozumienia, utrzymania i rozszerzania przez innych programistów.",
-    "ourMissionHeader": "Nasza misja<br>w KanapkaMan <br>Software<br>House",
+    "ourMissionHeader": "Nasza misja w KanapkaMan Software House",
     "ourMissionContent": "Naszą misją jest przekucie Twojego pomysłu w użyteczny, świetnie zaprojektowany, odnoszący sukces produkt. Przeprowadzimy Cię przez trudny początek, jakimi jest urzeczywistnienie Twojego pomysłu, wprowadzimy go na rynek i będziemy Cię wspierać również w późniejszej drodze, jaka Cię czeka",
 
     "ourOfficesOneHeader": "Nasze biuro",
@@ -92,5 +101,5 @@
     "ourTeamHeroHeader": "Zespół naszego software house",
     "ourTeamHeroContent": "Jesteśmy po to, aby Cię wspierać. Robimy to z tym większą przyjemnością, że po prostu lubimy swoją pracę i swoje towarzystwo. Wierzymy, że praca w zespole złożonym ze specjalistów w swoich dziedzinach jest bardziej produktywna i skuteczniejsza.",
 
-    "blogPostsHeader": "Najnowsze<br>artykuły"
+    "blogPostsHeader": "Najnowsze artykuły"
 }

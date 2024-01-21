@@ -47,16 +47,18 @@ defineProps<{
             h1 {
                 font-size: 4vw;
                 line-height: 4vw;
+                width: 35vw;
 
                 @media screen and (max-width: 768px) {
                     font-size: 10vw;
                     line-height: 10vw;
+                    width: 85vw;
                 }
             }
 
             p {
                 font-size: 1vw;
-                padding: 3vw 0 0 0;
+                padding: 3vw 10vw 0 0;
 
                 @media screen and (max-width: 768px) {
                     font-size: 2.5vw;

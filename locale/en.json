@@ -15,13 +15,21 @@
     "subscribe": "Subscribe",
     "selected": "Selected",
     "go": "Go",
-    "weEmpower": "We empower<br>client <span>to be loved</span>",
-    "weDeliver": "<span>We deliver</span> <span>what we promise</span>",
-    "engagingUser": "Engaging user experience, classy<br>web design & development, unique<br>brand identity solutions to shine.",
+    "weEmpower": "We empower clients",
+    "weEmpowerSpan": "to be loved",
+    "weDeliverSpanOne": "We deliver",
+    "weDeliverSpanTwo": "what we promise",
+    "engagingUser": "Engaging user experience, classy web design & development, unique brand identity solutions to shine.",
     "ourClientsHome": "Our clients get industry leading digital products, all looking into the future. Years pass by and designs we provide are still worthy.",
     "weMake": "We make it possible as 10+ years experience in digital world doesn’t go unnoticed.",
     "gathering": "Gathering the best talents — engineers in minds helps us craft the best thought-out solutions.",
-    "ourTeam": "Our team puts client's<br>business needs above all, and <br>by saying that <span class='gradient-text'>we make communication with <br><span class='last-line'>clients the priority number one.</span></span>",
+
+    "ourTeamOne": "Our team puts client's",
+    "ourTeamTwo": "business needs above all, and",
+    "ourTeamThree": "by saying that ",
+    "ourTeamSpanOne": "we make communication with",
+    "ourTeamSpanTwo": "clients the priority number one.",
+
     "weveBeen": "We've been researching interfaces in KanapkaMan's secret laboratories with no sleep all days and nights.",
     "needSoftware": "Need a software?",
     "becomeClient": "Become a client",
@@ -31,8 +39,8 @@
     "cookies": "Cookies",
     "privacy": "Privacy",
 
-    "servicesHeroHeader": "Software services<br> for companies",
-    "servicesHeroContent": "We produce software that solves users' needs and thanks to our<br>experience, it has a solid position on the market. Huge passion and<br>precision make the code we write clean and very high quality.<br>Thanks to this, it is easy to understand, maintain and expand by<br>other programming teams.",
+    "servicesHeroHeader": "Software services for companies",
+    "servicesHeroContent": "We produce software that solves users' needs and thanks to our experience, it has a solid position on the market. Huge passion and precision make the code we write clean and very high quality. Thanks to this, it is easy to understand, maintain and expand by other programming teams.",
     
     "techWeUse": "Technologies we use",
 
@@ -67,7 +75,7 @@
     "contactPhone": "Phone number",
     "contactMessage": "Your message",
     "contactSend": "Send",
-    "contactSendMessage": "Send your<br>message",
+    "contactSendMessage": "Send your message",
     "contactError": "Some fields are invalid or incomplete",
     "contactDone": "Your message has been sent",
 
@@ -75,22 +83,22 @@
     "aboutHeroContent": "IT-SOLVE was founded out of passion for new technologies. To share our knowledge with pashion and to design and create useful as well as modern solutions for you- our clients.",
 
     "projectsHeader": "Our projects",
-    "projectsContent": "See what projects we implement for our clients<br>and we are 100% engaged in them!",
+    "projectsContent": "See what projects we implement for our clients and we are 100% engaged in them!",
 
-    "weDoHeader": "What we do<br>at KanapkaMan Software <br>House",
+    "weDoHeader": "What we do at KanapkaMan Software House",
     "weDoContent": "Every day we create software that solves the needs of users and finds its pernament place on the market. Each line of code is created with precision and great passion. This allows us to write clean, high- quality code that is easy for other programmers to understand, maintain and extend.",
-    "ourMissionHeader": "Our mission<br>at KanapkaMan <br>Software<br>House",
+    "ourMissionHeader": "Our mission at KanapkaMan Software House",
     "ourMissionContent": "Our mission is to transform your idea into a useful, well- designed, sucessful product. We will guide you through a difficult beginning, which is the implementation of your idea, we will introduce it to the market and support you  afterwards.",
 
     "ourOfficesOneHeader": "Our office",
     "ourOfficesOneContent": "A modern office is our trademark and one of the best places to work for programmers in Częstochowa. Spacious, comfortable, designed with attention to detail. Thanks to this, this place is ideal not only for creating great software, but also gives the opportunity to relax. Work comfort is our priority, because we believe that the space we are in significantly affects its quality.",
     "ourOfficesTwoHeader": "Creative space",
-    "ourOfficesTwoContent": "Remembering that each of us may prefer a different work model, we have transformed our office into a creative space so that writing code is a pleasure, and cooperation with the client only causes enthusiasm. Our space has been designed with the motto <b>choose a job that you love and you won't work a single day.</b>",
+    "ourOfficesTwoContent": "Remembering that each of us may prefer a different work model, we have transformed our office into a creative space so that writing code is a pleasure, and cooperation with the client only causes enthusiasm. Our space has been designed with the motto choose a job that you love and you won't work a single day.",
 
     "ourClientsHeader": "Customers reviews",
 
     "ourTeamHeroHeader": "Our team",
     "ourTeamHeroContent": "We are here to support you. We do it with great pleasure because we simply love our work and our company. We believe that working in a team of specialists in their fields is more productive and effective.",
 
-    "blogPostsHeader": "Lates<br>articles"
+    "blogPostsHeader": "Lates articles"
 }

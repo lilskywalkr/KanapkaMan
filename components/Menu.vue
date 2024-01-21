@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import type { Ref } from 'vue'
+
 const { t, setLocale, locale } = useI18n()
 
 const menuRef: Ref<any> = ref(null)
@@ -72,7 +76,7 @@ onMounted(() => {
             ]"
             :key="menu.id"
           >
-            <router-link :to="menu.link">
+            <nuxt-link :to="menu.link">
               <div class="text-1">
                 <span
                   v-for="(char) in menu.text"
@@ -90,7 +94,7 @@ onMounted(() => {
                   ? "&nbsp;"
                   : char }}</span>
               </div>
-            </router-link>
+            </nuxt-link>
           </li>
         </ul>
 

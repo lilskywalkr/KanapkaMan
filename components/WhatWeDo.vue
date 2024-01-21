@@ -1,13 +1,16 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+
 const { t } = useI18n()
 
 // content for "we-do" section
 const weDoing = ref([
-  { id: 0, name: t('doingWebName'), icon: '../src/assets/web-development.svg', desc: t('doingWebDesc') },
-  { id: 1, name: t('doingMobName'), icon: '../src/assets/app-development.svg', desc: t('doingMobDesc') },
-  { id: 2, name: t('doingOutName'), icon: '../src/assets/outsourcing.svg', desc: t('doingOutDesc') },
-  { id: 3, name: t('doingDesignName'), icon: '../src/assets/product-design.svg', desc: t('doingDesignDesc') },
-  { id: 4, name: t('doingHardSoftName'), icon: '../src/assets/hardware.svg', desc: t('doingHardSoftDesc') },
+  { id: 0, name: t('doingWebName'), icon: '_nuxt/assets/web-development.svg', desc: t('doingWebDesc') },
+  { id: 1, name: t('doingMobName'), icon: '_nuxt/assets/app-development.svg', desc: t('doingMobDesc') },
+  { id: 2, name: t('doingOutName'), icon: '_nuxt/assets/outsourcing.svg', desc: t('doingOutDesc') },
+  { id: 3, name: t('doingDesignName'), icon: '_nuxt/assets/product-design.svg', desc: t('doingDesignDesc') },
+  { id: 4, name: t('doingHardSoftName'), icon: '_nuxt/assets/hardware.svg', desc: t('doingHardSoftDesc') },
 ])
 </script>
 

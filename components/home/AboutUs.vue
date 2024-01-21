@@ -1,11 +1,17 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
 const { t } = useI18n()
 
-const aboutUsContent = ref([
-  { id: 0, text: t('ourClientsHome') },
-  { id: 1, text: t('weMake') },
-  { id: 2, text: t('gathering') },
-])
+const translationKeys = ['ourClientsHome', 'weMake', 'gathering']
+
+const aboutUsContent = computed(() => {
+  return translationKeys.map((key, index) => ({
+    id: index,
+    text: t(key),
+  }))
+})
 </script>
 
 <template>
@@ -15,11 +21,18 @@ const aboutUsContent = ref([
   >
     <div class="about-upper">
       <div class="upper-one">
-        <h2>{{ $t('weEmpower') }}</h2>
+        <h2>
+          {{ $t('weEmpower') }}
+          <span>{{ $t('weEmpowerSpan') }}</span>
+        </h2>
       </div>
 
       <div class="upper-two">
-        <p>{{ $t('weDeliver') }}</p>
+        <p>
+          <span>{{ $t('weDeliverSpanOne') }}</span>
+
+          <span>{{ $t('weDeliverSpanTwo') }}</span>
+        </p>
 
         <p>{{ $t('engagingUser') }}</p>
       </div>
@@ -36,7 +49,21 @@ const aboutUsContent = ref([
     </div>
 
     <div class="about-team">
-      <p>{{ $t('ourTeam') }}</p>
+      <p>
+        {{ $t('ourTeamOne') }}
+        <br>
+        {{ $t('ourTeamTwo') }}
+        <br>
+        {{ $t('ourTeamThree') }}
+        <span class="gradient-text">
+          {{ $t('ourTeamSpanOne') }}
+          <br>
+
+          <span class="last-line">
+            {{ $t('ourTeamSpanTwo') }}
+          </span>
+        </span>
+      </p>
     </div>
   </div>
 </template>

@@ -30,14 +30,11 @@ defineProps<{
       <p>{{ desc }}</p>
     </div>
 
-    <router-link
-      class="post-link"
-      :to="{'name': 'blogPostDetail',
-            'params': {postName,
-                       postId}}"
-    >
+    <!--
+      <router-link class="post-link" :to="{'name': 'blogPostDetail', 'params': {postName, postId}}">
       <p>read more</p>
-    </router-link>
+      </router-link>
+    -->
   </div>
 </template>
 

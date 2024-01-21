@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import type { Ref } from 'vue'
+import { useBlog } from '../../composables/useBlog'
+
 const blogPost: Ref<any> = ref(null)
 
 const route = useRoute()

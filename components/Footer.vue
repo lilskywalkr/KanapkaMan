@@ -1,13 +1,25 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+
 const { t } = useI18n()
 
-const footerMiddleContent = ref([{ id: 0, text: t('startup') }, { id: 1, text: t('eCommerce') }, { id: 2, text: t('premium') }])
-const footerLowerContent = ref([{ id: 0, text: 'hello@kanapka.digital' }, { id: 1, text: '+48 001 002 003' }])
+const footerMiddleContent = computed(() => {
+  return ['startup', 'eCommerce', 'premium'].map((key, index) => {
+    return { id: index, text: t(key) }
+  })
+})
 
-const footerLowestContent = ref([
-  { id: 0, text: t('cookies'), link: 'cookies' },
-  { id: 1, text: t('privacy'), link: 'privacy' },
+const footerLowerContent = ref([
+  { id: 0, text: 'hello@kanapka.digital' },
+  { id: 1, text: '+48 001 002 003' },
 ])
+
+const footerLowestContent = computed(() => {
+  return ['cookies', 'privacy'].map((key, index) => {
+    return { id: index, text: t(key), link: key }
+  })
+})
 
 // Icons for socials
 const icons = ref([

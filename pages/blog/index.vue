@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import moment from 'moment'
+import { computed, onMounted, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+import type { Ref } from 'vue'
+import { useBlog } from '../../composables/useBlog'
 
 // array for blogs
 const blogs: Ref<any> = ref([])
@@ -40,6 +44,10 @@ function loadPreviousPage() {
   if (currentPage.value > 1)
     currentPage.value--
 }
+
+watch(() => locale.value, async () => {
+  await gettingBlogs()
+})
 </script>
 
 <template>
@@ -55,7 +63,7 @@ function loadPreviousPage() {
         :title="blog.title"
         :author="blog.author"
         :time="blog.time"
-        :date="moment.unix(`${blog.date.seconds}`).format('DD<br>MMM<br>YYYY')"
+        :date="moment.unix(`${blog.date.seconds}`).format('DD MMM YYYY')"
         :desc="blog.desc"
         :post-name="blog.title.toLowerCase().replace(/[.,?]/gm, ' ').split(' ').join('-')"
         :post-id="index"
@@ -123,6 +131,8 @@ function loadPreviousPage() {
         header {
             margin-bottom: 3vw;
             margin-left: 5vw;
+            display: block;
+            width: 25vw;
 
             h2 {
                 font-size: 7vw;

@@ -82,9 +82,12 @@ defineProps<{
                     font-weight: 500;
                     line-height: 6vw;
                     font-size: 5vw;
+                    width: 55vw;
 
                     @media screen and (max-width: 768px) {
                         font-size: 7vw;
+                        width: 50vw;
+                        line-height: 7vw;
                     }
                 }
 
@@ -149,6 +152,7 @@ defineProps<{
 
                     @media screen and (max-width: 768px) {
                         font-size: 7vw;
+                        line-height: 7vw;
                     }
                 }
 

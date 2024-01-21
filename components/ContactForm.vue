@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useContact } from '../composables/useContact'
+
 const { t } = useI18n()
 
 const { setContact } = useContact()
@@ -290,6 +294,14 @@ onMounted(() => {
 
                         @media screen and (max-width: 768px) {
                             font-size: 2.5vw;
+                        }
+
+                        p {
+                          width: 10vw;
+
+                          @media screen and (max-width: 768px) {
+                            width: 15vw;
+                          }
                         }
                     }
 

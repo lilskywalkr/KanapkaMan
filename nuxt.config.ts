@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     '@nuxt/content',
     '@nuxtjs/i18n',
+    '@nuxt/image',
   ],
 
   typescript: {
