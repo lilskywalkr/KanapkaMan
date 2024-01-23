@@ -1,15 +1,15 @@
 <script setup lang="ts">
 // content for "technologies" section
 const technologies = ref([
-  { id: 0, icon: '../src/assets/aws.png' },
-  { id: 1, icon: '../src/assets/firebase.png' },
-  { id: 2, icon: '../src/assets/flutter.png' },
-  { id: 3, icon: '../src/assets/java.png' },
-  { id: 4, icon: '../src/assets/mongo.png' },
-  { id: 5, icon: '../src/assets/pwa.png' },
-  { id: 6, icon: '../src/assets/ruby.png' },
-  { id: 7, icon: '../src/assets/swift.png' },
-  { id: 8, icon: '../src/assets/vue.png' },
+  { id: 0, icon: '_nuxt/assets/aws.png' },
+  { id: 1, icon: '_nuxt/assets/firebase.png' },
+  { id: 2, icon: '_nuxt/assets/flutter.png' },
+  { id: 3, icon: '_nuxt/assets/java.png' },
+  { id: 4, icon: '_nuxt/assets/mongo.png' },
+  { id: 5, icon: '_nuxt/assets/pwa.png' },
+  { id: 6, icon: '_nuxt/assets/ruby.png' },
+  { id: 7, icon: '_nuxt/assets/swift.png' },
+  { id: 8, icon: '_nuxt/assets/vue.png' },
 ])
 </script>
 

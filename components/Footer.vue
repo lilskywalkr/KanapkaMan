@@ -23,9 +23,9 @@ const footerLowestContent = computed(() => {
 
 // Icons for socials
 const icons = ref([
-  { icon: 'facebook-f', link: 'https://www.facebook.com/kanapkaman/' },
-  { icon: 'instagram', link: 'https://www.instagram.com/kanapkaman' },
-  { icon: 'linkedin', link: 'https://pl.linkedin.com/showcase/kanapkaman/' },
+  { icon: 'bxl:facebook', link: 'https://www.facebook.com/kanapkaman/' },
+  { icon: 'bxl:instagram', link: 'https://www.instagram.com/kanapkaman' },
+  { icon: 'bxl:linkedin', link: 'https://pl.linkedin.com/showcase/kanapkaman/' },
 ])
 </script>
 
@@ -100,13 +100,9 @@ const icons = ref([
             :href="icon.link"
             rel="noreferrer noopener"
             target="_blank"
-          ><fa
-            class="icon"
-            :icon="[
-              'fab',
-              `${icon.icon}`,
-            ]"
-          /></a>
+          >
+            <Icon :name="`${icon.icon}`" />
+          </a>
         </li>
       </ul>
     </div>

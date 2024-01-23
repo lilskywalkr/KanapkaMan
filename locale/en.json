@@ -5,7 +5,7 @@
     "menuTeam": "Team",
     "menuServices": "Services",
     "followUs": "Follow us",
-    "helloStranger": "Hello stranger!<br>So, you need some beautiful solutions for your business? Great! We're here to help you! Tell us what are you looking for. ",
+    "helloStranger": "Hello stranger! So, you need some beautiful solutions for your business? Great! We're here to help you! Tell us what are you looking for. ",
 
     "welcomeTo": "Welcome to",
     "placeWhere": "Place where well-crafted software projects are born.",
@@ -100,5 +100,8 @@
     "ourTeamHeroHeader": "Our team",
     "ourTeamHeroContent": "We are here to support you. We do it with great pleasure because we simply love our work and our company. We believe that working in a team of specialists in their fields is more productive and effective.",
 
-    "blogPostsHeader": "Lates articles"
+    "blogPostsHeader": "Lates articles",
+    "blogPostHeaderNoPosts": "No articles yet",
+    "blogPostNoLanguage": "No article found",
+    "readMore": "read more"
 }

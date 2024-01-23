@@ -20,9 +20,9 @@ SwiperCore.use([Pagination, A11y])
 
 // client array
 const clients = ref([
-  { id: 0, src: '../src/assets/client_1.webp' },
-  { id: 1, src: '../src/assets/client_2.webp' },
-  { id: 2, src: '../src/assets/client_3.webp' },
+  { id: 0, src: '_nuxt/assets/client_1.webp' },
+  { id: 1, src: '_nuxt/assets/client_2.webp' },
+  { id: 2, src: '_nuxt/assets/client_3.webp' },
 ])
 </script>
 

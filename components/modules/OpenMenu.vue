@@ -6,8 +6,10 @@ const emit = defineEmits<{
   (e: 'changeBurgerClass'): void
 }>()
 // Icons for socials
-const icons = ref(['facebook-f', 'instagram', 'linkedin'])
+
+const icons = ref(['bxl:facebook', 'bxl:instagram', 'bxl:linkedin'])
 const openMenu = ref(true)// calling the emmit in a function
+
 function handleClicking() {
   emit('changeBurgerClass')
 }
@@ -20,7 +22,6 @@ function handleClicking() {
   >
     <div class="menu-left">
       <div class="content-box">
-        <!-- <p>Hello stranger!<br>So, you need some beautiful solutions for your business? Great! We're here to help you! Tell us what are you looking for. </p> -->
         <p>{{ $t('helloStranger') }}</p>
 
         <p>hello@kanapka.digital</p>
@@ -75,13 +76,12 @@ function handleClicking() {
             v-for="(icon, index) in icons"
             :key="index"
           >
-            <a href="#"><fa
-              class="icon"
-              :icon="[
-                'fab',
-                `${icon}`,
-              ]"
-            /></a>
+            <a href="#">
+              <Icon
+                class="icon"
+                :name="`${icon}`"
+              />
+            </a>
           </li>
         </ul>
       </div>

@@ -3,10 +3,10 @@ const { t } = useI18n()
 
 // content for "starting-from" section
 const startFrom = ref([
-  { id: 0, name: t('startFromQueriesName'), icon: '../src/assets/bidness_qna_white.svg', desc: t('startFromQueriesDesc') },
-  { id: 1, name: t('startFromWorkshopName'), icon: '../src/assets/meeting_white.svg', desc: t('startFromWorkshopDesc') },
-  { id: 2, name: t('startFromSoftName'), icon: '../src/assets/software_dev_white.svg', desc: t('startFromSoftDesc') },
-  { id: 3, name: t('startFromSupportName'), icon: '../src/assets/support_white.svg', desc: t('startFromSupportDesc') },
+  { id: 0, name: t('startFromQueriesName'), icon: '_nuxt/assets/bidness_qna_white.svg', desc: t('startFromQueriesDesc') },
+  { id: 1, name: t('startFromWorkshopName'), icon: '_nuxt/assets/meeting_white.svg', desc: t('startFromWorkshopDesc') },
+  { id: 2, name: t('startFromSoftName'), icon: '_nuxt/assets/software_dev_white.svg', desc: t('startFromSoftDesc') },
+  { id: 3, name: t('startFromSupportName'), icon: '_nuxt/assets/support_white.svg', desc: t('startFromSupportDesc') },
 ])
 </script>
 

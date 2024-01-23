@@ -74,7 +74,7 @@ export default antfu({
       'vue/no-restricted-static-attribute': 'error',
       'vue/no-restricted-v-bind': 'error',
       // 'vue/no-root-v-if': 'error',
-      'vue/no-setup-props-reactivity-loss': 'error',
+      // 'vue/no-setup-props-reactivity-loss': 'error',
       'vue/no-template-target-blank': 'error',
       'vue/no-this-in-before-route-enter': 'error',
       'vue/no-unsupported-features': 'error',

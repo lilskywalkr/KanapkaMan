@@ -23,6 +23,9 @@ function changeLocale() {
   setLocale(sessionLocale.value)
 }
 
+const route = useRoute()
+const isLinkActive = (link: string) => route.fullPath.startsWith(link)
+
 // change menu background on scroll
 function changeMenuBackground() {
   window?.addEventListener('scroll', () => {
@@ -34,6 +37,11 @@ function changeMenuBackground() {
 
     menuRef.value.style.background = 'none'
   }, false)
+}
+
+function closeMenu() {
+  openMenu.value = false
+  burger.value.classList.toggle('close')
 }
 
 onMounted(() => {
@@ -60,27 +68,30 @@ onMounted(() => {
             v-for="(menu) in [
               {'id': 0,
                'text': t('menuBlog'),
-               'link': 'blog'},
+               'link': '/blog'},
               {'id': 1,
                'text': t('menuAbout'),
-               'link': 'about'},
+               'link': '/about'},
               {'id': 2,
                'text': t('menuTeam'),
-               'link': 'team'},
+               'link': '/team'},
               {'id': 3,
                'text': t('menuServices'),
-               'link': 'services'},
+               'link': '/services'},
               {'id': 4,
                'text': t('menuProjects'),
-               'link': 'projects'},
+               'link': '/projects'},
             ]"
             :key="menu.id"
           >
-            <nuxt-link :to="menu.link">
+            <NuxtLink
+              :to="menu.link"
+              :class="{'active': isLinkActive(menu.link)}"
+            >
               <div class="text-1">
                 <span
-                  v-for="(char) in menu.text"
-                  :key="char"
+                  v-for="(char, index) in menu.text"
+                  :key="index"
                 >{{ char.charCodeAt(0) === 32
                   ? "&nbsp;"
                   : char }}</span>
@@ -88,13 +99,13 @@ onMounted(() => {
 
               <div class="text-2">
                 <span
-                  v-for="(char) in menu.text"
-                  :key="char"
+                  v-for="(char, index) in menu.text"
+                  :key="index"
                 >{{ char.charCodeAt(0) === 32
                   ? "&nbsp;"
                   : char }}</span>
               </div>
-            </nuxt-link>
+            </NuxtLink>
           </li>
         </ul>
 
@@ -138,6 +149,7 @@ onMounted(() => {
     <ModulesOpenMenu
       v-if="openMenu"
       change-burger-class="changeBurgerClass"
+      @change-burger-class="closeMenu"
     />
   </menu>
 </template>
@@ -282,6 +294,10 @@ onMounted(() => {
                             position: relative;
                             font-weight: 500;
                             overflow-y: hidden;
+
+                            &.active {
+                              color: var(--sh-blue);
+                            }
 
                             .text-1, .text-2 {
                                 transition: all .6s cubic-bezier(.23,1,.32,1);

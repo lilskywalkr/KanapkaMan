@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import type { Ref } from 'vue'
 import { useBlog } from '../../composables/useBlog'
@@ -7,7 +7,6 @@ import { useBlog } from '../../composables/useBlog'
 const blogPost: Ref<any> = ref(null)
 
 const route = useRoute()
-
 const { locale } = useI18n()
 const { getBlogPostById } = useBlog()
 
@@ -19,16 +18,26 @@ onMounted(async () => {
   const postId = (route.params as { postId?: string }).postId || ''
   await gettingBlogPostById(postId)
 })
+
+watch(() => locale.value, async () => {
+  const postId = (route.params as { postId?: string }).postId || ''
+  await gettingBlogPostById(postId)
+})
 </script>
 
 <template>
-  <div
-    v-if="blogPost"
-    class="content-container"
-  >
-    <h2>{{ blogPost[0].title }}</h2>
+  <div class="content-container">
+    <h2 v-if="blogPost && blogPost[0]">
+      {{ blogPost[0].title }}
+    </h2>
 
-    <p>{{ blogPost[0].content }}</p>
+    <h2 v-else>
+      {{ $t('blogPostNoLanguage') }}
+    </h2>
+
+    <p v-if="blogPost && blogPost[0]">
+      {{ blogPost[0].content }}
+    </p>
   </div>
 
   <ContactForm />

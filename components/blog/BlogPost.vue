@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-defineProps<{
+const props = defineProps<{
   title: any
   author: any
   time: any
@@ -10,31 +11,52 @@ defineProps<{
   postName: any
   postId: any
 }>()
+
+const { locale } = useI18n()
+
+// Create a reactive variable to store the formatted date
+const formattedDate = ref(formatDate(props.date, locale.value))
+
+// Watch for changes in the locale and update the formatted date
+watch(locale, (newLocale) => {
+  formattedDate.value = formatDate(props.date, newLocale)
+})
+
+function formatDate(dateInSeconds: number, currentLocale: string): string {
+  const milliseconds = dateInSeconds * 1000
+
+  return new Date(milliseconds).toLocaleDateString(currentLocale, {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  })
+}
 </script>
 
 <template>
   <div class="blog">
     <div class="blog-header">
       <div class="title">
-        <h3>{{ title }}</h3>
+        <h3>{{ props.title }}</h3>
 
-        <p> {{ author }}  <span>{{ time }}</span> </p>
+        <p> {{ props.author }}  <span>{{ props.time }}</span> </p>
       </div>
 
       <div class="date">
-        <h3>{{ date }}</h3>
+        <h3>{{ formattedDate }}</h3>
       </div>
     </div>
 
     <div class="blog-desc">
-      <p>{{ desc }}</p>
+      <p>{{ props.desc }}</p>
     </div>
 
-    <!--
-      <router-link class="post-link" :to="{'name': 'blogPostDetail', 'params': {postName, postId}}">
-      <p>read more</p>
-      </router-link>
-    -->
+    <NuxtLink
+      class="post-link"
+      :to="`/blog/${props.postId}-${props.postName}`"
+    >
+      <p>{{ $t('readMore') }}</p>
+    </NuxtLink>
   </div>
 </template>
 

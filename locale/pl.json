@@ -5,7 +5,7 @@
     "menuTeam": "Zespół",
     "menuServices": "Usługi",
     "followUs": "Zaobserwuj mas",
-    "helloStranger": "Cześć nieznajomy!<br>Więc potrzebujesz pięknych rozwiązań dla swojej firmy? Świetnie! Jesteśmy tutaj, aby Ci pomóc! Powiedz nam, czego szukasz.",
+    "helloStranger": "Cześć nieznajomy! Więc potrzebujesz pięknych rozwiązań dla swojej firmy? Świetnie! Jesteśmy tutaj, aby Ci pomóc! Powiedz nam, czego szukasz.",
 
     "welcomeTo": "Witaj w",
     "placeWhere": "Miejsce, gdzie rodzą się starannie opracowane projekty oprogramowania",
@@ -101,5 +101,8 @@
     "ourTeamHeroHeader": "Zespół naszego software house",
     "ourTeamHeroContent": "Jesteśmy po to, aby Cię wspierać. Robimy to z tym większą przyjemnością, że po prostu lubimy swoją pracę i swoje towarzystwo. Wierzymy, że praca w zespole złożonym ze specjalistów w swoich dziedzinach jest bardziej produktywna i skuteczniejsza.",
 
-    "blogPostsHeader": "Najnowsze artykuły"
+    "blogPostsHeader": "Najnowsze artykuły",
+    "blogPostHeaderNoPosts": "Brak artykułów",
+    "blogPostNoLanguage": "Nie znaleziono artykułu",
+    "readMore": "czytaj dalej"
 }

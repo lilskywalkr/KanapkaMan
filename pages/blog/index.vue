@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import moment from 'moment'
 import { computed, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import type { Ref } from 'vue'
@@ -53,7 +52,13 @@ watch(() => locale.value, async () => {
 <template>
   <div class="blogs-container">
     <header>
-      <h2>{{ $t('blogPostsHeader') }}</h2>
+      <h2 v-if="blogs.length">
+        {{ $t('blogPostsHeader') }}
+      </h2>
+
+      <h2 v-else>
+        {{ $t('blogPostHeaderNoPosts') }}
+      </h2>
     </header>
 
     <div class="blogs">
@@ -63,7 +68,7 @@ watch(() => locale.value, async () => {
         :title="blog.title"
         :author="blog.author"
         :time="blog.time"
-        :date="moment.unix(`${blog.date.seconds}`).format('DD MMM YYYY')"
+        :date="blog.date.seconds"
         :desc="blog.desc"
         :post-name="blog.title.toLowerCase().replace(/[.,?]/gm, ' ').split(' ').join('-')"
         :post-id="index"
@@ -109,10 +114,6 @@ watch(() => locale.value, async () => {
           <p>{{ $t('go') }}</p>
         </div>
       </button>
-      <!--
-        <button @click="loadPreviousPage" :disabled="currentPage === totalPages / totalPages">Prev Page</button>
-        <button @click="loadNextPage" :disabled="currentPage === totalPages">Next Page</button>
-      -->
     </div>
   </div>
 

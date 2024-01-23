@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxtjs/i18n',
     '@nuxt/image',
+    'nuxt-icon',
   ],
 
   typescript: {
