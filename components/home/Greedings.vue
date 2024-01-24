@@ -97,6 +97,10 @@ onMounted(async () => {
                 justify-content: flex-end;
                 padding: 4vw 5vw 0 0;
 
+                @media screen and (max-width: 768px) {
+                    padding-right: 12vw;
+                }
+
                 .image-rect {
                     width: 10vw;
                     height: 15vw;

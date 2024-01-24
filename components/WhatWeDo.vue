@@ -59,6 +59,11 @@ const weDoing = ref([
         flex-flow: row wrap;
         gap: 1vw;
 
+        @media screen and (max-width: 768px) {
+          padding-bottom: 10vw;
+          transform: translate(0, -15vw);
+        }
+
         .doing-box {
            width: 29vw;
            height: 20vw;

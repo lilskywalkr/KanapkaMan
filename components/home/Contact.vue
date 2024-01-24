@@ -34,6 +34,7 @@ onMounted(async () => {
         background: var(--sh-another-black);
         border-radius: 80%;
         position: absolute;
+        z-index: 1;
         transform: translate(-10vw, -15vw);
         display: flex;
         justify-content: center;

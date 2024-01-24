@@ -81,7 +81,7 @@ function run() {
   )
   plane.rotation.x = -Math.PI * 2 ** -1
   plane.position.y = -1
-  scene.add(plane)
+  // scene.add(plane)
 
   // Canvas Size settings
   const sizeSettings = () => {

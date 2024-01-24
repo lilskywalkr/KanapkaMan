@@ -28,11 +28,13 @@ const icons = ref([
   { icon: 'bxl:instagram', link: 'https://www.instagram.com/kanapkaman' },
   { icon: 'bxl:linkedin', link: 'https://pl.linkedin.com/showcase/kanapkaman/' },
 ])
+
+const route = useRoute()
 </script>
 
 <template>
   <div class="footer-container">
-    <FooterCanvas />
+    <FooterCanvas v-if="route.fullPath !== '/'" />
 
     <div class="footer-upper">
       <p>{{ $t('needSoftware') }}</p>
