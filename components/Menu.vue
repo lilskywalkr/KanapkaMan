@@ -167,7 +167,7 @@ onMounted(() => {
         height: auto;
         display: flex;
         font-size: 1.8vw;
-        padding: 2vw 0;
+        padding: 0.5vw 0;
         z-index: 4;
         border-radius: 0 0 4vw 4vw;
         transition: all .6s cubic-bezier(.23,1,.32,1);
@@ -190,10 +190,12 @@ onMounted(() => {
                 }
 
                 img {
-                    width: 6vw;
+                    width: 4vw;
+                    margin: 0.5vw 0;
 
                     @media screen and (max-width: 768px) {
                         width: 10vw;
+                        margin: 2vw 0;
                     }
                 }
             }
