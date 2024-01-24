@@ -92,18 +92,22 @@ onMounted(() => {
                 <span
                   v-for="(char, index) in menu.text"
                   :key="index"
-                >{{ char.charCodeAt(0) === 32
-                  ? "&nbsp;"
-                  : char }}</span>
+                >
+                  {{ char.charCodeAt(0) === 32
+                    ? "&nbsp;"
+                    : char }}
+                </span>
               </div>
 
               <div class="text-2">
                 <span
                   v-for="(char, index) in menu.text"
                   :key="index"
-                >{{ char.charCodeAt(0) === 32
-                  ? "&nbsp;"
-                  : char }}</span>
+                >
+                  {{ char.charCodeAt(0) === 32
+                    ? "&nbsp;"
+                    : char }}
+                </span>
               </div>
             </NuxtLink>
           </li>

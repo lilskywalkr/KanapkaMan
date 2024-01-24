@@ -169,6 +169,8 @@ onMounted(() => {
         height: auto;
         background: var(--sh-other-black);
         padding: 5vw 0 0 20vw;
+        position: relative;
+        z-index: 1;
 
         @media screen and (max-width: 768px) {
             padding: 5vw 0 0 10vw;

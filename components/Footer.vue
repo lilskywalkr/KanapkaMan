@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import FooterCanvas from './modules/FooterCanvas.vue'
 
 const { t } = useI18n()
 
@@ -31,17 +32,19 @@ const icons = ref([
 
 <template>
   <div class="footer-container">
+    <FooterCanvas />
+
     <div class="footer-upper">
       <p>{{ $t('needSoftware') }}</p>
 
-      <router-link
-        :to="{'name': 'services'}"
+      <NuxtLink
+        to="services"
         class="button"
       >
         <p>{{ $t('becomeClient') }}</p>
 
         <div class="button-bg" />
-      </router-link>
+      </NuxtLink>
     </div>
 
     <div class="footer-content">
@@ -80,12 +83,12 @@ const icons = ref([
         class="conter"
       >
         <div>
-          <router-link
+          <NuxtLink
             :to="{'name': content.link}"
             class="footer-links"
           >
             <p>{{ content.text }}</p>
-          </router-link>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -96,13 +99,13 @@ const icons = ref([
           v-for="(icon, index) in icons"
           :key="index"
         >
-          <a
-            :href="icon.link"
+          <NuxtLink
+            :to="icon.link"
             rel="noreferrer noopener"
             target="_blank"
           >
             <Icon :name="`${icon.icon}`" />
-          </a>
+          </NuxtLink>
         </li>
       </ul>
     </div>
@@ -119,6 +122,8 @@ const icons = ref([
         justify-content: center;
         align-items: center;
         padding: 40vw 0 5vw 0;
+        position: relative;
+        z-index: 0;
 
         @media screen and (max-width: 768px) {
             padding: 15vw 0 0 0;
