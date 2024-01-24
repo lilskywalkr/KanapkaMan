@@ -1,12 +1,44 @@
 <script setup lang="ts">
 // Importing custom function that fetches images from unsplush api
+import { onMounted, ref } from 'vue'
+import { gsap } from 'gsap'
 import { getImagesFromUnsplush } from '../modules/getImages.js'
 
-// random image url
 const imgArray = ref([])
+const title = ref(null)
+const imageRect = ref(null)
+const textContent3 = ref(null)
+const textContent4 = ref(null)
 
 onMounted(async () => {
   await getImagesFromUnsplush(2, imgArray.value)
+
+  // GSAP Animations
+  const tl = gsap.timeline()
+
+  tl.fromTo(
+    title.value,
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+  )
+    .fromTo(
+      imageRect.value,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+      '-=0.5',
+    )
+    .fromTo(
+      textContent3.value,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+      '-=0.5',
+    )
+    .fromTo(
+      textContent4.value,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+      '-=0.5',
+    )
 })
 </script>
 
@@ -18,7 +50,7 @@ onMounted(async () => {
     <div id="hero-text-content-1">
       <p>{{ $t('welcomeTo') }}</p>
 
-      <h1>
+      <h1 ref="title">
         KanapkaMan<br>
 
         Software <span>House</span>
@@ -27,6 +59,7 @@ onMounted(async () => {
 
     <div id="hero-text-content-2">
       <div
+        ref="imageRect"
         class="image-rect"
         :style="{'backgroundImage': `url(${imgArray[0]})`}"
       >
@@ -34,11 +67,17 @@ onMounted(async () => {
       </div>
     </div>
 
-    <div id="hero-text-content-3">
+    <div
+      id="hero-text-content-3"
+      ref="textContent3"
+    >
       <p>{{ $t('placeWhere') }}</p>
     </div>
 
-    <div id="hero-text-content-4">
+    <div
+      id="hero-text-content-4"
+      ref="textContent4"
+    >
       <h1>{{ $t('ofDigitalAesthetics') }}</h1>
 
       <div class="bottom-text">

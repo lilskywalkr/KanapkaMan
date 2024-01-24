@@ -1,9 +1,17 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { gsap } from 'gsap'
 import FooterCanvas from './modules/FooterCanvas.vue'
 
 const { t } = useI18n()
+const footerRef = ref(null)
+const observer = ref(null)
+const footerUpperRef = ref(null)
+const footerMiddleContentRef = ref(null)
+const footerLowerContentRef = ref(null)
+const footerLowestContentRef = ref(null)
+const socialsRef = ref(null)
 
 const footerMiddleContent = computed(() => {
   return ['startup', 'eCommerce', 'premium'].map((key, index) => {
@@ -30,13 +38,71 @@ const icons = ref([
 ])
 
 const route = useRoute()
+
+function handleIntersection(entries: any) {
+  entries.forEach((entry: any) => {
+    if (entry.isIntersecting) {
+      // Play GSAP animations when the footer is visible
+      playAnimations()
+      // Stop observing once the animations are played
+      observer.value.unobserve(entry.target)
+    }
+  })
+}
+
+function playAnimations() {
+  // GSAP Animations
+  const tl = gsap.timeline()
+
+  tl.fromTo(
+    footerUpperRef.value,
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+  )
+    .fromTo(
+      footerMiddleContentRef.value,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+      '-=0.5',
+    )
+    .fromTo(
+      footerLowerContentRef.value,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+      '-=0.5',
+    )
+    .fromTo(
+      footerLowestContentRef.value,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+      '-=0.5',
+    )
+    .fromTo(
+      socialsRef.value,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+      '-=0.5',
+    )
+}
+
+onMounted(() => {
+  // Intersection Observer setup
+  observer.value = new IntersectionObserver(handleIntersection, { threshold: 0.5 })
+  observer.value.observe(footerRef.value)
+})
 </script>
 
 <template>
-  <div class="footer-container">
+  <div
+    ref="footerRef"
+    class="footer-container"
+  >
     <FooterCanvas v-if="route.fullPath !== '/'" />
 
-    <div class="footer-upper">
+    <div
+      ref="footerUpperRef"
+      class="footer-upper"
+    >
       <p>{{ $t('needSoftware') }}</p>
 
       <NuxtLink
@@ -49,7 +115,10 @@ const route = useRoute()
       </NuxtLink>
     </div>
 
-    <div class="footer-content">
+    <div
+      ref="footerMiddleContentRef"
+      class="footer-content"
+    >
       <div
         v-for="content in footerMiddleContent"
         :key="content.id"
@@ -66,7 +135,10 @@ const route = useRoute()
       </div>
     </div>
 
-    <div class="footer-content lower-content">
+    <div
+      ref="footerLowerContentRef"
+      class="footer-content lower-content"
+    >
       <div
         v-for="content in footerLowerContent"
         :key="content.id"
@@ -78,7 +150,10 @@ const route = useRoute()
       </div>
     </div>
 
-    <div class="footer-content lower-content">
+    <div
+      ref="footerLowestContentRef"
+      class="footer-content lower-content"
+    >
       <div
         v-for="content in footerLowestContent"
         :key="content.id"
@@ -95,7 +170,10 @@ const route = useRoute()
       </div>
     </div>
 
-    <div class="socials">
+    <div
+      ref="socialsRef"
+      class="socials"
+    >
       <ul>
         <li
           v-for="(icon, index) in icons"

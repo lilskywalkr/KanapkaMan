@@ -5,6 +5,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
+const route = useRoute()
 const canvas = ref(null)
 
 function run() {
@@ -130,7 +131,10 @@ function run() {
   const loader = new GLTFLoader()
 
   let obj: any = null
-  loader.load('_nuxt/assets/purple_crystal/scene.gltf', (gltf: any) => {
+  const src: string = route.fullPath.includes('/blog')
+    ? '../_nuxt/assets/purple_crystal/scene.gltf'
+    : '_nuxt/assets/purple_crystal/scene.gltf'
+  loader.load(src, (gltf: any) => {
     obj = gltf.scene
     obj.scale.set(1.5, 1.5, 1.5)
     obj.position.set(0, 1.8, -0.25)
