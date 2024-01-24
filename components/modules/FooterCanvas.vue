@@ -83,19 +83,6 @@ function run() {
   plane.position.y = -1
   // scene.add(plane)
 
-  // Canvas Size settings
-  const sizeSettings = () => {
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
-
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
-
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    renderer.render(scene, camera)
-  }
-
   // Update cursor coordinates
   const updateCursor = (e: MouseEvent) => {
     cursor.x = (e.clientX / sizes.width) - 2 ** -1
@@ -145,21 +132,24 @@ function run() {
   let obj: any = null
   loader.load('_nuxt/assets/purple_crystal/scene.gltf', (gltf: any) => {
     obj = gltf.scene
-    obj.scale.set(1, 1, 1)
-    obj.position.set(0, 1.5, -0.25)
+    obj.scale.set(1.5, 1.5, 1.5)
+    obj.position.set(0, 1.8, -0.25)
+
+    if (sizes.width <= 768)
+      obj.position.set(0, 0.5, -0.25)
 
     scene.add(obj)
 
     const velocity = new THREE.Vector2()
     const dampingFactor = 0.05
-    const clock = new THREE.Clock()
+    // const clock = new THREE.Clock()
 
     const animateCrystal = () => {
-      const elapsedTime = clock.getElapsedTime()
+      // const elapsedTime = clock.getElapsedTime()
 
       obj.rotation.x += (velocity.y - obj.rotation.x) * dampingFactor
       obj.rotation.y += (velocity.x - obj.rotation.y) * dampingFactor
-      obj.position.y = Math.sin(elapsedTime * 0.05) + 2 ** 0.05
+      // obj.position.y = Math.sin(elapsedTime * 0.05) + 2 ** 0.05
 
       velocity.x = cursor.x
       velocity.y = cursor.y
@@ -172,6 +162,24 @@ function run() {
 
     animateCrystal()
   })
+
+  // Canvas Size settings
+  const sizeSettings = () => {
+    sizes.width = window.innerWidth
+    sizes.height = window.innerHeight
+
+    if (sizes.width <= 768)
+      obj.position.set(0, 0.5, -0.25)
+    else
+      obj.position.set(0, 1.8, -0.25)
+
+    camera.aspect = sizes.width / sizes.height
+    camera.updateProjectionMatrix()
+
+    renderer.setSize(sizes.width, sizes.height)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    renderer.render(scene, camera)
+  }
 
   window?.addEventListener('resize', sizeSettings)
   window?.addEventListener('mousemove', updateCursor)

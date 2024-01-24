@@ -5,12 +5,12 @@ const canvas = ref(null)
 
 // Array to hold information about each image
 const images = [
-  { src: '_nuxt/assets/floating_images/ruby.webp', x: 500, y: 500, angle: 0, speed: 0.3, directionX: 0, directionY: 0 },
-  { src: '_nuxt/assets/floating_images/flutter.webp', x: 500, y: 500, angle: 45, speed: 0.5, directionX: 0, directionY: 0 },
-  { src: '_nuxt/assets/floating_images/firebase.webp', x: 500, y: 500, angle: 15, speed: 0.7, directionX: 0, directionY: 0 },
-  { src: '_nuxt/assets/floating_images/vue.webp', x: 500, y: 500, angle: 45, speed: 0.1, directionX: 0, directionY: 0 },
-  { src: '_nuxt/assets/floating_images/swift.webp', x: 500, y: 500, angle: 45, speed: 0.9, directionX: 0, directionY: 0 },
-  { src: '_nuxt/assets/floating_images/mongo.webp', x: 500, y: 500, angle: 45, speed: 0.4, directionX: 0, directionY: 0 },
+  { src: '_nuxt/assets/floating_images/ruby.webp', x: 400, y: 300, angle: 0, speed: 0.3, directionX: 0, directionY: 0 },
+  { src: '_nuxt/assets/floating_images/flutter.webp', x: 400, y: 300, angle: 45, speed: 0.5, directionX: 0, directionY: 0 },
+  { src: '_nuxt/assets/floating_images/firebase.webp', x: 400, y: 300, angle: 15, speed: 0.7, directionX: 0, directionY: 0 },
+  { src: '_nuxt/assets/floating_images/vue.webp', x: 400, y: 300, angle: 45, speed: 0.1, directionX: 0, directionY: 0 },
+  { src: '_nuxt/assets/floating_images/swift.webp', x: 400, y: 300, angle: 45, speed: 0.9, directionX: 0, directionY: 0 },
+  { src: '_nuxt/assets/floating_images/mongo.webp', x: 400, y: 300, angle: 45, speed: 0.4, directionX: 0, directionY: 0 },
   // Add more images as needed
 ]
 
@@ -79,17 +79,17 @@ onMounted(() => {
 <template>
   <canvas
     ref="canvas"
-    width="1920"
-    height="1080"
+    width="800"
+    height="600"
   />
 </template>
 
 <style scoped lang="scss">
     canvas {
       position: absolute;
-      left: 0;
-      top: 0;
-      // transform: translate(-50vw, -50vw);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       z-index: -2;
     }
 </style>
