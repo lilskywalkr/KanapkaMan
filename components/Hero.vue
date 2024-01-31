@@ -1,17 +1,41 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { gsap } from 'gsap'
+
 defineProps<{
   imgArray: any
   header: any
   content: any
 }>()
+
+const h1Ref = ref(null)
+const pRef = ref(null)
+
+onMounted(() => {
+  playAnimations()
+})
+
+function playAnimations() {
+  const tl = gsap.timeline()
+
+  // Animation for h1
+  tl.from(h1Ref.value, { opacity: 0, y: -20, duration: 0.5 })
+
+  // Animation for p
+  tl.from(pRef.value, { opacity: 0, y: -20, duration: 0.5 }, '-=0.3')
+}
 </script>
 
 <template>
   <section class="hero-container">
     <div class="desc-box">
-      <h1>{{ header }}</h1>
+      <h1 ref="h1Ref">
+        {{ header }}
+      </h1>
 
-      <p>{{ content }}</p>
+      <p ref="pRef">
+        {{ content }}
+      </p>
     </div>
 
     <div class="image-box">

@@ -1,16 +1,45 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
+import { gsap } from 'gsap'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
+const upperRef = ref(null)
+const upperOneRef = ref(null)
+const upperTwoRef = ref(null)
+const teamRef = ref(null)
+
 const translationKeys = ['ourClientsHome', 'weMake', 'gathering']
+const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 })
 
 const aboutUsContent = computed(() => {
   return translationKeys.map((key, index) => ({
     id: index,
     text: t(key),
   }))
+})
+
+function handleIntersection(entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      playAnimations()
+      observer.unobserve(entry.target)
+    }
+  })
+}
+
+function playAnimations() {
+  const tl = gsap.timeline()
+
+  tl.from(upperRef.value, { opacity: 0, duration: 1 })
+  tl.from(upperOneRef.value, { opacity: 0, y: -50, duration: 1 }, '-=0.5')
+  tl.from(upperTwoRef.value, { opacity: 0, x: -50, duration: 1 }, '-=0.5')
+  tl.from(teamRef.value, { opacity: 0, y: 20, duration: 1 }, '-=0.5')
+}
+
+onMounted(() => {
+  observer.observe(upperRef.value)
 })
 </script>
 
@@ -19,15 +48,24 @@ const aboutUsContent = computed(() => {
     id="about"
     class="about-container"
   >
-    <div class="about-upper">
-      <div class="upper-one">
+    <div
+      ref="upperRef"
+      class="about-upper"
+    >
+      <div
+        ref="upperOneRef"
+        class="upper-one"
+      >
         <h2>
           {{ $t('weEmpower') }}
           <span>{{ $t('weEmpowerSpan') }}</span>
         </h2>
       </div>
 
-      <div class="upper-two">
+      <div
+        ref="upperTwoRef"
+        class="upper-two"
+      >
         <p>
           <span>{{ $t('weDeliverSpanOne') }}</span>
 
@@ -48,7 +86,10 @@ const aboutUsContent = computed(() => {
       </div>
     </div>
 
-    <div class="about-team">
+    <div
+      ref="teamRef"
+      class="about-team"
+    >
       <p>
         {{ $t('ourTeamOne') }}
         <br>

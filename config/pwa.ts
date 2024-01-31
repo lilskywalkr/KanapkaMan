@@ -10,16 +10,21 @@ export const pwa: ModuleOptions = {
   manifest: {
     id: scope,
     scope,
-    // name: appName,
-    // short_name: appName,
-    // description: appDescription,
-    theme_color: '#ffffff',
+    name: 'KanapkaMan Software House',
+    short_name: 'Kanapka',
+    description: 'A software house to your services!',
+    theme_color: '#5777ff',
     icons: [
-      // {
-      //   src: 'logo-192.png',
-      //   sizes: '192x192',
-      //   type: 'image/png',
-      // },
+      {
+        src: '../assets/icons/android-chrome-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+      {
+        src: '../assets/icons/android-chrome-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
     ],
   },
   registerWebManifestInRouteRules: true,

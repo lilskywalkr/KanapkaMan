@@ -2,17 +2,17 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const canvas = ref(null)
-let ctx: HTMLCanvasElement // Store canvas context
-const loadedImages = ref([]) // Store loaded images
+let ctx = null // Store canvas context
+let loadedImages = [] // Store loaded images
 
 // Array to hold information about each image
 const images = [
-  { src: '_nuxt/assets/floating_images/ruby.webp', x: 500, y: 300, angle: 0, speed: 0.3, directionX: 0, directionY: 0 },
-  { src: '_nuxt/assets/floating_images/flutter.webp', x: 500, y: 300, angle: 45, speed: 0.5, directionX: 0, directionY: 0 },
-  { src: '_nuxt/assets/floating_images/firebase.webp', x: 500, y: 300, angle: 15, speed: 0.7, directionX: 0, directionY: 0 },
-  { src: '_nuxt/assets/floating_images/vue.webp', x: 500, y: 300, angle: 45, speed: 0.1, directionX: 0, directionY: 0 },
-  { src: '_nuxt/assets/floating_images/swift.webp', x: 500, y: 300, angle: 45, speed: 0.9, directionX: 0, directionY: 0 },
-  { src: '_nuxt/assets/floating_images/mongo.webp', x: 500, y: 300, angle: 45, speed: 0.4, directionX: 0, directionY: 0 },
+  { src: '_nuxt/assets/floating_images/ruby.webp', x: 400, y: 300, angle: 0, speed: 0.3, directionX: 0, directionY: 0 },
+  { src: '_nuxt/assets/floating_images/flutter.webp', x: 400, y: 300, angle: 45, speed: 0.5, directionX: 0, directionY: 0 },
+  { src: '_nuxt/assets/floating_images/firebase.webp', x: 400, y: 300, angle: 15, speed: 0.7, directionX: 0, directionY: 0 },
+  { src: '_nuxt/assets/floating_images/vue.webp', x: 400, y: 300, angle: 45, speed: 0.1, directionX: 0, directionY: 0 },
+  { src: '_nuxt/assets/floating_images/swift.webp', x: 400, y: 300, angle: 45, speed: 0.9, directionX: 0, directionY: 0 },
+  { src: '_nuxt/assets/floating_images/mongo.webp', x: 400, y: 300, angle: 45, speed: 0.4, directionX: 0, directionY: 0 },
   // Add more images as needed
 ]
 
@@ -36,11 +36,11 @@ function randomDirection() {
 }
 
 async function run() {
-  ctx = canvas?.value.getContext('2d')
+  ctx = canvas.value.getContext('2d')
 
   // Load images
   const imagePromises = images.map(image => loadImage(image.src))
-  loadedImages.value = await Promise.all(imagePromises)
+  loadedImages = await Promise.all(imagePromises)
 
   // Initialize random directions
   images.forEach((image) => {

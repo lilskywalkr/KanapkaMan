@@ -1,17 +1,54 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { onMounted, ref } from 'vue'
+import { gsap } from 'gsap'
 
-// Importing custom function that fetches images from unsplush api
-
-// getting the array of images through props
 defineProps<{
   imgArray: any[]
 }>()
+
+const weDoingRef = ref(null)
+const ourMissionRef = ref(null)
+
+const animationsPlayed = {
+  weDoing: false,
+  ourMission: false,
+}
+
+onMounted(() => {
+  const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 })
+  observer.observe(weDoingRef.value)
+  observer.observe(ourMissionRef.value)
+})
+
+function handleIntersection(entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting)
+      playAnimations(entry.target)
+  })
+}
+
+function playAnimations(target) {
+  const tl = gsap.timeline()
+
+  if (target === weDoingRef.value && !animationsPlayed.weDoing) {
+    // Animation for we-doing section
+    tl.from(weDoingRef.value, { opacity: 0, y: 50, duration: 1 })
+    animationsPlayed.weDoing = true
+  }
+  else if (target === ourMissionRef.value && !animationsPlayed.ourMission) {
+    // Animation for our-mission section
+    tl.from(ourMissionRef.value, { opacity: 0, y: 50, duration: 1 }, '-=0.5')
+    animationsPlayed.ourMission = true
+  }
+}
 </script>
 
 <template>
   <div class="we-doing-mission-container">
-    <div class="we-doing-section">
+    <div
+      ref="weDoingRef"
+      class="we-doing-section"
+    >
       <div class="we-doing">
         <h2>{{ $t('weDoHeader') }}</h2>
 
@@ -32,13 +69,16 @@ defineProps<{
       />
     </div>
 
-    <div class="our-mission-section">
+    <div
+      ref="ourMissionRef"
+      class="our-mission-section"
+    >
       <div class="our-mission">
         <h2>{{ $t('ourMissionHeader') }}</h2>
 
         <img
           src="../../assets/compass_white.svg"
-          alt="comppass"
+          alt="compass"
           class="compass"
         >
 

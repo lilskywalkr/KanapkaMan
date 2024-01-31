@@ -1,12 +1,37 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import { gsap } from 'gsap'
 import { getImagesFromUnsplush } from '../modules/getImages'
 
 const imgArray = ref([])
+const contactImgRef = ref(null)
+const contactTextRef = ref(null)
+const animationsPlayed = ref(false) // Flag to track whether animations have been played
 
 onMounted(async () => {
   await getImagesFromUnsplush(1, imgArray.value)
+  const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 })
+  observer.observe(contactTextRef.value)
 })
+
+function handleIntersection(entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting && !animationsPlayed.value) {
+      playAnimations()
+      animationsPlayed.value = true // Set the flag to true to indicate animations have been played
+    }
+  })
+}
+
+function playAnimations() {
+  const tl = gsap.timeline()
+
+  // Animation for contact image
+  tl.from(contactImgRef.value, { opacity: 0, duration: 1, delay: 0.5 })
+
+  // Animation for contact text
+  tl.from(contactTextRef.value, { opacity: 0, y: -20, duration: 1 }, '-=0.5')
+}
 </script>
 
 <template>
@@ -15,11 +40,15 @@ onMounted(async () => {
     class="contact-container"
   >
     <div
+      ref="contactImgRef"
       class="contact-img"
       :style="{'backgroundImage': `url(${imgArray[0]})`}"
     />
 
-    <div class="contact-text">
+    <div
+      ref="contactTextRef"
+      class="contact-text"
+    >
       <p>UX/UI</p>
 
       <p>{{ $t('weveBeen') }}</p>
