@@ -66,9 +66,10 @@ function playAnimations() {
         z-index: 1;
         transform: translate(-10vw, -15vw);
         display: flex;
+        align-items: center;
         justify-content: center;
         gap: 10vw;
-        padding: 2vw 0 0 0;
+        padding: 0vw 0 0 0;
 
         @media screen and (max-width: 768px) {
             width: 150vw;

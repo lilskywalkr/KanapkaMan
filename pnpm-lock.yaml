@@ -17,8 +17,8 @@ dependencies:
     specifier: 2.17.2
     version: 2.17.2
   '@nuxtjs/i18n':
-    specifier: npm:@nuxtjs/i18n-edge
-    version: /@nuxtjs/i18n-edge@8.0.0-28432155.c9bdcd7(rollup@4.9.4)(vue@3.3.4)
+    specifier: npm:@nuxtjs/i18n-edge@8.0.0-28444362.1cb9e70
+    version: /@nuxtjs/i18n-edge@8.0.0-28444362.1cb9e70(rollup@4.9.4)(vue@3.3.4)
   '@vite-pwa/nuxt':
     specifier: 0.4.0
     version: 0.4.0(rollup@4.9.4)(vite@5.0.11)(workbox-build@7.0.0)(workbox-window@7.0.0)
@@ -3125,8 +3125,8 @@ packages:
       - vue-tsc
     dev: false
 
-  /@nuxtjs/i18n-edge@8.0.0-28432155.c9bdcd7(rollup@4.9.4)(vue@3.3.4):
-    resolution: {integrity: sha512-QrJP5Zd6sqRbp4jWDLewXjpq6IAlFFBx3o/2+Lkq3qMbvKdTFyb4xSK4LWnEbLIwD3YHQZMI0o9xVTMNt4Eysw==}
+  /@nuxtjs/i18n-edge@8.0.0-28444362.1cb9e70(rollup@4.9.4)(vue@3.3.4):
+    resolution: {integrity: sha512-nirXZ2b5LlkSi6ePZTNO/WRNdFnQ8rr6D2vWvopbt2nD+Qi/CCrLvRaJWvFO84ibklwv2E/c7Q8FaTAXFFub0w==}
     engines: {node: ^14.16.0 || >=16.11.0}
     dependencies:
       '@intlify/h3': 0.5.0
