@@ -1,0 +1,11 @@
+Model Information:
+* title:	Vintage Desktop Computer
+* source:	https://sketchfab.com/3d-models/vintage-desktop-computer-d86514578a664c8bae2ca5f7e7e0175f
+* author:	GeniusPilot2016 (https://sketchfab.com/GeniusPilot2016)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Vintage Desktop Computer" (https://sketchfab.com/3d-models/vintage-desktop-computer-d86514578a664c8bae2ca5f7e7e0175f) by GeniusPilot2016 (https://sketchfab.com/GeniusPilot2016) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

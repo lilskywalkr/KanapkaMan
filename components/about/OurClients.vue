@@ -12,11 +12,11 @@ import 'swiper/css/pagination'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 defineProps<{
-  imgArray: any[]
+  imgArray: string[]
 }>()
 
 // Define the modules property
-const modules = [Pagination, A11y]
+const modules: object[] = [Pagination, A11y]
 
 // Define the modules property
 SwiperCore.use([Pagination, A11y])
