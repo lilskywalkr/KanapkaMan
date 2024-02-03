@@ -4,7 +4,7 @@ import { onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
 import { getImagesFromUnsplush } from '../modules/getImages.js'
 
-const imgArray = ref([])
+const imgArray = ref<string[]>([])
 const title = ref(null)
 const imageRect = ref(null)
 const textContent3 = ref(null)

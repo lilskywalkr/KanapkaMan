@@ -127,7 +127,6 @@ watch(() => locale.value, async () => {
         width: 100vw;
         height: auto;
         padding: 5vw 5vw;
-        // border: 0.1vw solid var(--sh-white);
 
         header {
             margin-bottom: 3vw;
@@ -148,7 +147,6 @@ watch(() => locale.value, async () => {
             display: flex;
             flex-flow: row wrap;
             justify-content: space-around;
-            // gap: 3vw;
         }
 
         .pagination {

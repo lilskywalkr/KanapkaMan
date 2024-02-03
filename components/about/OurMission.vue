@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
 
 defineProps<{
-  imgArray: any[]
+  imgArray: string[]
 }>()
 
 const weDoingRef = ref(null)

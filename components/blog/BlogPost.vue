@@ -3,13 +3,13 @@ import { defineProps } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{
-  title: any
-  author: any
-  time: any
-  date: any
-  desc: any
-  postName: any
-  postId: any
+  title: string
+  author: string
+  time: string
+  date: number
+  desc: string
+  postName: string
+  postId: number
 }>()
 
 const { locale } = useI18n()

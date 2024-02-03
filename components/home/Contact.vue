@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
 import { getImagesFromUnsplush } from '../modules/getImages'
 
-const imgArray = ref([])
+const imgArray = ref<string[]>([])
 const contactImgRef = ref(null)
 const contactTextRef = ref(null)
 const animationsPlayed = ref(false) // Flag to track whether animations have been played

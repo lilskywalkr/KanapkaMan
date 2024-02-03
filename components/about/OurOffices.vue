@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // getting images through propps
 defineProps<{
-  imgArray: any[]
+  imgArray: string[]
 }>()
 
 const { t } = useI18n()

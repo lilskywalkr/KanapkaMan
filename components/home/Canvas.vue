@@ -3,7 +3,7 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const canvas = ref(null)
 let ctx = null // Store canvas context
-let loadedImages = [] // Store loaded images
+let loadedImages: string[] = [] // Store loaded images
 
 // Array to hold information about each image
 const images = [

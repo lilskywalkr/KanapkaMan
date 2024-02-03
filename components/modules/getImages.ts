@@ -1,5 +1,5 @@
 // Function fetches iomages from unsplush api
-export async function getImagesFromUnsplush(numberOfImages: any, arr: any) {
+export async function getImagesFromUnsplush(numberOfImages: number, arr: any) {
   const requestUrl = import.meta.env.VITE_REQUEST_URL
   const result = await fetch(requestUrl).then(res => res.json()).then(data => data)
   let randomNumber = 0
