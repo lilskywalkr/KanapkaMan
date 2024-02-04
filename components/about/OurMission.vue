@@ -53,7 +53,7 @@ function playAnimations(target) {
         <h2>{{ $t('weDoHeader') }}</h2>
 
         <img
-          src="../../assets/light-bulb_white.svg"
+          :src="`${useRequestURL().origin}//publuc/light-bulb_white.svg`"
           alt="light bulb"
           class="light-bulb"
         >
@@ -77,7 +77,7 @@ function playAnimations(target) {
         <h2>{{ $t('ourMissionHeader') }}</h2>
 
         <img
-          src="../../assets/compass_white.svg"
+          :src="`${useRequestURL().origin}//publuc/compass_white.svg`"
           alt="compass"
           class="compass"
         >
