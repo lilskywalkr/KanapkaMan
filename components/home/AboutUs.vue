@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
-import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
