@@ -69,9 +69,7 @@ function run() {
   const loader = new GLTFLoader()
 
   let obj: any = null
-  const src: string = route.fullPath.includes('/blog')
-    ? '../_nuxt/assets/vintage_desktop_computer/scene.gltf'
-    : '_nuxt/assets/vintage_desktop_computer/scene.gltf'
+  const src: string = `${useRequestURL().origin}//publuc/vintage_desktop_computer/scene.gltf`;
   loader.load(src, (gltf: any) => {
     obj = gltf.scene
     obj.scale.set(1.5, 1.5, 1.5)

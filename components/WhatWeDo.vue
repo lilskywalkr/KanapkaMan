@@ -5,11 +5,11 @@ const { t } = useI18n()
 
 // content for "we-do" section
 const weDoing = ref([
-  { id: 0, name: t('doingWebName'), icon: '_nuxt/assets/web-development.svg', desc: t('doingWebDesc') },
-  { id: 1, name: t('doingMobName'), icon: '_nuxt/assets/app-development.svg', desc: t('doingMobDesc') },
-  { id: 2, name: t('doingOutName'), icon: '_nuxt/assets/outsourcing.svg', desc: t('doingOutDesc') },
-  { id: 3, name: t('doingDesignName'), icon: '_nuxt/assets/product-design.svg', desc: t('doingDesignDesc') },
-  { id: 4, name: t('doingHardSoftName'), icon: '_nuxt/assets/hardware.svg', desc: t('doingHardSoftDesc') },
+  { id: 0, name: t('doingWebName'), icon: `${useRequestURL().origin}//public/web-development.svg`, desc: t('doingWebDesc') },
+  { id: 1, name: t('doingMobName'), icon: `${useRequestURL().origin}//public/app-development.svg`, desc: t('doingMobDesc') },
+  { id: 2, name: t('doingOutName'), icon: `${useRequestURL().origin}//public/outsourcing.svg`, desc: t('doingOutDesc') },
+  { id: 3, name: t('doingDesignName'), icon: `${useRequestURL().origin}//public/product-design.svg`, desc: t('doingDesignDesc') },
+  { id: 4, name: t('doingHardSoftName'), icon: `${useRequestURL().origin}//public/hardware.svg`, desc: t('doingHardSoftDesc') },
 ])
 </script>
 
